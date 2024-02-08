@@ -39,7 +39,6 @@ contract GP_Mint is LamportBase {
     }
 
     // Function to confirm the authorized minter (Step Two)
-    // Function to confirm the authorized minter (Step Two)
     function setAuthorizedMinterStepTwo(
         bytes32[2][256] calldata currentpub,
         bytes[256] calldata sig,
