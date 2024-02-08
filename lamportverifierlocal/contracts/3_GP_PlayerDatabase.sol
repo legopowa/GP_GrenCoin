@@ -1,0 +1,228 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+// Parent contract AnonID
+// contract AnonID {
+//     struct LastPlayedInfo {
+//         uint256 gameID;
+//         uint256 timestamp;
+//     }
+
+//     mapping(address => uint256) public minutesPlayed;
+//     mapping(address => LastPlayedInfo) public lastPlayed;
+//     mapping(address => bool) isContractPermitted;
+
+//     event MinutesPlayedIncremented(address indexed user, uint256 minutes);
+//     event LastPlayedUpdated(address indexed user, uint256 gameId);
+
+//     function incrementMinutesPlayed(address user, uint256 _minutes) external {
+//         require(isContractPermitted[msg.sender], "Not permitted to modify minutes played");
+//         minutesPlayed[user] += _minutes;
+//         emit MinutesPlayedIncremented(user, _minutes);
+//     }
+
+//     function updateLastPlayed(address _address, uint256 _gameId) external {
+//         require(isContractPermitted[msg.sender], "Not permitted to update last played");
+//         lastPlayed[_address] = LastPlayedInfo({
+//             gameID: _gameId,
+//             timestamp: block.timestamp
+//         });
+//         emit LastPlayedUpdated(_address, _gameId);
+//     }
+
+//     // Additional functions and security checks as necessary...
+// }
+interface IAnonID {
+    function incrementMinutesPlayed(address user, uint256 _minutes) external;
+    function updateLastPlayed(address _address, uint256 _gameId) external;
+    function isWhitelisted(address _address) external view returns (bool);
+}
+// MintyDatabase contract inheriting from AnonID
+contract PlayerDatabase is IAnonID {
+    // ERC20 Token variables
+    // string public name;
+    // string public symbol;
+    // uint8 public decimals;
+    // uint256 public totalSupply;
+    //uint256 public gameID; // Variable to store the game ID 
+
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    // Player Database variables
+    struct Player {
+        bool isRegistered;
+        bool isValidator;
+        bool isModerator;
+        bool isTourneyMod;
+        bool isGameAdmin;
+        string playerName; // Name of the player
+        bytes32 forumKey; // Unique key for forum entitlements
+        string steamID;
+        address rewardAddress;
+    }
+
+    mapping(address => Player) public playerData;
+    address[] public playerAddresses;
+
+    // Shared variables
+    address public gameValContract; // Address of the game subcontractor
+    IAnonID public anonIDContract; // Reference to the AnonID contract
+    address public onrampContract; // Address of the onramp contract
+    address public forumContract; // Address of the forum contract
+
+    // Events
+    event GameValContractUpdated(address indexed newGameValContract);
+    event OnrampContractUpdated(address indexed newOnrampContract);
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+
+    // Constructor
+    //constructor(string memory _name, string memory _symbol, uint8 _decimals) { //}, uint256 _totalSupply) {
+    constructor() {
+        // name = "GPConcs";
+        // symbol = "GPConcs";
+        // decimals = 18;
+        // balanceOf[msg.sender] = 80000000000000000000000;
+        // gameID = "TFC";
+    }
+    function isValidator(address _address) public view returns (bool) {
+        return playerData[_address].isValidator;
+    }
+    // Function to set the AnonID contract address
+    function setAnonIDContractAddress(address _anonIDAddress) public {
+        // Add appropriate security checks
+        anonIDContract = IAnonID(_anonIDAddress);
+    }
+
+    // // Function to interact with AnonID contract
+    // function updateAnonIDData(address _user, uint256 _minutes, uint256 _gameId) public {
+    //     // Ensure the caller has permission to update AnonID data
+    //     anonIDContract.incrementMinutesPlayed(_user, _minutes);
+    //     anonIDContract.updateLastPlayed(_user, _gameId);
+    // }// validator does this
+
+    // Player Database functions
+// Assuming IAnonID interface and anonIDContract are already defined and set up in your contract
+
+    function addOrUpdatePlayer(address _address, string memory _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) public {
+        require(msg.sender == onrampContract, "Only the onramp contract can add/update players");
+        require(anonIDContract.isWhitelisted(_address), "Address not whitelisted in AnonID");
+
+        Player storage player = playerData[_address];
+        bool alreadyRegistered = player.isRegistered;
+
+        playerData[_address] = Player({
+            steamID: _steamID,
+            isValidator: _isValidator,
+            isRegistered: _isRegistered,
+            rewardAddress: _address,
+            playerName: _playerName,
+            // Zero out or set default values for the non-argument fields
+            isModerator: false,
+            isTourneyMod: false,
+            isGameAdmin: false,
+            forumKey: 0 // Assuming 0 is the default value for forumKey
+        });
+
+        if (!alreadyRegistered) {
+            playerAddresses.push(_address);
+        }
+    }
+
+    function getAllPlayerNames() public view returns (string[] memory) {
+        string[] memory playerNames = new string[](playerAddresses.length);
+
+        for (uint i = 0; i < playerAddresses.length; i++) {
+            Player storage player = playerData[playerAddresses[i]];
+            playerNames[i] = player.playerName;
+        }
+
+        return playerNames;
+    }
+    // ... [Other Player Database functions]
+
+    // Shared functions
+    function updateGameValContract(address _gameValContract) public {
+        gameValContract = _gameValContract;
+        emit GameValContractUpdated(_gameValContract);
+    }
+
+    function updateOnrampContract(address _onrampContract) public {
+        onrampContract = _onrampContract;
+        emit OnrampContractUpdated(_onrampContract);
+    }
+    // ... [Previous variables and functions]
+
+
+    // ... [Rest of the existing contract]
+
+    // Function to update the forum contract address
+    function updateForumContract(address _forumContract) public {
+        // Add appropriate security checks
+        forumContract = _forumContract;
+    }
+
+    // Function to change a player's moderator status
+    function toggleModeratorStatus(address _player, bool _status) external {
+        require(msg.sender == forumContract, "Only the forum contract can modify moderator status");
+        playerData[_player].isModerator = _status;
+    }
+
+    // Function to change a player's tournament moderator status
+    function toggleTourneyModStatus(address _player, bool _status) external {
+        require(msg.sender == forumContract, "Only the forum contract can modify tournament moderator status");
+        playerData[_player].isTourneyMod = _status;
+    }
+
+    // Function to set or update a player's forum key
+    function setForumKey(address _player, bytes32 _key) external {
+        require(msg.sender == forumContract, "Only the forum contract can set forum key");
+        playerData[_player].forumKey = _key;
+    }
+
+    // ... [Additional functions and security checks as necessary]
+}
+pragma solidity ^0.8.0;
+
+contract TFCPlayAndEarn {
+    // Other contract variables...
+
+    struct Submission {
+        address validator;
+        string[] names;
+    }
+    Submission[] submissions;
+
+    function processSubmissions(string[] memory rawNames, address validator) public {
+        require(isValidator(validator), "Not a validator");
+        string[] memory sanitizedNames = sanitizeNames(rawNames);
+        
+        // Store the sanitized names along with the validator's address
+        submissions.push(Submission({
+            validator: validator,
+            names: sanitizedNames
+        }));
+    }
+
+    function sanitizeNames(string[] memory rawNames) private pure returns (string[] memory) {
+        string[] memory sanitizedNames = new string[](rawNames.length);
+
+        for (uint i = 0; i < rawNames.length; i++) {
+            // Implement sanitation logic
+            // This might include removing or replacing brackets, punctuation, etc.
+            sanitizedNames[i] = sanitize(rawNames[i]);
+        }
+
+        return sanitizedNames;
+    }
+
+    function sanitize(string memory name) private pure returns (string memory) {
+        // Detailed implementation of the sanitization logic
+        // Could involve regex replacements or character filtering
+        // Solidity does not natively support regex, so this might require character-by-character processing
+    }
+
+    // Additional functions like isValidator, auditSubmissions, etc.
+}

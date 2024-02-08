@@ -3,7 +3,9 @@ import struct
 
 # Curated list of server IPs, ports, and titles
 SERVERS = [
-    ("23.227.197.219", 27015, "1999tfc"),
+    ("91.216.250.12", 27015, "Tf2 Skial test"),
+    ("66.151.244.170", 27015, "-[EVIL]- TFC"),
+    ("91.242.214.186", 27015, "1999tfc"),
     ("45.32.203.198", 27035, "OldSchool TFC"),
     ("172.93.101.194", 27015, "Drippy's TFC"),
     ("74.91.122.20", 27015, "TFPugs"),
@@ -11,7 +13,29 @@ SERVERS = [
     ("116.202.113.50", 27115, "Feckin-mad.co.uk"),
 ]
 
-known_players = ['Frosty Baggins', 'Shergan', 'legopowa[tfc.fan dev]']
+#known_players = ['illin', 'OST-CyKo Dad', 'Soldi', 'Frosty Baggins', 'Shergan', 'legopowa[tfc.fan dev]', 'Zima']
+#known_players = [
+#    "EveTheNight", "Majora", "FR35H", "NandoFH2", "Distruzio",
+#    "Pong Lenis", "boris4000", "Buddeh", "_In_Sanity", "™™Shoebillionaire™™",
+#    "Tunaman008", "Happy Tree Friends", "[SKVR] Iambic Pentameter", "blanketa",
+#    "Dyson Dunbar", "Gramps with PTSD", "Kennnyyy", "misterjozo", "RossTizma",
+#    "[TBR] ZeTROU", "Arrow", "DarkZoma", "poopertrooper", "Sanagi man",
+#    "The FAKE Yukari", "Zaytun", "bunny ❤", "Bone", "bunk"
+#]
+known_players = [
+    "olangmyr", "silvermetalindex", "TAGMANG", "Majora", "Pizza + Pepperoni",
+    "Fubuki", "Jonny", "HamstaZ", "Big Ern", "Delphi",
+    "poop machine", "❤❤Yachiyo Todoroki❤❤", "Axlle", "Bald Man", "CHIPS",
+    "El Toad", "Eva_Unit01", "O'Malley de Bough", "Sirius", "Filthy Hope",
+    "Flaky", "non", "PhoenixIsFallen", "HOT BEEF INJECTION", "Largeish Beans",
+    "robespierre", "Bucknasty", "Loki", "Noxus", "Yeb AFK",
+    "Jeffafa AFK", "not a fed"
+]
+
+
+
+
+
 
 def send_udp_request(ip, port, message):
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
