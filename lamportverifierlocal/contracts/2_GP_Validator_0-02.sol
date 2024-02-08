@@ -71,10 +71,14 @@ contract GameValidator {
         }
     }
 
+    function getRewardAddresses(string[] memory playerNames) public view returns (address[] memory) {
+        return playerDatabase.getRewardAddressesByNames(playerNames);
+    }
 
     function mintForServer(string memory serverIP, bytes32 playerListHash) private {
         // Logic to mint tokens for the players in the list corresponding to the given hash
         // This requires access to the actual player list, not just the hash
+        // getRewardAddresses here
     }
     function findMostCommonHash(string memory serverIP) private view returns (bytes32) {
         ServerSubmission[] memory submissions = serverSubmissions[serverIP];

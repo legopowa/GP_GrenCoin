@@ -95,7 +95,20 @@ contract PlayerDatabase is IAnonID {
         // Add appropriate security checks
         anonIDContract = IAnonID(_anonIDAddress);
     }
+    function getRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
+        address[] memory rewardAddresses = new address[](playerNames.length);
 
+        for (uint i = 0; i < playerNames.length; i++) {
+            for (uint j = 0; j < playerAddresses.length; j++) {
+                if (keccak256(abi.encodePacked(playerData[playerAddresses[j]].playerName)) == keccak256(abi.encodePacked(playerNames[i]))) {
+                    rewardAddresses[i] = playerData[playerAddresses[j]].rewardAddress;
+                    break; // Stop the inner loop once the address is found
+                }
+            }
+        }
+
+        return rewardAddresses;
+    }
     // // Function to interact with AnonID contract
     // function updateAnonIDData(address _user, uint256 _minutes, uint256 _gameId) public {
     //     // Ensure the caller has permission to update AnonID data
