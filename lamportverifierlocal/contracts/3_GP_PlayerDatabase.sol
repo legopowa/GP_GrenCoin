@@ -37,6 +37,7 @@ interface IAnonID {
     function incrementMinutesPlayed(address user, uint256 _minutes) external;
     function updateLastPlayed(address _address, uint256 _gameId) external;
     function isWhitelisted(address _address) external view returns (bool);
+    function isPlayerActiveInGame(uint256 gameID, address player) public view returns (uint8);
 }
 // MintyDatabase contract inheriting from AnonID
 contract PlayerDatabase is IAnonID {
@@ -49,6 +50,7 @@ contract PlayerDatabase is IAnonID {
 
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
+    uint256 constant gameID = TFC; // Define your game ID for TFC
 
     // Player Database variables
     struct Player {
@@ -95,19 +97,40 @@ contract PlayerDatabase is IAnonID {
         // Add appropriate security checks
         anonIDContract = IAnonID(_anonIDAddress);
     }
-    function getRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
-        address[] memory rewardAddresses = new address[](playerNames.length);
+    // function getRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
+    //     address[] memory rewardAddresses = new address[](playerNames.length);
+
+    //     for (uint i = 0; i < playerNames.length; i++) {
+    //         for (uint j = 0; j < playerAddresses.length; j++) {
+    //             if (keccak256(abi.encodePacked(playerData[playerAddresses[j]].playerName)) == keccak256(abi.encodePacked(playerNames[i]))) {
+    //                 rewardAddresses[i] = playerData[playerAddresses[j]].rewardAddress;
+    //                 break; // Stop the inner loop once the address is found
+    //             }
+    //         }
+    //     }
+
+    //     return rewardAddresses;
+    // }
+    function getValidRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
+        address[] memory validRewardAddresses = new address[](playerNames.length);
 
         for (uint i = 0; i < playerNames.length; i++) {
             for (uint j = 0; j < playerAddresses.length; j++) {
                 if (keccak256(abi.encodePacked(playerData[playerAddresses[j]].playerName)) == keccak256(abi.encodePacked(playerNames[i]))) {
-                    rewardAddresses[i] = playerData[playerAddresses[j]].rewardAddress;
-                    break; // Stop the inner loop once the address is found
+                    uint8 playerStatus = isPlayerActiveInGame(gameID, playerAddresses[j]);
+
+                    if (playerStatus == 2) { // Player already minted for TFC
+                        validRewardAddresses[i] = playerData[playerAddresses[j]].rewardAddress;
+                    } else if (playerStatus == 0) { // Player not in a game, flag as active
+                        updateLastPlayed(playerAddresses[j], gameID);
+                        // Do not include this player in the reward addresses for this round
+                    }
+                    break; // Stop the inner loop once the player is processed
                 }
             }
         }
 
-        return rewardAddresses;
+        return validRewardAddresses;
     }
     // // Function to interact with AnonID contract
     // function updateAnonIDData(address _user, uint256 _minutes, uint256 _gameId) public {
