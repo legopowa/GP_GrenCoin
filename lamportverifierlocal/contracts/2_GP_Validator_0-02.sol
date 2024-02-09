@@ -8,6 +8,8 @@ contract GameValidator {
     IPlayerDatabase playerDatabase;
     uint256 public lastMintTime;
     uint256 public constant MINT_INTERVAL = 5 minutes;
+    uint256 public constant MAX_PLAYERS_PER_SUBMISSION = 64;
+
 
     struct ServerSubmission {
         address validator;
@@ -19,7 +21,9 @@ contract GameValidator {
         string serverIP;
         string[] playerNames;
     }
-    mapping(string => ServerSubmission[]) public serverSubmissions; // serverIP -> submissions
+    //mapping(string => ServerSubmission[]) public serverSubmissions; // serverIP -> submissions
+
+    mapping(string => mapping(address => ServerSubmission)) public serverSubmissions; 
     mapping(bytes32 => string[]) public hashToPlayerList; // playerListHash -> playerNames
 
     constructor(address _playerDatabaseAddress) {
@@ -54,32 +58,42 @@ contract GameValidator {
         uint256 totalPlayerCount = 0;
 
         for (uint i = 0; i < serverPlayerLists.length; i++) {
-            if (totalPlayerCount + serverPlayerLists[i].playerNames.length > MAX_PLAYERS_PER_SUBMISSION) {
-                break;
+            uint256 serverPlayerCount = serverPlayerLists[i].playerNames.length;
+            if (totalPlayerCount + serverPlayerCount > MAX_PLAYERS_PER_SUBMISSION) {
+                break; // Stop if the max players per submission is exceeded
             }
 
-            totalPlayerCount += serverPlayerLists[i].playerNames.length;
+            totalPlayerCount += serverPlayerCount;
 
+            // Create a hash for the player list
             bytes32 playerListHash = keccak256(abi.encodePacked(serverPlayerLists[i].playerNames));
             hashToPlayerList[playerListHash] = serverPlayerLists[i].playerNames;
 
-            ServerSubmission memory submission = ServerSubmission({
-                validator: validatorID,
+            // Overwrite the existing submission for this server IP and validator
+            serverSubmissions[serverPlayerLists[i].serverIP][validatorID] = ServerSubmission({
                 playerListHash: playerListHash,
                 canMint: canMintFlag
             });
-
-            serverSubmissions[serverPlayerLists[i].serverIP].push(submission);
         }
     }
+
     function isValidator(address _address) public view returns (bool) {
         PlayerDatabase playerDatabase = PlayerDatabase(playerDatabaseAddress);
         return playerDatabase.isValidator(_address);
     }
     function resetSubmissions() private {
-        // Iterate over serverSubmissions and reset canMint flags
-        // Optionally clear player lists if needed
+        // Iterate over each server IP
+        for (uint i = 0; i < allServerIPs.length; i++) {
+            string memory serverIP = allServerIPs[i];
+            // Iterate over each validator's submission for this server IP
+            for (uint j = 0; j < serverSubmissions[serverIP].length; j++) {
+                address validator = serverSubmissions[serverIP][j].validator;
+                // Clear the canMint flag
+                serverSubmissions[serverIP][validator].canMint = false;
+            }
+        }
     }
+
     // Function to perform mass minting
     function performMassMinting() public {
         // Ensure mass minting conditions are met (e.g., time interval)
