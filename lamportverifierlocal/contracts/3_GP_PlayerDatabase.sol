@@ -2,37 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-// Parent contract AnonID
-// contract AnonID {
-//     struct LastPlayedInfo {
-//         uint256 gameID;
-//         uint256 timestamp;
-//     }
 
-//     mapping(address => uint256) public minutesPlayed;
-//     mapping(address => LastPlayedInfo) public lastPlayed;
-//     mapping(address => bool) isContractPermitted;
-
-//     event MinutesPlayedIncremented(address indexed user, uint256 minutes);
-//     event LastPlayedUpdated(address indexed user, uint256 gameId);
-
-//     function incrementMinutesPlayed(address user, uint256 _minutes) external {
-//         require(isContractPermitted[msg.sender], "Not permitted to modify minutes played");
-//         minutesPlayed[user] += _minutes;
-//         emit MinutesPlayedIncremented(user, _minutes);
-//     }
-
-//     function updateLastPlayed(address _address, uint256 _gameId) external {
-//         require(isContractPermitted[msg.sender], "Not permitted to update last played");
-//         lastPlayed[_address] = LastPlayedInfo({
-//             gameID: _gameId,
-//             timestamp: block.timestamp
-//         });
-//         emit LastPlayedUpdated(_address, _gameId);
-//     }
-
-//     // Additional functions and security checks as necessary...
-// }
 interface IAnonID {
     function incrementMinutesPlayed(address user, uint256 _minutes) external;
     function updateLastPlayed(address _address, string memory _gameId) external;
@@ -40,7 +10,7 @@ interface IAnonID {
     function isPlayerActiveInGame(string memory gameID, address player) external view returns (uint8);
 }
 // MintyDatabase contract inheriting from AnonID
-contract PlayerDatabase is IAnonID {
+contract PlayerDatabase  {
     // ERC20 Token variables
     // string public name;
     // string public symbol;
@@ -48,11 +18,11 @@ contract PlayerDatabase is IAnonID {
     // uint256 public totalSupply;
     //uint256 public gameID; // Variable to store the game ID 
     mapping(string => bool) public gameServerIPs; // Mapping to store game server IPs
-    string[] public serverIPList; // Array for listing all server IPs
-
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
+
     string gameID = "TFC"; // Define your game ID for TFC
+    string[] public serverIPList; // Array for listing all server IPs
 
     // Player Database variables
     struct Player {
@@ -94,10 +64,17 @@ contract PlayerDatabase is IAnonID {
     function isValidator(address _address) public view returns (bool) {
         return playerData[_address].isValidator;
     }
+    function isModerator(address _address) public view returns (bool) {
+        return playerData[_address].isModerator;
+    }
     // Function to set the AnonID contract address
     function setAnonIDContractAddress(address _anonIDAddress) public {
         // Add appropriate security checks
         anonIDContract = IAnonID(_anonIDAddress);
+    }
+
+    function isRegistered(address _address) public view returns (bool) {
+        return playerData[_address].isRegistered;
     }
     // function getRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
     //     address[] memory rewardAddresses = new address[](playerNames.length);
@@ -113,7 +90,7 @@ contract PlayerDatabase is IAnonID {
 
     //     return rewardAddresses;
     // }
-    function getValidRewardAddressesByNames(string[] memory playerNames, uint256 lastMintTime) public view returns (address[] memory) {
+    function getValidRewardAddressesByNames(string[] memory playerNames, uint256 lastMintTime) public returns (address[] memory) {
         address[] memory validRewardAddresses = new address[](playerNames.length);
 
         for (uint i = 0; i < playerNames.length; i++) {

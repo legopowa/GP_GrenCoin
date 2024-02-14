@@ -18,16 +18,16 @@ interface IPlayerDatabase {
 contract PlayerOnrampContract {
     IPlayerDatabase public playerDatabase;
 
-    event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered);
+    event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered, string _playerName);
 
     constructor(address _playerDatabaseAddress) {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
     }
 
-    function onboardPlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered) public {
+    function onboardPlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) public {
         // Additional logic and security checks as needed
-        playerDatabase.addOrUpdatePlayer(_address, _steamID, _isValidator, _isRegistered);
-        emit PlayerOnboarded(_address, _steamID, _isValidator, _isRegistered);
+        playerDatabase.addOrUpdatePlayer(_address, _steamID, _isValidator, _isRegistered, _playerName);
+        emit PlayerOnboarded(_address, _steamID, _isValidator, _isRegistered, _playerName);
     }
 
     // Additional functions and logic as required for onramping...

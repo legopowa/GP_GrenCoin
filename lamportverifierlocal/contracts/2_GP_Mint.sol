@@ -289,7 +289,6 @@ contract GP_Mint is LamportBase {
     }
 
     event Transfer(address indexed from, address indexed to, uint256 value);
-    //event Minted(address indexed from, address indexed to, uint256 value);
     event Minted(address indexed minter, address indexed account, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
