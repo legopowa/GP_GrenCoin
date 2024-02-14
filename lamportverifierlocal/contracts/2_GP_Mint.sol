@@ -1,9 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./LamportBase.sol"; // Adjust the path according to your project structure
+import "/home/devbox4/Desktop/dev/GP_GrenCoin/lamportverifierlocal/contracts/1_LamportBase.sol"; // Adjust the path according to your project structure
 
 // This is a full ERC20 token mint with Lamport permissions on which contract can mint it.
+// interface ILamportBase {
+//     function performLamportMasterCheck(
+//         bytes32[2][256] calldata currentpub,
+//         bytes[256] calldata sig,
+//         bytes32 nextPKH,
+//         bytes memory prepacked
+//     ) external returns (bool);
+// }
 
 contract GP_Mint is LamportBase {
     mapping(address => uint256) private _balances;
@@ -19,6 +27,12 @@ contract GP_Mint is LamportBase {
     mapping(address => address) private proposedMinters; // Temporary storage for proposed minters
 
     event AuthorizedMinterSet(address indexed minter);
+    event AuthorizedMinterRemoved(address indexed minter);
+    constructor(string memory name_, string memory symbol_) {
+        _name = name_;
+        _symbol = symbol_;
+        _mint(msg.sender, 80000 * (10 ** uint256(decimals())));  // Mint 80,000 tokens for the deployer
+    }
 
     // Function to propose a new authorized minter (Step One)
     function setAuthorizedMinterStepOne(
@@ -37,7 +51,23 @@ contract GP_Mint is LamportBase {
     {
         proposedMinters[msg.sender] = minter;
     }
+    // function setAuthorizedMinterStepOne(
+    //     bytes32[2][256] calldata currentpub,
+    //     bytes[256] calldata sig,
+    //     bytes32 nextPKH,
+    //     address minter
+    // ) public {
+    //     // Encode the minter address to bytes
+    //     bytes memory prepacked = abi.encodePacked(minter);
 
+    //     // Perform the Lamport Master Check
+    //     bool isAuthorized = performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+    //     // Ensure that the Lamport Master Check passed
+    //     require(isAuthorized, "LamportBase: Authorization failed");
+
+    //     proposedMinters[msg.sender] = minter;
+    // }
     // Function to confirm the authorized minter (Step Two)
     function setAuthorizedMinterStepTwo(
         bytes32[2][256] calldata currentpub,
@@ -61,6 +91,36 @@ contract GP_Mint is LamportBase {
         // Clear the temporary storage
         delete proposedMinters[msg.sender];
     }
+    // function setAuthorizedMinterStepTwo(
+    //     bytes32[2][256] calldata currentpub,
+    //     bytes[256] calldata sig,
+    //     bytes32 nextPKH,
+    //     address minter
+    // ) public {
+    //     // Encode the minter address to bytes
+    //     bytes memory prepacked = abi.encodePacked(minter);
+
+    //     // Perform the Lamport Master Check
+    //     bool isAuthorized = performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+    //     // Ensure that the Lamport Master Check passed
+    //     require(isAuthorized, "LamportBase: Authorization failed");
+
+    //     // Check that the proposed minter matches the minter in the current call
+    //     require(proposedMinters[msg.sender] == minter, "MyERC20: Minter address mismatch");
+
+    //     // Check if the authorized minter is either not set or matches the minter being set
+    //     require(authorizedMinter == address(0) || authorizedMinter == minter, "MyERC20: Another minter already set");
+
+    //     // Set the authorized minter
+    //     authorizedMinter = minter;
+
+    //     // Emit the event for setting the authorized minter
+    //     emit AuthorizedMinterSet(minter);
+
+    //     // Clear the temporary storage for the proposed minter
+    //     delete proposedMinters[msg.sender];
+    // }
 
     // Step One: Propose to remove the minter
     function removeAuthorizedMinterStepOne(
@@ -78,6 +138,23 @@ contract GP_Mint is LamportBase {
     {
         proposedMinters[msg.sender] = address(0);
     }
+    // function removeAuthorizedMinterStepOne(
+    //     bytes32[2][256] calldata currentpub,
+    //     bytes[256] calldata sig,
+    //     bytes32 nextPKH
+    // ) public {
+    //     // Encode the authorizedMinter address to bytes
+    //     bytes memory prepacked = abi.encodePacked(authorizedMinter);
+
+    //     // Perform the Lamport Master Check
+    //     bool isAuthorized = performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+    //     // Ensure that the Lamport Master Check passed
+    //     require(isAuthorized, "LamportBase: Authorization failed");
+
+    //     // Set the proposed minter to the zero address
+    //     proposedMinters[msg.sender] = address(0);
+    // }
 
     // Step Two: Confirm the removal of the minter
     function removeAuthorizedMinterStepTwo(
@@ -101,16 +178,43 @@ contract GP_Mint is LamportBase {
         // Clear the temporary storage
         delete proposedMinters[msg.sender];
     }
+    // function removeAuthorizedMinterStepTwo(
+    //     bytes32[2][256] calldata currentpub,
+    //     bytes[256] calldata sig,
+    //     bytes32 nextPKH
+    // ) public {
+    //     // Encode the zero address to bytes
+    //     bytes memory prepacked = abi.encodePacked(address(0));
+
+    //     // Perform the Lamport Master Check
+    //     bool isAuthorized = performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+    //     // Ensure that the Lamport Master Check passed
+    //     require(isAuthorized, "LamportBase: Authorization failed");
+
+    //     // Check the conditions for removing the minter
+    //     require(proposedMinters[msg.sender] == address(0), "GP_Mint: No minter removal proposed");
+    //     require(authorizedMinter != address(0), "GP_Mint: No minter set");
+
+    //     // Emit the AuthorizedMinterRemoved event
+    //     emit AuthorizedMinterRemoved(authorizedMinter);
+
+    //     // Set the authorizedMinter to the zero address
+    //     authorizedMinter = address(0);
+
+    //     // Clear the temporary storage
+    //     delete proposedMinters[msg.sender];
+    // }
 
     // External function to mint tokens, callable by the authorized minter
     function mintTokens(address account, uint256 amount) external {
-        require(msg.sender == authorizedMinter, "MyERC20: Unauthorized minter");
+        require(msg.sender == authorizedMinter, "GP_Mint: Unauthorized minter");
         _mint(account, amount);
     }
-    constructor(string memory name_, string memory symbol_) {
-        _name = name_;
-        _symbol = symbol_;
-    }
+    // constructor(string memory name_, string memory symbol_) {
+    //     _name = name_;
+    //     _symbol = symbol_;
+    // }
 
     function name() public view returns (string memory) {
         return _name;
@@ -167,10 +271,12 @@ contract GP_Mint is LamportBase {
     }
 
     function _mint(address account, uint256 amount) internal {
-        require(msg.sender == authorizedMinter, "SimpleERC20: Unauthorized minter");
+        require(msg.sender == authorizedMinter, "GP_Mint: Unauthorized minter");
         _totalSupply += amount;
         _balances[account] += amount;
-        emit Minted(address(0), account, amount);
+        //emit Minted(address(0), account, amount);
+        emit Minted(msg.sender, account, amount);
+
     }
 
     function _burn(address account, uint256 amount) internal {
@@ -183,6 +289,7 @@ contract GP_Mint is LamportBase {
     }
 
     event Transfer(address indexed from, address indexed to, uint256 value);
-    event Minted(address indexed from, address indexed to, uint256 value);
+    //event Minted(address indexed from, address indexed to, uint256 value);
+    event Minted(address indexed minter, address indexed account, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }

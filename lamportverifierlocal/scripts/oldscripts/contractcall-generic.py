@@ -33,6 +33,7 @@ import binascii
 from offchain.crc import compute_crc
 #from offchain.oracle_functions import extract_data_from_file, get_pkh_list, send_pkh_with_crc, save_received_data, read_till_eof, send_packed_file
 import offchain.data_temp
+from eth_account.hdaccount import mnemonic_to_private_key
 
 
 
@@ -62,6 +63,7 @@ class LamportTest:
     
         print('init done')
 
+
     def can_test_key_functions(self, accs):
         global master_pkh_1
         global master_pkh_2
@@ -78,7 +80,7 @@ class LamportTest:
         brownie_account = accounts.add(private_key)
         ##mnemonic using user acct
                 # Read mnemonic from file
-        mnemonic_path = Path('mnemonic.txt')
+        mnemonic_path = Path('mnemonic1.txt')
         if not mnemonic_path.is_file():
             raise Exception(f"Can't find {mnemonic_path}")
 

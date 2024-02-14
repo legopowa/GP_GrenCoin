@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.0;
 
-import "./GP_MintyDatabase.sol"; // Import the MintyDatabase contract
+import "/home/devbox4/Desktop/dev/GP_GrenCoin/lamportverifierlocal/contracts/3_GP_PlayerDatabase.sol"; // Import the PlayerDatabase contract
 
 contract Forum {
-    MintyDatabase public mintyDatabase;
+    PlayerDatabase public playerDatabase;
 
     struct Thread {
         address author;
@@ -33,12 +33,12 @@ contract Forum {
     event ThreadDeleted(uint256 threadId);
     event CommentDeleted(uint256 threadId, uint256 commentIndex);
 
-    constructor(address _mintyDatabaseAddress) {
-        mintyDatabase = MintyDatabase(_mintyDatabaseAddress);
+    constructor(address _playerDatabaseAddress) {
+        playerDatabase = PlayerDatabase(_playerDatabaseAddress);
     }
 
     modifier onlyRegistered() {
-        require(mintyDatabase.isRegistered(msg.sender), "User is not registered");
+        require(playerDatabase.isRegistered(msg.sender), "User is not registered");
         _;
     }
 
@@ -73,13 +73,13 @@ contract Forum {
     }
 
     function deleteThread(uint256 threadId) public {
-        require(threads[threadId].author == msg.sender || mintyDatabase.isModerator(msg.sender), "Not authorized to delete thread");
+        require(threads[threadId].author == msg.sender || playerDatabase.isModerator(msg.sender), "Not authorized to delete thread");
         threads[threadId].isDeleted = true;
         emit ThreadDeleted(threadId);
     }
 
     function deleteComment(uint256 threadId, uint256 commentIndex) public threadExists(threadId) {
-        require(comments[threadId][commentIndex].commenter == msg.sender || mintyDatabase.isModerator(msg.sender), "Not authorized to delete comment");
+        require(comments[threadId][commentIndex].commenter == msg.sender || playerDatabase.isModerator(msg.sender), "Not authorized to delete comment");
         comments[threadId][commentIndex].isDeleted = true;
         emit CommentDeleted(threadId, commentIndex);
     }

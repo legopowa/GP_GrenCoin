@@ -9,14 +9,18 @@ pragma solidity ^0.8.0;
 interface IPlayerDatabase {
     function addOrUpdatePlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) external;
     // Include other functions from PlayerDatabase that PlayerOnrampContract needs to call
+
+    function setGameAdminStatus(address admin, bool status) external;
+    function setValidatorStatus(address validator, bool status) external;
+
 }
 
 contract PlayerOnrampContract {
-    IPlayerDatabase public mintyDatabase;
+    IPlayerDatabase public playerDatabase;
 
     event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered);
 
-    constructor(address _mintyDatabaseAddress) {
+    constructor(address _playerDatabaseAddress) {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
     }
 
@@ -28,14 +32,25 @@ contract PlayerOnrampContract {
 
     // Additional functions and logic as required for onramping...
 
+
     function registerValidator(address validator) public {
-        require(msg.sender == owner, "Only the owner can register validators");
-        isValidator[validator] = true;
+        // Add appropriate checks here
+        playerDatabase.setValidatorStatus(validator, true);
     }
 
     function removeValidator(address validator) public {
-        require(msg.sender == owner, "Only the owner can remove validators");
-        isValidator[validator] = false;
+        // Add appropriate checks here
+        playerDatabase.setValidatorStatus(validator, false);
+    }
+
+    function registerAdmin(address admin) public {
+        // Add appropriate checks here
+        playerDatabase.setGameAdminStatus(admin, true);
+    }
+
+    function removeAdmin(address admin) public {
+        // Add appropriate checks here
+        playerDatabase.setGameAdminStatus(admin, false);
     }
 }
 // contract PlayerOnrampContract {

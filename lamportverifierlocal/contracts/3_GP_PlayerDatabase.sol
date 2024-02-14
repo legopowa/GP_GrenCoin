@@ -35,9 +35,9 @@ pragma solidity ^0.8.0;
 // }
 interface IAnonID {
     function incrementMinutesPlayed(address user, uint256 _minutes) external;
-    function updateLastPlayed(address _address, uint256 _gameId) external;
+    function updateLastPlayed(address _address, string memory _gameId) external;
     function isWhitelisted(address _address) external view returns (bool);
-    function isPlayerActiveInGame(uint256 gameID, address player) public view returns (uint8);
+    function isPlayerActiveInGame(string memory gameID, address player) external view returns (uint8);
 }
 // MintyDatabase contract inheriting from AnonID
 contract PlayerDatabase is IAnonID {
@@ -47,10 +47,12 @@ contract PlayerDatabase is IAnonID {
     // uint8 public decimals;
     // uint256 public totalSupply;
     //uint256 public gameID; // Variable to store the game ID 
+    mapping(string => bool) public gameServerIPs; // Mapping to store game server IPs
+    string[] public serverIPList; // Array for listing all server IPs
 
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
-    uint256 constant gameID = TFC; // Define your game ID for TFC
+    string gameID = "TFC"; // Define your game ID for TFC
 
     // Player Database variables
     struct Player {
@@ -111,18 +113,24 @@ contract PlayerDatabase is IAnonID {
 
     //     return rewardAddresses;
     // }
-    function getValidRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
+    function getValidRewardAddressesByNames(string[] memory playerNames, uint256 lastMintTime) public view returns (address[] memory) {
         address[] memory validRewardAddresses = new address[](playerNames.length);
 
         for (uint i = 0; i < playerNames.length; i++) {
             for (uint j = 0; j < playerAddresses.length; j++) {
                 if (keccak256(abi.encodePacked(playerData[playerAddresses[j]].playerName)) == keccak256(abi.encodePacked(playerNames[i]))) {
-                    uint8 playerStatus = isPlayerActiveInGame(gameID, playerAddresses[j]);
+                    uint8 playerStatus = anonIDContract.isPlayerActiveInGame(gameID, playerAddresses[j]);
 
                     if (playerStatus == 2) { // Player already minted for TFC
                         validRewardAddresses[i] = playerData[playerAddresses[j]].rewardAddress;
+                        // Increment the minutes played using lastMintTime
+                        uint256 minutesPlayed = lastMintTime / 60; // Convert seconds to minutes
+                        anonIDContract.incrementMinutesPlayed(playerAddresses[j], minutesPlayed);
+                        anonIDContract.updateLastPlayed(playerAddresses[j], gameID);
+
                     } else if (playerStatus == 0) { // Player not in a game, flag as active
-                        updateLastPlayed(playerAddresses[j], gameID);
+                        anonIDContract.updateLastPlayed(playerAddresses[j], gameID);
+                        // block.timestamp - lastMintTime = i
                         // Do not include this player in the reward addresses for this round
                     }
                     break; // Stop the inner loop once the player is processed
@@ -140,8 +148,42 @@ contract PlayerDatabase is IAnonID {
     // }// validator does this
 
     // Player Database functions
-// Assuming IAnonID interface and anonIDContract are already defined and set up in your contract
+    // Assuming IAnonID interface and anonIDContract are already defined and set up in your contract
+    function updateGameServerIP(string memory serverIP, bool add) public {
+        require(playerData[msg.sender].isGameAdmin, "Caller is not a game admin");
 
+        if (add) {
+            if (!gameServerIPs[serverIP]) {
+                gameServerIPs[serverIP] = true;
+                serverIPList.push(serverIP);
+            }
+        } else {
+            if (gameServerIPs[serverIP]) {
+                gameServerIPs[serverIP] = false;
+                removeServerIPFromArray(serverIP);
+            }
+        }
+    }
+
+    // Helper function to remove a server IP from the array
+    function removeServerIPFromArray(string memory serverIP) private {
+        for (uint i = 0; i < serverIPList.length; i++) {
+            if (keccak256(abi.encodePacked(serverIPList[i])) == keccak256(abi.encodePacked(serverIP))) {
+                // Update the mapping to reflect the server IP is no longer registered
+                gameServerIPs[serverIP] = false;
+
+                // Remove the server IP from the array
+                serverIPList[i] = serverIPList[serverIPList.length - 1];
+                serverIPList.pop();
+                break;
+            }
+        }
+    }
+
+    // Function to get the full list of server IPs
+    function getAllServerIPs() public view returns (string[] memory) {
+        return serverIPList;
+    }
     function addOrUpdatePlayer(address _address, string memory _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) public {
         require(msg.sender == onrampContract, "Only the onramp contract can add/update players");
         require(anonIDContract.isWhitelisted(_address), "Address not whitelisted in AnonID");
@@ -217,48 +259,56 @@ contract PlayerDatabase is IAnonID {
         require(msg.sender == forumContract, "Only the forum contract can set forum key");
         playerData[_player].forumKey = _key;
     }
+    function setGameAdminStatus(address admin, bool status) external {
+        // Add security check to ensure only authorized contract or account can call this
+        playerData[admin].isGameAdmin = status;
+    }
 
+    function setValidatorStatus(address validator, bool status) external {
+        // Add security check to ensure only authorized contract or account can call this
+        playerData[validator].isValidator = status;
+    }
     // ... [Additional functions and security checks as necessary]
 }
-pragma solidity ^0.8.0;
+// pragma solidity ^0.8.0;
 
-contract TFCPlayAndEarn {
-    // Other contract variables...
+// contract TFCPlayAndEarn {
+//     // Other contract variables...
 
-    struct Submission {
-        address validator;
-        string[] names;
-    }
-    Submission[] submissions;
+//     struct Submission {
+//         address validator;
+//         string[] names;
+//     }
+//     Submission[] submissions;
 
-    function processSubmissions(string[] memory rawNames, address validator) public {
-        require(isValidator(validator), "Not a validator");
-        string[] memory sanitizedNames = sanitizeNames(rawNames);
+//     function processSubmissions(string[] memory rawNames, address validator) public {
+//         require(isValidator(validator), "Not a validator");
+//         string[] memory sanitizedNames = sanitizeNames(rawNames);
         
-        // Store the sanitized names along with the validator's address
-        submissions.push(Submission({
-            validator: validator,
-            names: sanitizedNames
-        }));
-    }
+//         // Store the sanitized names along with the validator's address
+//         submissions.push(Submission({
+//             validator: validator,
+//             names: sanitizedNames
+//         }));
+//     }
 
-    function sanitizeNames(string[] memory rawNames) private pure returns (string[] memory) {
-        string[] memory sanitizedNames = new string[](rawNames.length);
+//     function sanitizeNames(string[] memory rawNames) private pure returns (string[] memory) {
+//         string[] memory sanitizedNames = new string[](rawNames.length);
 
-        for (uint i = 0; i < rawNames.length; i++) {
-            // Implement sanitation logic
-            // This might include removing or replacing brackets, punctuation, etc.
-            sanitizedNames[i] = sanitize(rawNames[i]);
-        }
+//         for (uint i = 0; i < rawNames.length; i++) {
+//             // Implement sanitation logic
+//             // This might include removing or replacing brackets, punctuation, etc.
+//             sanitizedNames[i] = sanitize(rawNames[i]);
+//         }
 
-        return sanitizedNames;
-    }
+//         return sanitizedNames;
+//     }
 
-    function sanitize(string memory name) private pure returns (string memory) {
-        // Detailed implementation of the sanitization logic
-        // Could involve regex replacements or character filtering
-        // Solidity does not natively support regex, so this might require character-by-character processing
-    }
+//     function sanitize(string memory name) private pure returns (string memory) {
+//         // Detailed implementation of the sanitization logic
+//         // Could involve regex replacements or character filtering
+//         // Solidity does not natively support regex, so this might require character-by-character processing
+//     }
 
-    // Additional functions like isValidator, auditSubmissions, etc.
-}
+//     // Additional functions like isValidator, auditSubmissions, etc.
+// }
