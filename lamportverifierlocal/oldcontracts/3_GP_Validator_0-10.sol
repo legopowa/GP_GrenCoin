@@ -27,9 +27,8 @@ contract GameValidator {
     uint256 public constant MAX_PLAYERS_PER_SUBMISSION = 64;
     uint256 public constant MAX_MINT_TIME = 10 minutes; // 10 minutes cap
     uint256 public constant TOKENS_PER_SECOND = (1e18 * 60) / 60; // 1e18 represents 1 token, and we divide by 60 seconds
-    address _playerDatabaseAddress = 0xa4ccB212E4c7249a987EAf68335dE28Bf9e87625;
-    address _mintContractAddress = 0xBe5E3Ecc8109e16Fa7F8003cb7E8B2935fce22E1;
-    constructor() {
+
+    constructor(address _playerDatabaseAddress, address _mintContractAddress) {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
         mintContract = IGP_Mint(_mintContractAddress);
     }
@@ -50,17 +49,11 @@ contract GameValidator {
         uint256 count;
     }
 
-    function setMintContractAddress(address mintContractAddress) public {
-        // Implement access control checks (e.g., onlyOwner or a similar modifier)
-        mintContract = IGP_Mint(mintContractAddress);
-    }
 
-    // Function to set the PlayerDatabase contract address
-    function setPlayerDatabaseAddress(address playerDatabaseAddress) public {
-        // Implement access control checks (e.g., onlyOwner or a similar modifier)
-        playerDatabase = IPlayerDatabase(playerDatabaseAddress);
+    // Function to set the GP_Mint contract address
+    function setMintContractAddress(address _mintContractAddress) public {
+        // Additional checks for access control, like onlyOwner
     }
-    
     function calculateMintAmount() private view returns (uint256) {
         uint256 elapsedSeconds = block.timestamp - lastMintTime;
 

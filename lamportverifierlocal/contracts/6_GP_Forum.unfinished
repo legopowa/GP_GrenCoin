@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "/home/devbox4/Desktop/dev/GP_GrenCoin/lamportverifierlocal/contracts/3_GP_PlayerDatabase.sol"; // Import the PlayerDatabase contract
+//import "./2_GP_PlayerDatabase.sol"; // Import the PlayerDatabase contract
 
 contract Forum {
     PlayerDatabase public playerDatabase;

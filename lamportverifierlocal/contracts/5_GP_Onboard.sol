@@ -15,12 +15,13 @@ interface IPlayerDatabase {
 
 }
 
-contract PlayerOnrampContract {
+contract PlayerOnboardContract {
     IPlayerDatabase public playerDatabase;
 
     event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered, string _playerName);
+    address _playerDatabaseAddress = 0xa4ccB212E4c7249a987EAf68335dE28Bf9e87625;
 
-    constructor(address _playerDatabaseAddress) {
+    constructor() {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
     }
 
