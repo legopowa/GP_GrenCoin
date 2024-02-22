@@ -53,19 +53,19 @@ def main():
     k1.save("master1")
     k2.save("master2")
     k3.save("oracle1")
-    # comparepkh = contract.getKeyAndPosByPKH(master_key1)
+    # comparepkh = contract.getKeyAndIndexByPKH(master_key1)
     # print(comparepkh[1])
     # print(master_key1)
     # if comparepkh[1] == master_key1:
     #     print("master 1 saved")
     
-    # comparepkh = contract.getKeyAndPosByPKH(master_key2)
+    # comparepkh = contract.getKeyAndIndexByPKH(master_key2)
     # print(comparepkh[1])
     # print(master_key2)
     # if comparepkh[1] == master_key2:
     #     print("master 2 saved")
 
-    # comparepkh = contract.getKeyAndPosByPKH(oracle_key1)
+    # comparepkh = contract.getKeyAndIndexByPKH(oracle_key1)
     # print(comparepkh[1])
     # print(oracle_key1)
     # if comparepkh[1] == oracle_key1:

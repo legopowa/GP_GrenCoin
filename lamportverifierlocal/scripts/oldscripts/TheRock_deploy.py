@@ -60,19 +60,19 @@ def main():
     k1.save("user_master1")
     k2.save("user_master2")
     k3.save("user_worker1")
-    comparepkh = contract2.getKeyAndPosByPKH(master_key1)
+    comparepkh = contract2.getKeyAndIndexByPKH(master_key1)
     print(comparepkh[1])
     print(master_key1)
     if comparepkh[1] == master_key1:
         print("user_master 1 saved")
     
-    comparepkh = contract2.getKeyAndPosByPKH(master_key2)
+    comparepkh = contract2.getKeyAndIndexByPKH(master_key2)
     print(comparepkh[1])
     print(master_key2)
     if comparepkh[1] == master_key2:
         print("user_master 2 saved")
 
-    comparepkh = contract.getKeyAndPosByPKH(worker_key1)
+    comparepkh = contract.getKeyAndIndexByPKH(worker_key1)
     print(comparepkh[1])
     print(worker_key1)
     if comparepkh[1] == worker_key1:
