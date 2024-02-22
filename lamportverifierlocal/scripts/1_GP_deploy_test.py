@@ -230,7 +230,7 @@ class LamportTest:
         #     contract_address2 = file.read()
         #     contract_address2 = contract_address2.strip().replace('\n', '') 
         hashToBroadcast = Web3.keccak(hexstr=full_bytecode)
-        print('keccaked bytecode', hashToBroadcast.hex())
+        print(hashToBroadcast.hex())
         packed_message = str.lower(hashToBroadcast.hex())[2:].encode() + nextpkh[2:].encode()
         print(packed_message)
         callhash = hash_b(str(packed_message.decode()))
@@ -245,8 +245,8 @@ class LamportTest:
             hashToBroadcast,
             {'from': brownie_account, 'gas_limit': 3999999}    
         )
-        #self.k1.save(trim = False)
         self.k4.save(trim = False)
+        #self.k4.save(trim = False)
         master_pkh_3 = nextpkh
 
         #current_keys = self.k2.load(self, "master2", master_pkh_2)
@@ -267,8 +267,6 @@ class LamportTest:
             full_bytecode,
             {'from': brownie_account, 'gas_limit': 3999999}    
         )
-
-
         tx.wait(1)
 
         # Extract the new contract address from the transaction's events
@@ -277,7 +275,7 @@ class LamportTest:
         print(f"New contract address: {new_contract_address}")
         #self.k2.save(trim = False)
 
-        with open('contract-test.txt', 'w') as file:
+        with open('contract_test-coin.txt', 'w') as file:
             # Write the contract address to the file
             file.write(new_contract_address)
         exit()

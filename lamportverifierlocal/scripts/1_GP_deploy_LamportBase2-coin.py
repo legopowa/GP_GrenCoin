@@ -245,8 +245,8 @@ class LamportTest:
             hashToBroadcast,
             {'from': brownie_account, 'gas_limit': 3999999}    
         )
-        #self.k1.save(trim = False)
         self.k4.save(trim = False)
+        #self.k4.save(trim = False)
         master_pkh_3 = nextpkh
 
         #current_keys = self.k2.load(self, "master2", master_pkh_2)
@@ -267,8 +267,6 @@ class LamportTest:
             full_bytecode,
             {'from': brownie_account, 'gas_limit': 3999999}    
         )
-
-
         tx.wait(1)
 
         # Extract the new contract address from the transaction's events

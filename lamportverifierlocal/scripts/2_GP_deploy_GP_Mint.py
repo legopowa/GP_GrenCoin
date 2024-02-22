@@ -186,7 +186,7 @@ class LamportTest:
     def can_test_key_functions(self, accs):
         global master_pkh_1
         global master_pkh_2
-        #global master_pkh_3
+        global master_pkh_3
         print("Running 'can_test_key_functions'...")
         with open('contract_AnonID.txt', 'r') as file:
             contract_address = file.read()
@@ -194,14 +194,14 @@ class LamportTest:
 
         _contract = AnonIDContract.at(contract_address)
         print("Contract referenced.")
-        print('master_pkh_1', master_pkh_1)
+        print('master_pkh_3', master_pkh_3)
         private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
         brownie_account = accounts.add(private_key)
-        current_keys = self.k1.load(self, "master1", master_pkh_1)
-        current_pkh = self.k1.pkh_from_public_key(current_keys.pub)
+        current_keys = self.k4.load(self, "master3", master_pkh_3)
+        current_pkh = self.k4.pkh_from_public_key(current_keys.pub)
         print('current pkh', current_pkh)
-        next_keys = self.k1.get_next_key_pair()
-        nextpkh = self.k1.pkh_from_public_key(next_keys.pub)
+        next_keys = self.k4.get_next_key_pair()
+        nextpkh = self.k4.pkh_from_public_key(next_keys.pub)
         #pairs = generate_address_value_pairs(10)
         #packed_pairs = solidity_pack_pairs(pairs)
         #_newCap = int(300000)
@@ -228,9 +228,9 @@ class LamportTest:
             hashToBroadcast,
             {'from': brownie_account, 'gas_limit': 3999999}    
         )
-        self.k1.save(trim = False)
+        self.k4.save(trim = False)
         #self.k4.save(trim = False)
-        master_pkh_1 = nextpkh
+        master_pkh_3 = nextpkh
 
         #current_keys = self.k2.load(self, "master2", master_pkh_2)
         #next_keys = self.k2.get_next_key_pair()
@@ -250,8 +250,6 @@ class LamportTest:
             full_bytecode,
             {'from': brownie_account, 'gas_limit': 3999999}    
         )
-
-
         tx.wait(1)
 
         # Extract the new contract address from the transaction's events
