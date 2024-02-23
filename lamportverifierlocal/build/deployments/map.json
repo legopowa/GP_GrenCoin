@@ -1,6 +1,7 @@
 {
   "86098": {
     "AnonIDContract": [
+      "0x026b0BCF6328F50b63aE33997381aaB008433fc4",
       "0x98828b2784eCE054aA699909175a5a4082681Cc5",
       "0x4e97Cc6ABDC788da5f829fafF384cF237D1a5a97",
       "0xD8C7938087D17E3B72D545e99d47Cab0199d6bB8",
@@ -16,6 +17,7 @@
       "0xA527F50706BB1FCaEd6F864afB2e3FCe4943AF68"
     ],
     "LamportBase2": [
+      "0x838ebf8372Eca3Aa86c001810Eecc3F7570b5a8E",
       "0x0759a02f763375305aef8b3afb0051eDe0c0577f"
     ],
     "WhitelistTest": [

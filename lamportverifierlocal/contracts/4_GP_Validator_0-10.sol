@@ -27,8 +27,8 @@ contract GameValidator {
     uint256 public constant MAX_PLAYERS_PER_SUBMISSION = 64;
     uint256 public constant MAX_MINT_TIME = 10 minutes; // 10 minutes cap
     uint256 public constant TOKENS_PER_SECOND = (1e18 * 60) / 60; // 1e18 represents 1 token, and we divide by 60 seconds
-    address _playerDatabaseAddress = 0xa4ccB212E4c7249a987EAf68335dE28Bf9e87625;
-    address _mintContractAddress = 0xBe5E3Ecc8109e16Fa7F8003cb7E8B2935fce22E1;
+    address _playerDatabaseAddress = 0xdCD825Ae7a3DBb6296Bee7F4418310fF2e5352C3;
+    address _mintContractAddress = 0xdeb3f5e1a37F60013709df2B01cF431552ad2015;
     constructor() {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
         mintContract = IGP_Mint(_mintContractAddress);

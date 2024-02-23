@@ -31,14 +31,14 @@ contract GP_Mint {
     event AuthorizedMinterSet(address indexed minter);
     event AuthorizedMinterRemoved(address indexed minter);
     constructor() {
-        lamportBase = ILamportBase(0x81C8C758c3987D9dca8d0dA30E5000828a169bfE);
+        lamportBase = ILamportBase(0xdECf3A7af8072809C1955180d4d73c6d2c3F6e07);
         _name = "GPGrens";
         _symbol = "GPG";
         _initializeMintProcess();
     }
     function _initializeMintProcess() private {
-        // Set the authorized minter (hardcoded for one-off execution)
-        authorizedMinter = 0x98828b2784eCE054aA699909175a5a4082681Cc5;
+        // Set the authorized minter (it's AnonID contract ok) (hardcoded for one-off execution)
+        authorizedMinter = 0x026b0BCF6328F50b63aE33997381aaB008433fc4;
 
         // Mint tokens
         _mint(0x239fA7623354eC26520dE878B52f13Fe84b06971, 80000 * (10 ** uint256(decimals())));

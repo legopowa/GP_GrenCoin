@@ -19,7 +19,7 @@ contract PlayerOnboardContract {
     IPlayerDatabase public playerDatabase;
 
     event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered, string _playerName);
-    address _playerDatabaseAddress = 0xa4ccB212E4c7249a987EAf68335dE28Bf9e87625;
+    address _playerDatabaseAddress = 0xdCD825Ae7a3DBb6296Bee7F4418310fF2e5352C3;
 
     constructor() {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);

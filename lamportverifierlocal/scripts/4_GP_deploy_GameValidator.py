@@ -81,6 +81,7 @@ oracle_pkh = []
 master_pkh_1 = []
 master_pkh_2 = []
 master_pkh_3 = []
+master_pkh_4 = []
 arg1 = "GPGrens"
 arg2 = "GPG"
 
@@ -100,6 +101,7 @@ class LamportTest:
         self.k2 = KeyTracker("master2")
         self.k3 = KeyTracker("oracle1")
         self.k4 = KeyTracker("master3")
+        self.k5 = KeyTracker("master4")
         print("Initializing LamportTest...")
         with open('contract_AnonID.txt', 'r') as file:
             contract_address = file.read().strip()
@@ -113,7 +115,7 @@ class LamportTest:
         # priv level set here with integer ^
         print("contract pkh", pkhs)
 
-        self.load_two_masters(pkhs, "master")
+        self.load_four_masters(pkhs, "master")
         self.load_keys(opkhs, "oracle")
         print('init done')
 
@@ -132,12 +134,16 @@ class LamportTest:
         return pkh_list
 
     
-    def load_two_masters(self, pkhs, filename):
+    def load_four_masters(self, pkhs, filename):
         pkh_index = 0
         master1_loaded = False
         master2_loaded = False
+        master3_loaded = False
+        master4_loaded = False
         global master_pkh_1
         global master_pkh_2
+        global master_pkh_3
+        global master_pkh_4
 
         while not master1_loaded and pkh_index < len(pkhs):
             try:
@@ -167,8 +173,38 @@ class LamportTest:
                 print(f"No valid keys found for Master 2, PKH: {pkhs[pkh_index]}")
                 pkh_index += 1  # increment the pkh_index if load failed
 
-        if not master2_loaded:
+        if not master3_loaded:
             print("Load failed for all provided PKHs for Master 2")
+
+        while not master3_loaded and pkh_index < len(pkhs):
+            try:
+                self.k4.load(self, filename + '3', pkhs[pkh_index])
+                print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
+                master3_loaded = True
+                key_tracker_3 = self.k2.current_key_pair()
+                master_pkh_3 = pkhs[pkh_index]
+                pkh_index += 1  # increment the pkh_index after successful load
+            except InvalidAddress:
+                print(f"No valid keys found for Master 3, PKH: {pkhs[pkh_index]}")
+                pkh_index += 1  # increment the pkh_index if load failed
+
+        if not master4_loaded:
+            print("Load failed for all provided PKHs for Master 2")
+
+        while not master4_loaded and pkh_index < len(pkhs):
+            try:
+                self.k5.load(self, filename + '4', pkhs[pkh_index])
+                print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
+                master4_loaded = True
+                key_tracker_4 = self.k2.current_key_pair()
+                master_pkh_4 = pkhs[pkh_index]
+                pkh_index += 1  # increment the pkh_index after successful load
+            except InvalidAddress:
+                print(f"No valid keys found for Master 3, PKH: {pkhs[pkh_index]}")
+                pkh_index += 1  # increment the pkh_index if load failed
+
+        if not master4_loaded:
+            print("Load failed for all provided PKHs for Master 2")            
 
     def load_keys(self, pkhs, filename):
         global oracle_pkh
@@ -187,6 +223,7 @@ class LamportTest:
         global master_pkh_1
         global master_pkh_2
         global master_pkh_3
+        global master_pkh_4
         print("Running 'can_test_key_functions'...")
         with open('contract_AnonID.txt', 'r') as file:
             contract_address = file.read()
@@ -232,6 +269,42 @@ class LamportTest:
         #self.k4.save(trim = False)
         master_pkh_3 = nextpkh
 
+
+        current_keys = self.k5.load(self, "master4", master_pkh_4)
+        current_pkh = self.k5.pkh_from_public_key(current_keys.pub)
+        print('current pkh', current_pkh)
+        next_keys = self.k5.get_next_key_pair()
+        nextpkh = self.k5.pkh_from_public_key(next_keys.pub)
+        #pairs = generate_address_value_pairs(10)
+        #packed_pairs = solidity_pack_pairs(pairs)
+        #_newCap = int(300000)
+        #numToBroadcast = int(1000000)
+        #pnumToBroadcast = numToBroadcast.to_bytes(4, 'big')
+        #paddednumToBroadcast = solidity_pack_value_bytes(pnumToBroadcast)
+        #paddressToBroadcast = '0x99a840C3BEEe41c3F5B682386f67277CfE3E3e29' # activity contract needing approval
+        # with open('whitelist_contract.txt', 'r') as file:
+        #     contract_address2 = file.read()
+        #     contract_address2 = contract_address2.strip().replace('\n', '') 
+        hashToBroadcast = Web3.keccak(hexstr=full_bytecode)
+        print(hashToBroadcast.hex())
+        packed_message = str.lower(hashToBroadcast.hex())[2:].encode() + nextpkh[2:].encode()
+        print(packed_message)
+        callhash = hash_b(str(packed_message.decode()))
+        sig = sign_hash(callhash, current_keys.pri) 
+        private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
+        brownie_account = accounts.add(private_key)
+        
+        _contract.createContractStepOne(
+            current_keys.pub,
+            sig,
+            nextpkh,
+            hashToBroadcast,
+            {'from': brownie_account, 'gas_limit': 3999999}    
+        )
+        self.k5.save(trim = False)
+        #self.k4.save(trim = False)
+        master_pkh_4 = nextpkh
+
         #current_keys = self.k2.load(self, "master2", master_pkh_2)
         #next_keys = self.k2.get_next_key_pair()
         #nextpkh = self.k2.pkh_from_public_key(next_keys.pub)
@@ -245,7 +318,7 @@ class LamportTest:
 
 
         
-        tx = _contract.createContractStepTwo(
+        tx = _contract.createContractStepThree(
 
             full_bytecode,
             {'from': brownie_account, 'gas_limit': 3999999}    
@@ -257,7 +330,6 @@ class LamportTest:
 
         print(f"New contract address: {new_contract_address}")
         #self.k2.save(trim = False)
-
         with open('contract_GameValidator-coin.txt', 'w') as file:
             # Write the contract address to the file
             file.write(new_contract_address)
