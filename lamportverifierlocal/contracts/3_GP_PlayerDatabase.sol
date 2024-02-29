@@ -158,30 +158,76 @@ contract PlayerDatabase  {
     function getAllServerIPs() public view returns (string[] memory) {
         return serverIPList;
     }
-    function addOrUpdatePlayer(address _address, string memory _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) public {
+    // function addOrUpdatePlayer(address _address, string memory _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) public {
+    //     require(msg.sender == onrampContract, "Only the onramp contract can add/update players");
+    //     require(anonIDContract.isWhitelisted(_address), "Address not whitelisted in AnonID");
+
+    //     Player storage player = playerData[_address];
+    //     bool alreadyRegistered = player.isRegistered;
+
+    //     playerData[_address] = Player({
+    //         steamID: _steamID,
+    //         isValidator: _isValidator,
+    //         isRegistered: _isRegistered,
+    //         rewardAddress: _address,
+    //         playerName: _playerName,
+    //         // Zero out or set default values for the non-argument fields
+    //         isModerator: false,
+    //         isTourneyMod: false,
+    //         isGameAdmin: false,
+    //         forumKey: 0 // Assuming 0 is the default value for forumKey
+    //     });
+
+    //     if (!alreadyRegistered) {
+    //         playerAddresses.push(_address);
+    //     }
+    // }
+    function addOrUpdatePlayer(address _address, string memory _steamID, bool _isValidator, string memory _playerName) public {
         require(msg.sender == onrampContract, "Only the onramp contract can add/update players");
         require(anonIDContract.isWhitelisted(_address), "Address not whitelisted in AnonID");
 
         Player storage player = playerData[_address];
-        bool alreadyRegistered = player.isRegistered;
-
-        playerData[_address] = Player({
-            steamID: _steamID,
-            isValidator: _isValidator,
-            isRegistered: _isRegistered,
-            rewardAddress: _address,
-            playerName: _playerName,
-            // Zero out or set default values for the non-argument fields
-            isModerator: false,
-            isTourneyMod: false,
-            isGameAdmin: false,
-            forumKey: 0 // Assuming 0 is the default value for forumKey
-        });
-
-        if (!alreadyRegistered) {
+        if (player.isRegistered) {
+            // Update existing player data
+            player.steamID = _steamID;
+            player.isValidator = _isValidator;
+            //player.isRegistered = _isRegistered;
+            player.playerName = _playerName;
+            // Update other fields as necessary
+        } else {
+            // Add new player
+            playerData[_address] = Player({
+                steamID: _steamID,
+                isValidator: _isValidator,
+                isRegistered: true,
+                rewardAddress: _address,
+                playerName: _playerName,
+                // Initialize other fields as necessary
+                isModerator: false,
+                isTourneyMod: false,
+                isGameAdmin: false,
+                forumKey: 0
+            });
             playerAddresses.push(_address);
         }
     }
+
+    // Function to delete a player by address
+    function deletePlayer(address _address) public {
+        require(msg.sender == onrampContract, "Only the onramp contract can delete players");
+
+        delete playerData[_address]; // Remove player data from mapping
+
+        // Find and remove address from playerAddresses array
+        for (uint i = 0; i < playerAddresses.length; i++) {
+            if (playerAddresses[i] == _address) {
+                playerAddresses[i] = playerAddresses[playerAddresses.length - 1]; // Swap with the last element
+                playerAddresses.pop(); // Remove the last element
+                break;
+            }
+        }
+    }
+
 
     function getAllPlayerNames() public view returns (string[] memory) {
         string[] memory playerNames = new string[](playerAddresses.length);

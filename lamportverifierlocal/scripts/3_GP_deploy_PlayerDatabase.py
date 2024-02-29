@@ -27,7 +27,7 @@ from offchain.KeyTracker_ import KeyTracker
 from offchain.soliditypack import solidity_pack_value_bytes, solidity_pack_value, pack_keys, encode_packed_2d_list, solidity_pack_bytes, encode_packed, solidity_pack_pairs, solidity_pack, solidity_pack_bytes, solidity_pack_array
 from offchain.Types import LamportKeyPair, Sig, PubPair
 from offchain.functions import hash_b, sign_hash, verify_signed_hash
-from eth_abi import encode_abi, encode_single
+from eth_abi import encode_abi#, encode_single
 from binascii import crc32, hexlify
 import binascii
 from offchain.crc import compute_crc
@@ -181,7 +181,7 @@ class LamportTest:
                 self.k4.load(self, filename + '3', pkhs[pkh_index])
                 print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
                 master3_loaded = True
-                key_tracker_3 = self.k2.current_key_pair()
+                key_tracker_3 = self.k4.current_key_pair()
                 master_pkh_3 = pkhs[pkh_index]
                 pkh_index += 1  # increment the pkh_index after successful load
             except InvalidAddress:
@@ -196,7 +196,7 @@ class LamportTest:
                 self.k5.load(self, filename + '4', pkhs[pkh_index])
                 print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
                 master4_loaded = True
-                key_tracker_4 = self.k2.current_key_pair()
+                key_tracker_4 = self.k5.current_key_pair()
                 master_pkh_4 = pkhs[pkh_index]
                 pkh_index += 1  # increment the pkh_index after successful load
             except InvalidAddress:

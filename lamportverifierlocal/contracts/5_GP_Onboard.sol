@@ -7,7 +7,8 @@ pragma solidity ^0.8.0;
 // }
 
 interface IPlayerDatabase {
-    function addOrUpdatePlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) external;
+    function addOrUpdatePlayer(address _address, string calldata _steamID, bool _isValidator, string memory _playerName) external;
+    function deletePlayer(address _address) external;
     // Include other functions from PlayerDatabase that PlayerOnrampContract needs to call
 
     function setGameAdminStatus(address admin, bool status) external;
@@ -18,19 +19,28 @@ interface IPlayerDatabase {
 contract PlayerOnboardContract {
     IPlayerDatabase public playerDatabase;
 
-    event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered, string _playerName);
-    address _playerDatabaseAddress = 0xdCD825Ae7a3DBb6296Bee7F4418310fF2e5352C3;
+    event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, string _playerName);
+    event PlayerRemoved(address indexed deletedPlayerAddress);
+    address _playerDatabaseAddress = 0xB03A6aFd440a2a9db8834F1A6093680f02f1114C;
 
     constructor() {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
     }
 
-    function onboardPlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered, string memory _playerName) public {
+    function onboardPlayer(address _address, string calldata _steamID, bool _isValidator, string memory _playerName) public {
         // Additional logic and security checks as needed
-        playerDatabase.addOrUpdatePlayer(_address, _steamID, _isValidator, _isRegistered, _playerName);
-        emit PlayerOnboarded(_address, _steamID, _isValidator, _isRegistered, _playerName);
+        playerDatabase.addOrUpdatePlayer(_address, _steamID, _isValidator, _playerName);
+        emit PlayerOnboarded(_address, _steamID, _isValidator, _playerName);
     }
 
+    function deletePlayer(address _address) public {
+        playerDatabase.deletePlayer(_address);
+        emit PlayerRemoved(_address);
+    }
+
+    function setPlayerDatabaseAddress(address __playerDatabaseAddress) public {
+        playerDatabase = IPlayerDatabase(__playerDatabaseAddress);
+    }
     // Additional functions and logic as required for onramping...
 
 

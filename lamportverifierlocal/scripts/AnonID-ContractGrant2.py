@@ -11,7 +11,7 @@ from brownie import network, web3, accounts, Wei, AnonIDContract, LamportBase2, 
 from brownie.network import gas_price
 from brownie.network.gas.strategies import LinearScalingStrategy
 from eth_utils import encode_hex #, encode_single
-from eth_abi import encode_single, encode_abi
+from eth_abi import encode_single
 from Crypto.Hash import keccak
 from typing import List
 import json
@@ -82,17 +82,7 @@ master_pkh_1 = []
 master_pkh_2 = []
 master_pkh_3 = []
 master_pkh_4 = []
-arg1 = "GPGrens"
-arg2 = "GPG"
 
-# ABI encode the arguments
-encoded_args = encode_abi(['string', 'string'], [arg1, arg2])
-
-# Load the bytecode of the contract (replace with actual bytecode)
-full_bytecode = "0x6080604052600180546001600160a01b03191673b03a6afd440a2a9db8834f1a6093680f02f1114c17905534801561003657600080fd5b50600154600080546001600160a01b0319166001600160a01b039092169190911790556105bd806100686000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c80631785f53c1461006757806340a141ff1461007c57806365225c851461008f5780639fca5169146100a2578063c38c5813146100b5578063cb744993146100c8575b600080fd5b61007a6100753660046102e7565b6100f7565b005b61007a61008a3660046102e7565b610162565b61007a61009d3660046103bc565b61019c565b61007a6100b03660046102e7565b610259565b61007a6100c33660046102e7565b610292565b6000546100db906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b600080546040516316227ecd60e21b81526001600160a01b0384811660048301526024820193909352911690635889fb34906044015b600060405180830381600087803b15801561014757600080fd5b505af115801561015b573d6000803e3d6000fd5b5050505050565b6000805460405163aca2490b60e01b81526001600160a01b038481166004830152602482019390935291169063aca2490b9060440161012d565b60005460405163d28c446d60e01b81526001600160a01b039091169063d28c446d906101d6908990899089908990899089906004016104f1565b600060405180830381600087803b1580156101f057600080fd5b505af1158015610204573d6000803e3d6000fd5b50505050856001600160a01b03167ff7e417d94e320ea0ed6bd683d9adfcf7f636b9926cff016ab28b644d1defabaa8686868686604051610249959493929190610545565b60405180910390a2505050505050565b60005460405163aca2490b60e01b81526001600160a01b038381166004830152600160248301529091169063aca2490b9060440161012d565b6000546040516316227ecd60e21b81526001600160a01b0383811660048301526001602483015290911690635889fb349060440161012d565b80356001600160a01b03811681146102e257600080fd5b919050565b6000602082840312156102f957600080fd5b610302826102cb565b9392505050565b803580151581146102e257600080fd5b634e487b7160e01b600052604160045260246000fd5b600082601f83011261034057600080fd5b813567ffffffffffffffff8082111561035b5761035b610319565b604051601f8301601f19908116603f0116810190828211818310171561038357610383610319565b8160405283815286602085880101111561039c57600080fd5b836020870160208301376000602085830101528094505050505092915050565b60008060008060008060a087890312156103d557600080fd5b6103de876102cb565b9550602087013567ffffffffffffffff808211156103fb57600080fd5b818901915089601f83011261040f57600080fd5b81358181111561041e57600080fd5b8a602082850101111561043057600080fd5b602083019750955061044460408a01610309565b945061045260608a01610309565b9350608089013591508082111561046857600080fd5b5061047589828a0161032f565b9150509295509295509295565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6000815180845260005b818110156104d1576020818501810151868301820152016104b5565b506000602082860101526020601f19601f83011685010191505092915050565b6001600160a01b038716815260a0602082018190526000906105169083018789610482565b85151560408401528415156060840152828103608084015261053881856104ab565b9998505050505050505050565b608081526000610559608083018789610482565b85151560208401528415156040840152828103606084015261057b81856104ab565b9897505050505050505056fea264697066735822122054e52bf25ae20690c550d6efdf92ac17db5a1e949980deaf921cf4b636c305d864736f6c63430008150033"
-#print(encoded_args.hex())
-# Append the encoded arguments to the bytecode
-#print(full_bytecode)
 class LamportTest:
     
     def __init__(self):
@@ -101,7 +91,6 @@ class LamportTest:
         self.k2 = KeyTracker("master2")
         self.k3 = KeyTracker("oracle1")
         self.k4 = KeyTracker("master3")
-        self.k5 = KeyTracker("master4")
         print("Initializing LamportTest...")
         with open('contract_AnonID.txt', 'r') as file:
             contract_address = file.read().strip()
@@ -115,7 +104,7 @@ class LamportTest:
         # priv level set here with integer ^
         print("contract pkh", pkhs)
 
-        self.load_four_masters(pkhs, "master")
+        self.load_two_masters(pkhs, "master")
         self.load_keys(opkhs, "oracle")
         print('init done')
 
@@ -134,7 +123,7 @@ class LamportTest:
         return pkh_list
 
     
-    def load_four_masters(self, pkhs, filename):
+    def load_two_masters(self, pkhs, filename):
         pkh_index = 0
         master1_loaded = False
         master2_loaded = False
@@ -173,7 +162,7 @@ class LamportTest:
                 print(f"No valid keys found for Master 2, PKH: {pkhs[pkh_index]}")
                 pkh_index += 1  # increment the pkh_index if load failed
 
-        if not master3_loaded:
+        if not master2_loaded:
             print("Load failed for all provided PKHs for Master 2")
 
         while not master3_loaded and pkh_index < len(pkhs):
@@ -189,18 +178,18 @@ class LamportTest:
                 pkh_index += 1  # increment the pkh_index if load failed
 
         if not master4_loaded:
-            print("Load failed for all provided PKHs for Master 2")
+            print("Load failed for all provided PKHs for Master 3")
 
         while not master4_loaded and pkh_index < len(pkhs):
             try:
                 self.k5.load(self, filename + '4', pkhs[pkh_index])
-                print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
+                print(f"Load successful for Master 4, PKH: {pkhs[pkh_index]}")
                 master4_loaded = True
                 key_tracker_4 = self.k5.current_key_pair()
                 master_pkh_4 = pkhs[pkh_index]
                 pkh_index += 1  # increment the pkh_index after successful load
             except InvalidAddress:
-                print(f"No valid keys found for Master 3, PKH: {pkhs[pkh_index]}")
+                print(f"No valid keys found for Master 4, PKH: {pkhs[pkh_index]}")
                 pkh_index += 1  # increment the pkh_index if load failed
 
         if not master4_loaded:
@@ -234,7 +223,7 @@ class LamportTest:
         print('master_pkh_3', master_pkh_3)
         private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
         brownie_account = accounts.add(private_key)
-        current_keys = self.k4.load(self, "master3", master_pkh_3)
+        current_keys = self.k4.load(self, "master3", master_pkh_1)
         current_pkh = self.k4.pkh_from_public_key(current_keys.pub)
         print('current pkh', current_pkh)
         next_keys = self.k4.get_next_key_pair()
@@ -246,91 +235,47 @@ class LamportTest:
         #pnumToBroadcast = numToBroadcast.to_bytes(4, 'big')
         #paddednumToBroadcast = solidity_pack_value_bytes(pnumToBroadcast)
         #paddressToBroadcast = '0x99a840C3BEEe41c3F5B682386f67277CfE3E3e29' # activity contract needing approval
-        # with open('whitelist_contract.txt', 'r') as file:
-        #     contract_address2 = file.read()
-        #     contract_address2 = contract_address2.strip().replace('\n', '') 
-        hashToBroadcast = Web3.keccak(hexstr=full_bytecode)
-        print(hashToBroadcast.hex())
-        packed_message = str.lower(hashToBroadcast.hex())[2:].encode() + nextpkh[2:].encode()
-        print(packed_message)
+        with open('contract_PlayerDatabase-coin.txt', 'r') as file:
+            contract_address2 = file.read()
+            contract_address2 = contract_address2.strip().replace('\n', '') 
+        paddressToBroadcast = contract_address2
+        packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
+
         callhash = hash_b(str(packed_message.decode()))
         sig = sign_hash(callhash, current_keys.pri) 
         private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
         brownie_account = accounts.add(private_key)
         
-        _contract.createContractStepOne(
+        _contract.grantActivityContractPermissionStepOne(
             current_keys.pub,
             sig,
             nextpkh,
-            hashToBroadcast,
-            {'from': brownie_account, 'gas_limit': 3999999}    
+            paddressToBroadcast,
+            {'from': brownie_account}    
         )
         self.k4.save(trim = False)
         #self.k4.save(trim = False)
         master_pkh_3 = nextpkh
 
-
         current_keys = self.k5.load(self, "master4", master_pkh_4)
-        current_pkh = self.k5.pkh_from_public_key(current_keys.pub)
-        print('current pkh', current_pkh)
         next_keys = self.k5.get_next_key_pair()
         nextpkh = self.k5.pkh_from_public_key(next_keys.pub)
-        #pairs = generate_address_value_pairs(10)
-        #packed_pairs = solidity_pack_pairs(pairs)
-        #_newCap = int(300000)
-        #numToBroadcast = int(1000000)
-        #pnumToBroadcast = numToBroadcast.to_bytes(4, 'big')
-        #paddednumToBroadcast = solidity_pack_value_bytes(pnumToBroadcast)
-        #paddressToBroadcast = '0x99a840C3BEEe41c3F5B682386f67277CfE3E3e29' # activity contract needing approval
-        # with open('whitelist_contract.txt', 'r') as file:
-        #     contract_address2 = file.read()
-        #     contract_address2 = contract_address2.strip().replace('\n', '') 
-        hashToBroadcast = Web3.keccak(hexstr=full_bytecode)
-        print(hashToBroadcast.hex())
-        packed_message = str.lower(hashToBroadcast.hex())[2:].encode() + nextpkh[2:].encode()
-        print(packed_message)
-        callhash = hash_b(str(packed_message.decode()))
-        sig = sign_hash(callhash, current_keys.pri) 
-        private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
-        brownie_account = accounts.add(private_key)
-        
-        _contract.createContractStepOne(
-            current_keys.pub,
-            sig,
-            nextpkh,
-            hashToBroadcast,
-            {'from': brownie_account, 'gas_limit': 3999999}    
-        )
-        self.k5.save(trim = False)
-        #self.k4.save(trim = False)
-        master_pkh_4 = nextpkh
-
-        #current_keys = self.k2.load(self, "master2", master_pkh_2)
-        #next_keys = self.k2.get_next_key_pair()
-        #nextpkh = self.k2.pkh_from_public_key(next_keys.pub)
 
         #paddressToBroadcast = '0xfd003CA44BbF4E9fB0b2fF1a33fc2F05A6C2EFF9'
 
-        #packed_message = str.lower(full_bytecode)[2:].encode() + nextpkh[2:].encode()
+        packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
 
-        #callhash = hash_b(str(packed_message.decode()))
-        #sig = sign_hash(callhash, current_keys.pri) 
+        callhash = hash_b(str(packed_message.decode()))
+        sig = sign_hash(callhash, current_keys.pri) 
 
 
         
-        tx = _contract.createContractStepThree(
-
-            full_bytecode,
-            {'from': brownie_account, 'gas_limit': 3999999}    
+        _contract.grantActivityContractPermissionStepTwo(
+            current_keys.pub,
+            sig,
+            nextpkh,
+            #paddressToBroadcast,
+            {'from': brownie_account}    
         )
-        tx.wait(1)
-
-        # Extract the new contract address from the transaction's events
-        new_contract_address = tx.events['ContractCreated']['contractAddress']
-
-        print(f"New contract address: {new_contract_address}")
-        #self.k2.save(trim = False)
-        with open('contract_Onboard-coin.txt', 'w') as file:
-            # Write the contract address to the file
-            file.write(new_contract_address)
+        self.k5.save(trim = False)
         exit()

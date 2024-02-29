@@ -181,7 +181,7 @@ class LamportTest:
                 self.k4.load(self, filename + '3', pkhs[pkh_index])
                 print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
                 master3_loaded = True
-                key_tracker_3 = self.k2.current_key_pair()
+                key_tracker_3 = self.k4.current_key_pair()
                 master_pkh_3 = pkhs[pkh_index]
                 pkh_index += 1  # increment the pkh_index after successful load
             except InvalidAddress:
@@ -196,7 +196,7 @@ class LamportTest:
                 self.k5.load(self, filename + '4', pkhs[pkh_index])
                 print(f"Load successful for Master 3, PKH: {pkhs[pkh_index]}")
                 master4_loaded = True
-                key_tracker_4 = self.k2.current_key_pair()
+                key_tracker_4 = self.k5.current_key_pair()
                 master_pkh_4 = pkhs[pkh_index]
                 pkh_index += 1  # increment the pkh_index after successful load
             except InvalidAddress:

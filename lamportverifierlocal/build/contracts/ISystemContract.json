@@ -1,0 +1,3299 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "anonID",
+          "type": "string"
+        }
+      ],
+      "name": "addToWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_minutes",
+          "type": "uint256"
+        }
+      ],
+      "name": "incrementMinutesPlayed",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "removeFromWhitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_quota",
+          "type": "uint256"
+        }
+      ],
+      "name": "setHourlyTxQuota",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "4": "contracts/Whitelist_test.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Whitelist_test.sol",
+    "exportedSymbols": {
+      "ISystemContract": [
+        3263
+      ],
+      "WhitelistTest": [
+        3480
+      ]
+    },
+    "id": 3481,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3236,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ISystemContract",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3263,
+        "linearizedBaseContracts": [
+          3263
+        ],
+        "name": "ISystemContract",
+        "nameLocation": "67:15:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "1a533daa",
+            "id": 3243,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addToWhitelist",
+            "nameLocation": "98:14:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3241,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3238,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "121:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3243,
+                  "src": "113:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3237,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "113:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3240,
+                  "mutability": "mutable",
+                  "name": "anonID",
+                  "nameLocation": "147:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3243,
+                  "src": "131:22:4",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3239,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "131:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "112:42:4"
+            },
+            "returnParameters": {
+              "id": 3242,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "163:0:4"
+            },
+            "scope": 3263,
+            "src": "89:75:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "6118b1c3",
+            "id": 3250,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setHourlyTxQuota",
+            "nameLocation": "178:16:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3248,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3245,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "203:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3250,
+                  "src": "195:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3244,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "195:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3247,
+                  "mutability": "mutable",
+                  "name": "_quota",
+                  "nameLocation": "221:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3250,
+                  "src": "213:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3246,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "213:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "194:34:4"
+            },
+            "returnParameters": {
+              "id": 3249,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "237:0:4"
+            },
+            "scope": 3263,
+            "src": "169:69:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "8ab1d681",
+            "id": 3255,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeFromWhitelist",
+            "nameLocation": "252:19:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3253,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3252,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "280:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3255,
+                  "src": "272:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3251,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "272:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "271:18:4"
+            },
+            "returnParameters": {
+              "id": 3254,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "298:0:4"
+            },
+            "scope": 3263,
+            "src": "243:56:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d47b2e99",
+            "id": 3262,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "incrementMinutesPlayed",
+            "nameLocation": "313:22:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3260,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3257,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "344:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3262,
+                  "src": "336:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3256,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "336:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3259,
+                  "mutability": "mutable",
+                  "name": "_minutes",
+                  "nameLocation": "358:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3262,
+                  "src": "350:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3258,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "350:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "335:32:4"
+            },
+            "returnParameters": {
+              "id": 3261,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "376:0:4"
+            },
+            "scope": 3263,
+            "src": "304:73:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3481,
+        "src": "57:322:4",
+        "usedErrors": [],
+        "usedEvents": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "WhitelistTest",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 3480,
+        "linearizedBaseContracts": [
+          3480
+        ],
+        "name": "WhitelistTest",
+        "nameLocation": "390:13:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 3266,
+            "mutability": "mutable",
+            "name": "systemContract",
+            "nameLocation": "426:14:4",
+            "nodeType": "VariableDeclaration",
+            "scope": 3480,
+            "src": "410:30:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ISystemContract_$3263",
+              "typeString": "contract ISystemContract"
+            },
+            "typeName": {
+              "id": 3265,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 3264,
+                "name": "ISystemContract",
+                "nameLocations": [
+                  "410:15:4"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 3263,
+                "src": "410:15:4"
+              },
+              "referencedDeclaration": 3263,
+              "src": "410:15:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                "typeString": "contract ISystemContract"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "d353110df4eda5869325be482c3fdd2f26ccbccc779d11b2d7afac5c7c5eb19d",
+            "id": 3272,
+            "name": "OperationResult",
+            "nameLocation": "453:15:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3271,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3268,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "success",
+                  "nameLocation": "474:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3272,
+                  "src": "469:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3267,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "469:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3270,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "message",
+                  "nameLocation": "490:7:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3272,
+                  "src": "483:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3269,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "483:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "468:30:4"
+            },
+            "src": "447:52:4"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "f00fda5e9c179d3911a7894f0560c8ebfa4926cbcc2cf5169adb000b440cc9a4",
+            "id": 3278,
+            "name": "ErrorCaught",
+            "nameLocation": "510:11:4",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3277,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3274,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "action",
+                  "nameLocation": "529:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3278,
+                  "src": "522:13:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3273,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "522:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3276,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "error",
+                  "nameLocation": "544:5:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3278,
+                  "src": "537:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3275,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "537:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "521:29:4"
+            },
+            "src": "504:47:4"
+          },
+          {
+            "body": {
+              "id": 3289,
+              "nodeType": "Block",
+              "src": "602:73:4",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3287,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 3283,
+                      "name": "systemContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3266,
+                      "src": "612:14:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                        "typeString": "contract ISystemContract"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 3285,
+                          "name": "_systemContractAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3280,
+                          "src": "645:22:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3284,
+                        "name": "ISystemContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3263,
+                        "src": "629:15:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_ISystemContract_$3263_$",
+                          "typeString": "type(contract ISystemContract)"
+                        }
+                      },
+                      "id": 3286,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "629:39:4",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                        "typeString": "contract ISystemContract"
+                      }
+                    },
+                    "src": "612:56:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                      "typeString": "contract ISystemContract"
+                    }
+                  },
+                  "id": 3288,
+                  "nodeType": "ExpressionStatement",
+                  "src": "612:56:4"
+                }
+              ]
+            },
+            "id": 3290,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3281,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3280,
+                  "mutability": "mutable",
+                  "name": "_systemContractAddress",
+                  "nameLocation": "578:22:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3290,
+                  "src": "570:30:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3279,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "570:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "569:32:4"
+            },
+            "returnParameters": {
+              "id": 3282,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "602:0:4"
+            },
+            "scope": 3480,
+            "src": "558:117:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3337,
+              "nodeType": "Block",
+              "src": "759:504:4",
+              "statements": [
+                {
+                  "clauses": [
+                    {
+                      "block": {
+                        "id": 3307,
+                        "nodeType": "Block",
+                        "src": "821:87:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "74727565",
+                                  "id": 3303,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "856:4:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "true"
+                                },
+                                {
+                                  "hexValue": "41646472657373207375636365737366756c6c792077686974656c6973746564",
+                                  "id": 3304,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "862:34:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_e83ae73067ed9ccd5f9040e63539400651b2b64ef76b12a23d633ac1d9948c4b",
+                                    "typeString": "literal_string \"Address successfully whitelisted\""
+                                  },
+                                  "value": "Address successfully whitelisted"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_e83ae73067ed9ccd5f9040e63539400651b2b64ef76b12a23d633ac1d9948c4b",
+                                    "typeString": "literal_string \"Address successfully whitelisted\""
+                                  }
+                                ],
+                                "id": 3302,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "840:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3305,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "840:57:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3306,
+                            "nodeType": "EmitStatement",
+                            "src": "835:62:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3308,
+                      "nodeType": "TryCatchClause",
+                      "src": "821:87:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3322,
+                        "nodeType": "Block",
+                        "src": "943:123:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3313,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "978:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "id": 3314,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3310,
+                                  "src": "985:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3312,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "962:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3315,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "962:30:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3316,
+                            "nodeType": "EmitStatement",
+                            "src": "957:35:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "61646441646472657373546f57686974656c697374",
+                                  "id": 3318,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1023:23:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_647f1c156ddb497915994232476d3202d09fd4c0fd81e5fa828570b12798e350",
+                                    "typeString": "literal_string \"addAddressToWhitelist\""
+                                  },
+                                  "value": "addAddressToWhitelist"
+                                },
+                                {
+                                  "id": 3319,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3310,
+                                  "src": "1048:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_647f1c156ddb497915994232476d3202d09fd4c0fd81e5fa828570b12798e350",
+                                    "typeString": "literal_string \"addAddressToWhitelist\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3317,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "1011:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3320,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1011:44:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3321,
+                            "nodeType": "EmitStatement",
+                            "src": "1006:49:4"
+                          }
+                        ]
+                      },
+                      "errorName": "Error",
+                      "id": 3323,
+                      "nodeType": "TryCatchClause",
+                      "parameters": {
+                        "id": 3311,
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                          {
+                            "constant": false,
+                            "id": 3310,
+                            "mutability": "mutable",
+                            "name": "reason",
+                            "nameLocation": "935:6:4",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 3323,
+                            "src": "921:20:4",
+                            "stateVariable": false,
+                            "storageLocation": "memory",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string"
+                            },
+                            "typeName": {
+                              "id": 3309,
+                              "name": "string",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "921:6:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_storage_ptr",
+                                "typeString": "string"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "src": "920:22:4"
+                      },
+                      "src": "909:157:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3334,
+                        "nodeType": "Block",
+                        "src": "1073:184:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3325,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1108:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "hexValue": "616464546f57686974656c697374206661696c656420776974686f757420612073706563696669632072657665727420726561736f6e",
+                                  "id": 3326,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1115:56:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_e86157d3130416e2347cb8c832b9c775d4cc4222d9f3062508e8ba5f11d6000b",
+                                    "typeString": "literal_string \"addToWhitelist failed without a specific revert reason\""
+                                  },
+                                  "value": "addToWhitelist failed without a specific revert reason"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_e86157d3130416e2347cb8c832b9c775d4cc4222d9f3062508e8ba5f11d6000b",
+                                    "typeString": "literal_string \"addToWhitelist failed without a specific revert reason\""
+                                  }
+                                ],
+                                "id": 3324,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "1092:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3327,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1092:80:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3328,
+                            "nodeType": "EmitStatement",
+                            "src": "1087:85:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "61646441646472657373546f57686974656c697374",
+                                  "id": 3330,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1203:23:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_647f1c156ddb497915994232476d3202d09fd4c0fd81e5fa828570b12798e350",
+                                    "typeString": "literal_string \"addAddressToWhitelist\""
+                                  },
+                                  "value": "addAddressToWhitelist"
+                                },
+                                {
+                                  "hexValue": "556e6b6e6f776e206661696c757265",
+                                  "id": 3331,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1228:17:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  },
+                                  "value": "Unknown failure"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_647f1c156ddb497915994232476d3202d09fd4c0fd81e5fa828570b12798e350",
+                                    "typeString": "literal_string \"addAddressToWhitelist\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  }
+                                ],
+                                "id": 3329,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "1191:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3332,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1191:55:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3333,
+                            "nodeType": "EmitStatement",
+                            "src": "1186:60:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3335,
+                      "nodeType": "TryCatchClause",
+                      "src": "1067:190:4"
+                    }
+                  ],
+                  "externalCall": {
+                    "arguments": [
+                      {
+                        "id": 3299,
+                        "name": "_address",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3292,
+                        "src": "803:8:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 3300,
+                        "name": "anonID",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3294,
+                        "src": "813:6:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "expression": {
+                        "id": 3297,
+                        "name": "systemContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3266,
+                        "src": "773:14:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                          "typeString": "contract ISystemContract"
+                        }
+                      },
+                      "id": 3298,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "788:14:4",
+                      "memberName": "addToWhitelist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3243,
+                      "src": "773:29:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (address,string memory) external"
+                      }
+                    },
+                    "id": 3301,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "773:47:4",
+                    "tryCall": true,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3336,
+                  "nodeType": "TryStatement",
+                  "src": "769:488:4"
+                }
+              ]
+            },
+            "functionSelector": "e6d4d217",
+            "id": 3338,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addAddressToWhitelist",
+            "nameLocation": "690:21:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3295,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3292,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "720:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "712:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3291,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "712:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3294,
+                  "mutability": "mutable",
+                  "name": "anonID",
+                  "nameLocation": "744:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3338,
+                  "src": "730:20:4",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3293,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "730:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "711:40:4"
+            },
+            "returnParameters": {
+              "id": 3296,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "759:0:4"
+            },
+            "scope": 3480,
+            "src": "681:582:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3385,
+              "nodeType": "Block",
+              "src": "1338:507:4",
+              "statements": [
+                {
+                  "clauses": [
+                    {
+                      "block": {
+                        "id": 3355,
+                        "nodeType": "Block",
+                        "src": "1402:96:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "74727565",
+                                  "id": 3351,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1437:4:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "true"
+                                },
+                                {
+                                  "hexValue": "486f75726c79207472616e73616374696f6e2071756f746120736574207375636365737366756c6c79",
+                                  "id": 3352,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1443:43:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_4fc101370876bd0e23b71faa0d640165eadb5ae63be44508c2c13de37c98b0ca",
+                                    "typeString": "literal_string \"Hourly transaction quota set successfully\""
+                                  },
+                                  "value": "Hourly transaction quota set successfully"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_4fc101370876bd0e23b71faa0d640165eadb5ae63be44508c2c13de37c98b0ca",
+                                    "typeString": "literal_string \"Hourly transaction quota set successfully\""
+                                  }
+                                ],
+                                "id": 3350,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "1421:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3353,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1421:66:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3354,
+                            "nodeType": "EmitStatement",
+                            "src": "1416:71:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3356,
+                      "nodeType": "TryCatchClause",
+                      "src": "1402:96:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3370,
+                        "nodeType": "Block",
+                        "src": "1533:118:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3361,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1568:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "id": 3362,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3358,
+                                  "src": "1575:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3360,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "1552:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3363,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1552:30:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3364,
+                            "nodeType": "EmitStatement",
+                            "src": "1547:35:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "736574486f75726c79547851756f7461",
+                                  "id": 3366,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1613:18:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_910a31c7f44c5b1f10f150f6e3d98e3dd48be90485381736a908df1af20bde66",
+                                    "typeString": "literal_string \"setHourlyTxQuota\""
+                                  },
+                                  "value": "setHourlyTxQuota"
+                                },
+                                {
+                                  "id": 3367,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3358,
+                                  "src": "1633:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_910a31c7f44c5b1f10f150f6e3d98e3dd48be90485381736a908df1af20bde66",
+                                    "typeString": "literal_string \"setHourlyTxQuota\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3365,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "1601:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3368,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1601:39:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3369,
+                            "nodeType": "EmitStatement",
+                            "src": "1596:44:4"
+                          }
+                        ]
+                      },
+                      "errorName": "Error",
+                      "id": 3371,
+                      "nodeType": "TryCatchClause",
+                      "parameters": {
+                        "id": 3359,
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                          {
+                            "constant": false,
+                            "id": 3358,
+                            "mutability": "mutable",
+                            "name": "reason",
+                            "nameLocation": "1525:6:4",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 3371,
+                            "src": "1511:20:4",
+                            "stateVariable": false,
+                            "storageLocation": "memory",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string"
+                            },
+                            "typeName": {
+                              "id": 3357,
+                              "name": "string",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1511:6:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_storage_ptr",
+                                "typeString": "string"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "src": "1510:22:4"
+                      },
+                      "src": "1499:152:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3382,
+                        "nodeType": "Block",
+                        "src": "1658:181:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3373,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1693:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "hexValue": "736574486f75726c79547851756f7461206661696c656420776974686f757420612073706563696669632072657665727420726561736f6e",
+                                  "id": 3374,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1700:58:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_65938627728ce48738eb46fb0a83048fdb18627760191a56ce9c2a1a538fe1b7",
+                                    "typeString": "literal_string \"setHourlyTxQuota failed without a specific revert reason\""
+                                  },
+                                  "value": "setHourlyTxQuota failed without a specific revert reason"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_65938627728ce48738eb46fb0a83048fdb18627760191a56ce9c2a1a538fe1b7",
+                                    "typeString": "literal_string \"setHourlyTxQuota failed without a specific revert reason\""
+                                  }
+                                ],
+                                "id": 3372,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "1677:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3375,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1677:82:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3376,
+                            "nodeType": "EmitStatement",
+                            "src": "1672:87:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "736574486f75726c79547851756f7461",
+                                  "id": 3378,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1790:18:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_910a31c7f44c5b1f10f150f6e3d98e3dd48be90485381736a908df1af20bde66",
+                                    "typeString": "literal_string \"setHourlyTxQuota\""
+                                  },
+                                  "value": "setHourlyTxQuota"
+                                },
+                                {
+                                  "hexValue": "556e6b6e6f776e206661696c757265",
+                                  "id": 3379,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "1810:17:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  },
+                                  "value": "Unknown failure"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_910a31c7f44c5b1f10f150f6e3d98e3dd48be90485381736a908df1af20bde66",
+                                    "typeString": "literal_string \"setHourlyTxQuota\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  }
+                                ],
+                                "id": 3377,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "1778:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3380,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1778:50:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3381,
+                            "nodeType": "EmitStatement",
+                            "src": "1773:55:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3383,
+                      "nodeType": "TryCatchClause",
+                      "src": "1652:187:4"
+                    }
+                  ],
+                  "externalCall": {
+                    "arguments": [
+                      {
+                        "id": 3347,
+                        "name": "_address",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3340,
+                        "src": "1384:8:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 3348,
+                        "name": "_quota",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3342,
+                        "src": "1394:6:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 3345,
+                        "name": "systemContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3266,
+                        "src": "1352:14:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                          "typeString": "contract ISystemContract"
+                        }
+                      },
+                      "id": 3346,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1367:16:4",
+                      "memberName": "setHourlyTxQuota",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3250,
+                      "src": "1352:31:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256) external"
+                      }
+                    },
+                    "id": 3349,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1352:49:4",
+                    "tryCall": true,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3384,
+                  "nodeType": "TryStatement",
+                  "src": "1348:491:4"
+                }
+              ]
+            },
+            "functionSelector": "336e204f",
+            "id": 3386,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setQuotaForAddress",
+            "nameLocation": "1278:18:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3343,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3340,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "1305:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3386,
+                  "src": "1297:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3339,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1297:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3342,
+                  "mutability": "mutable",
+                  "name": "_quota",
+                  "nameLocation": "1323:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3386,
+                  "src": "1315:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3341,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1315:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1296:34:4"
+            },
+            "returnParameters": {
+              "id": 3344,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1338:0:4"
+            },
+            "scope": 3480,
+            "src": "1269:576:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3430,
+              "nodeType": "Block",
+              "src": "1912:513:4",
+              "statements": [
+                {
+                  "clauses": [
+                    {
+                      "block": {
+                        "id": 3400,
+                        "nodeType": "Block",
+                        "src": "1971:98:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "74727565",
+                                  "id": 3396,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2006:4:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "true"
+                                },
+                                {
+                                  "hexValue": "41646472657373207375636365737366756c6c792072656d6f7665642066726f6d2077686974656c697374",
+                                  "id": 3397,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2012:45:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_78f22eaa6c470651b3bcea0eed680ce76793055943050e6e036c8a1cd125286f",
+                                    "typeString": "literal_string \"Address successfully removed from whitelist\""
+                                  },
+                                  "value": "Address successfully removed from whitelist"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_78f22eaa6c470651b3bcea0eed680ce76793055943050e6e036c8a1cd125286f",
+                                    "typeString": "literal_string \"Address successfully removed from whitelist\""
+                                  }
+                                ],
+                                "id": 3395,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "1990:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3398,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1990:68:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3399,
+                            "nodeType": "EmitStatement",
+                            "src": "1985:73:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3401,
+                      "nodeType": "TryCatchClause",
+                      "src": "1971:98:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3415,
+                        "nodeType": "Block",
+                        "src": "2104:121:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3406,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2139:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "id": 3407,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3403,
+                                  "src": "2146:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3405,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "2123:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3408,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2123:30:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3409,
+                            "nodeType": "EmitStatement",
+                            "src": "2118:35:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "72656d6f766546726f6d57686974656c697374",
+                                  "id": 3411,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2184:21:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_693e9b5ccee83e1f4ec59278e74ba07381588c446e7eca3907e54b6fb784dc45",
+                                    "typeString": "literal_string \"removeFromWhitelist\""
+                                  },
+                                  "value": "removeFromWhitelist"
+                                },
+                                {
+                                  "id": 3412,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3403,
+                                  "src": "2207:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_693e9b5ccee83e1f4ec59278e74ba07381588c446e7eca3907e54b6fb784dc45",
+                                    "typeString": "literal_string \"removeFromWhitelist\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3410,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "2172:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3413,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2172:42:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3414,
+                            "nodeType": "EmitStatement",
+                            "src": "2167:47:4"
+                          }
+                        ]
+                      },
+                      "errorName": "Error",
+                      "id": 3416,
+                      "nodeType": "TryCatchClause",
+                      "parameters": {
+                        "id": 3404,
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                          {
+                            "constant": false,
+                            "id": 3403,
+                            "mutability": "mutable",
+                            "name": "reason",
+                            "nameLocation": "2096:6:4",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 3416,
+                            "src": "2082:20:4",
+                            "stateVariable": false,
+                            "storageLocation": "memory",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string"
+                            },
+                            "typeName": {
+                              "id": 3402,
+                              "name": "string",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "2082:6:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_storage_ptr",
+                                "typeString": "string"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "src": "2081:22:4"
+                      },
+                      "src": "2070:155:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3427,
+                        "nodeType": "Block",
+                        "src": "2232:187:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3418,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2267:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "hexValue": "72656d6f766546726f6d57686974656c697374206661696c656420776974686f757420612073706563696669632072657665727420726561736f6e",
+                                  "id": 3419,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2274:61:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_540f317f0429a2a3b69a108a30627a508466cae77dc9d4a2ba784898ec232dba",
+                                    "typeString": "literal_string \"removeFromWhitelist failed without a specific revert reason\""
+                                  },
+                                  "value": "removeFromWhitelist failed without a specific revert reason"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_540f317f0429a2a3b69a108a30627a508466cae77dc9d4a2ba784898ec232dba",
+                                    "typeString": "literal_string \"removeFromWhitelist failed without a specific revert reason\""
+                                  }
+                                ],
+                                "id": 3417,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "2251:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3420,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2251:85:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3421,
+                            "nodeType": "EmitStatement",
+                            "src": "2246:90:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "72656d6f766546726f6d57686974656c697374",
+                                  "id": 3423,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2367:21:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_693e9b5ccee83e1f4ec59278e74ba07381588c446e7eca3907e54b6fb784dc45",
+                                    "typeString": "literal_string \"removeFromWhitelist\""
+                                  },
+                                  "value": "removeFromWhitelist"
+                                },
+                                {
+                                  "hexValue": "556e6b6e6f776e206661696c757265",
+                                  "id": 3424,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2390:17:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  },
+                                  "value": "Unknown failure"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_693e9b5ccee83e1f4ec59278e74ba07381588c446e7eca3907e54b6fb784dc45",
+                                    "typeString": "literal_string \"removeFromWhitelist\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  }
+                                ],
+                                "id": 3422,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "2355:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3425,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2355:53:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3426,
+                            "nodeType": "EmitStatement",
+                            "src": "2350:58:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3428,
+                      "nodeType": "TryCatchClause",
+                      "src": "2226:193:4"
+                    }
+                  ],
+                  "externalCall": {
+                    "arguments": [
+                      {
+                        "id": 3393,
+                        "name": "_address",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3388,
+                        "src": "1961:8:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "id": 3391,
+                        "name": "systemContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3266,
+                        "src": "1926:14:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                          "typeString": "contract ISystemContract"
+                        }
+                      },
+                      "id": 3392,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1941:19:4",
+                      "memberName": "removeFromWhitelist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3255,
+                      "src": "1926:34:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address) external"
+                      }
+                    },
+                    "id": 3394,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1926:44:4",
+                    "tryCall": true,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3429,
+                  "nodeType": "TryStatement",
+                  "src": "1922:497:4"
+                }
+              ]
+            },
+            "functionSelector": "286dd3f5",
+            "id": 3431,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeAddressFromWhitelist",
+            "nameLocation": "1860:26:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3389,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3388,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "1895:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3431,
+                  "src": "1887:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3387,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1887:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1886:18:4"
+            },
+            "returnParameters": {
+              "id": 3390,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1912:0:4"
+            },
+            "scope": 3480,
+            "src": "1851:574:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3478,
+              "nodeType": "Block",
+              "src": "2496:509:4",
+              "statements": [
+                {
+                  "clauses": [
+                    {
+                      "block": {
+                        "id": 3448,
+                        "nodeType": "Block",
+                        "src": "2564:88:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "74727565",
+                                  "id": 3444,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2599:4:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "true"
+                                },
+                                {
+                                  "hexValue": "4d696e7574657320706c61796564206164646564207375636365737366756c6c79",
+                                  "id": 3445,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2605:35:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_ebf80b334a03d4578b35cccc48acea7cebad5bff8eee72b880ebb8e03684e1fb",
+                                    "typeString": "literal_string \"Minutes played added successfully\""
+                                  },
+                                  "value": "Minutes played added successfully"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_ebf80b334a03d4578b35cccc48acea7cebad5bff8eee72b880ebb8e03684e1fb",
+                                    "typeString": "literal_string \"Minutes played added successfully\""
+                                  }
+                                ],
+                                "id": 3443,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "2583:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3446,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2583:58:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3447,
+                            "nodeType": "EmitStatement",
+                            "src": "2578:63:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3449,
+                      "nodeType": "TryCatchClause",
+                      "src": "2564:88:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3463,
+                        "nodeType": "Block",
+                        "src": "2687:118:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3454,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2722:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "id": 3455,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3451,
+                                  "src": "2729:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3453,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "2706:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3456,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2706:30:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3457,
+                            "nodeType": "EmitStatement",
+                            "src": "2701:35:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "6164644d696e75746573506c61796564",
+                                  "id": 3459,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2767:18:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_de16af5a78bc74b39a422c6a57cf1b62c503e24067b4e82cdb5b93a306a7efdb",
+                                    "typeString": "literal_string \"addMinutesPlayed\""
+                                  },
+                                  "value": "addMinutesPlayed"
+                                },
+                                {
+                                  "id": 3460,
+                                  "name": "reason",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3451,
+                                  "src": "2787:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_de16af5a78bc74b39a422c6a57cf1b62c503e24067b4e82cdb5b93a306a7efdb",
+                                    "typeString": "literal_string \"addMinutesPlayed\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_string_memory_ptr",
+                                    "typeString": "string memory"
+                                  }
+                                ],
+                                "id": 3458,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "2755:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3461,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2755:39:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3462,
+                            "nodeType": "EmitStatement",
+                            "src": "2750:44:4"
+                          }
+                        ]
+                      },
+                      "errorName": "Error",
+                      "id": 3464,
+                      "nodeType": "TryCatchClause",
+                      "parameters": {
+                        "id": 3452,
+                        "nodeType": "ParameterList",
+                        "parameters": [
+                          {
+                            "constant": false,
+                            "id": 3451,
+                            "mutability": "mutable",
+                            "name": "reason",
+                            "nameLocation": "2679:6:4",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 3464,
+                            "src": "2665:20:4",
+                            "stateVariable": false,
+                            "storageLocation": "memory",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string"
+                            },
+                            "typeName": {
+                              "id": 3450,
+                              "name": "string",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "2665:6:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_storage_ptr",
+                                "typeString": "string"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "src": "2664:22:4"
+                      },
+                      "src": "2653:152:4"
+                    },
+                    {
+                      "block": {
+                        "id": 3475,
+                        "nodeType": "Block",
+                        "src": "2812:187:4",
+                        "statements": [
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "66616c7365",
+                                  "id": 3466,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2847:5:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "false"
+                                },
+                                {
+                                  "hexValue": "696e6372656d656e744d696e75746573506c61796564206661696c656420776974686f757420612073706563696669632072657665727420726561736f6e",
+                                  "id": 3467,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2854:64:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_32194790b92a03473e59b8b4ea507c305df18f834595a1cd1e92d97a9c1ac811",
+                                    "typeString": "literal_string \"incrementMinutesPlayed failed without a specific revert reason\""
+                                  },
+                                  "value": "incrementMinutesPlayed failed without a specific revert reason"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_32194790b92a03473e59b8b4ea507c305df18f834595a1cd1e92d97a9c1ac811",
+                                    "typeString": "literal_string \"incrementMinutesPlayed failed without a specific revert reason\""
+                                  }
+                                ],
+                                "id": 3465,
+                                "name": "OperationResult",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3272,
+                                "src": "2831:15:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (bool,string memory)"
+                                }
+                              },
+                              "id": 3468,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2831:88:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3469,
+                            "nodeType": "EmitStatement",
+                            "src": "2826:93:4"
+                          },
+                          {
+                            "eventCall": {
+                              "arguments": [
+                                {
+                                  "hexValue": "6164644d696e75746573506c61796564",
+                                  "id": 3471,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2950:18:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_de16af5a78bc74b39a422c6a57cf1b62c503e24067b4e82cdb5b93a306a7efdb",
+                                    "typeString": "literal_string \"addMinutesPlayed\""
+                                  },
+                                  "value": "addMinutesPlayed"
+                                },
+                                {
+                                  "hexValue": "556e6b6e6f776e206661696c757265",
+                                  "id": 3472,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "string",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "2970:17:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  },
+                                  "value": "Unknown failure"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_stringliteral_de16af5a78bc74b39a422c6a57cf1b62c503e24067b4e82cdb5b93a306a7efdb",
+                                    "typeString": "literal_string \"addMinutesPlayed\""
+                                  },
+                                  {
+                                    "typeIdentifier": "t_stringliteral_26d5f933fb41e122f7a1910d537be39c43ca718dafb84bd05366685b89ef4a6e",
+                                    "typeString": "literal_string \"Unknown failure\""
+                                  }
+                                ],
+                                "id": 3470,
+                                "name": "ErrorCaught",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3278,
+                                "src": "2938:11:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                                  "typeString": "function (string memory,string memory)"
+                                }
+                              },
+                              "id": 3473,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2938:50:4",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_tuple$__$",
+                                "typeString": "tuple()"
+                              }
+                            },
+                            "id": 3474,
+                            "nodeType": "EmitStatement",
+                            "src": "2933:55:4"
+                          }
+                        ]
+                      },
+                      "errorName": "",
+                      "id": 3476,
+                      "nodeType": "TryCatchClause",
+                      "src": "2806:193:4"
+                    }
+                  ],
+                  "externalCall": {
+                    "arguments": [
+                      {
+                        "id": 3440,
+                        "name": "user",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3433,
+                        "src": "2548:4:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 3441,
+                        "name": "_minutes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3435,
+                        "src": "2554:8:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 3438,
+                        "name": "systemContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3266,
+                        "src": "2510:14:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ISystemContract_$3263",
+                          "typeString": "contract ISystemContract"
+                        }
+                      },
+                      "id": 3439,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "2525:22:4",
+                      "memberName": "incrementMinutesPlayed",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3262,
+                      "src": "2510:37:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256) external"
+                      }
+                    },
+                    "id": 3442,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2510:53:4",
+                    "tryCall": true,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 3477,
+                  "nodeType": "TryStatement",
+                  "src": "2506:493:4"
+                }
+              ]
+            },
+            "functionSelector": "06d6e51e",
+            "id": 3479,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addMinutesPlayed",
+            "nameLocation": "2440:16:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3436,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3433,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "2465:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3479,
+                  "src": "2457:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3432,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2457:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3435,
+                  "mutability": "mutable",
+                  "name": "_minutes",
+                  "nameLocation": "2479:8:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3479,
+                  "src": "2471:16:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3434,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2471:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2456:32:4"
+            },
+            "returnParameters": {
+              "id": 3437,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2496:0:4"
+            },
+            "scope": 3480,
+            "src": "2431:574:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3481,
+        "src": "381:2626:4",
+        "usedErrors": [],
+        "usedEvents": [
+          3272,
+          3278
+        ]
+      }
+    ],
+    "src": "32:2975:4"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.21+commit.d9974bed"
+  },
+  "contractName": "ISystemContract",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    57,
+    379
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "e6f1ae32c49d014678f56f8907962978fd64c2fa",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface ISystemContract {\n    function addToWhitelist(address _address, string calldata anonID) external;\n    function setHourlyTxQuota(address _address, uint256 _quota) external;\n    function removeFromWhitelist(address _address) external;\n    function incrementMinutesPlayed(address user, uint256 _minutes) external;\n}\n\ncontract WhitelistTest {\n    ISystemContract systemContract;\n\n    event OperationResult(bool success, string message);\n    event ErrorCaught(string action, string error);\n\n\n    constructor(address _systemContractAddress) {\n        systemContract = ISystemContract(_systemContractAddress);\n    }\n\n    function addAddressToWhitelist(address _address, string memory anonID) public {\n        try systemContract.addToWhitelist(_address, anonID) {\n            emit OperationResult(true, \"Address successfully whitelisted\");\n        } catch Error(string memory reason) {\n            emit OperationResult(false, reason);\n            emit ErrorCaught(\"addAddressToWhitelist\", reason);\n        } catch {\n            emit OperationResult(false, \"addToWhitelist failed without a specific revert reason\");\n            emit ErrorCaught(\"addAddressToWhitelist\", \"Unknown failure\");\n        }\n    }\n\n    function setQuotaForAddress(address _address, uint256 _quota) public {\n        try systemContract.setHourlyTxQuota(_address, _quota) {\n            emit OperationResult(true, \"Hourly transaction quota set successfully\");\n        } catch Error(string memory reason) {\n            emit OperationResult(false, reason);\n            emit ErrorCaught(\"setHourlyTxQuota\", reason);\n        } catch {\n            emit OperationResult(false, \"setHourlyTxQuota failed without a specific revert reason\");\n            emit ErrorCaught(\"setHourlyTxQuota\", \"Unknown failure\");\n        }\n    }\n\n    function removeAddressFromWhitelist(address _address) public {\n        try systemContract.removeFromWhitelist(_address) {\n            emit OperationResult(true, \"Address successfully removed from whitelist\");\n        } catch Error(string memory reason) {\n            emit OperationResult(false, reason);\n            emit ErrorCaught(\"removeFromWhitelist\", reason);\n        } catch {\n            emit OperationResult(false, \"removeFromWhitelist failed without a specific revert reason\");\n            emit ErrorCaught(\"removeFromWhitelist\", \"Unknown failure\");\n        }\n    }\n\n    function addMinutesPlayed(address user, uint256 _minutes) public {\n        try systemContract.incrementMinutesPlayed(user, _minutes) {\n            emit OperationResult(true, \"Minutes played added successfully\");\n        } catch Error(string memory reason) {\n            emit OperationResult(false, reason);\n            emit ErrorCaught(\"addMinutesPlayed\", reason);\n        } catch {\n            emit OperationResult(false, \"incrementMinutesPlayed failed without a specific revert reason\");\n            emit ErrorCaught(\"addMinutesPlayed\", \"Unknown failure\");\n        }\n    }\n}",
+  "sourceMap": "",
+  "sourcePath": "contracts/Whitelist_test.sol",
+  "type": "interface"
+}

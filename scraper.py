@@ -29,7 +29,7 @@ known_players = [
     "El Toad", "Eva_Unit01", "O'Malley de Bough", "Sirius", "Filthy Hope",
     "Flaky", "non", "PhoenixIsFallen", "HOT BEEF INJECTION", "Largeish Beans",
     "robespierre", "Bucknasty", "Loki", "Noxus", "Yeb AFK",
-    "Jeffafa AFK", "not a fed"
+    "Jeffafa AFK", "not a fed", "legopowa"
 ]
 
 

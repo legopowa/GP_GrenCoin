@@ -31,7 +31,7 @@ contract GP_Mint {
     event AuthorizedMinterSet(address indexed minter);
     event AuthorizedMinterRemoved(address indexed minter);
     constructor() {
-        lamportBase = ILamportBase(0xdECf3A7af8072809C1955180d4d73c6d2c3F6e07);
+        lamportBase = ILamportBase(0x59186A1dc8254F217Fa62a4f75F2F0799962FB4e);
         _name = "GPGrens";
         _symbol = "GPG";
         _initializeMintProcess();
