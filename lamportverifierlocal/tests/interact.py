@@ -253,7 +253,7 @@ kt.save(True)
 
 message = f"Hello, World! {sentence()}"
 
-packed = web3.solidityKeccak(['string', 'bytes32[2][256]'], [message, newkeys.pub])
+packed = web3.solidity_keccak(['string', 'bytes32[2][256]'], [message, newkeys.pub])
 hashed = hash_b(packed)
 sig = sign_hash(hashed, oldkeys.pri)
 

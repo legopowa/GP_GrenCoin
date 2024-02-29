@@ -35,7 +35,7 @@ class LamportTest:
             nextpkh = KeyTracker.pkhFromPublicKey(next_keys.pub)
 
             messageToBroadcast = lorem.sentence()
-            packed = web3.solidityKeccak(['string', 'bytes32'], [messageToBroadcast, nextpkh])
+            packed = web3.solidity_keccak(['string', 'bytes32'], [messageToBroadcast, nextpkh])
             callhash = hash_b(encode_hex(packed))
             sig = sign_hash(callhash, current_keys.pri)
 
