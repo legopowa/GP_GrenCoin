@@ -2,6 +2,21 @@
 
 pragma solidity ^0.8.0;
 
+interface ILamportBase {
+    function performLamportMasterCheck(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        bytes memory prepacked
+    ) external returns (bool);
+    
+    function performLamportOracleCheck(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        bytes memory prepacked
+    ) external returns (bool);
+}
 
 interface IAnonID {
     function incrementMinutesPlayed(address user, uint256 _minutes) external;
@@ -35,6 +50,7 @@ contract PlayerDatabase  {
         bytes32 forumKey; // Unique key for forum entitlements
         string steamID;
         address rewardAddress;
+        uint256 oracleKeyIndex;
     }
 
     mapping(address => Player) public playerData;
@@ -45,6 +61,8 @@ contract PlayerDatabase  {
     IAnonID public anonIDContract; // Reference to the AnonID contract
     address public onrampContract; // Address of the onramp contract
     address public forumContract; // Address of the forum contract
+    ILamportBase public lamportBase; // Reference to the lamportBase contract
+
 
     // Events
     event ForumContractUpdated(address indexed newForumContract);
@@ -53,10 +71,15 @@ contract PlayerDatabase  {
     event OnrampContractUpdated(address indexed newOnrampContract);
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
+    
+    address _lamportBase = 0x59186A1dc8254F217Fa62a4f75F2F0799962FB4e;
 
     // Constructor
     //constructor(string memory _name, string memory _symbol, uint8 _decimals) { //}, uint256 _totalSupply) {
     constructor() {
+
+        lamportBase = ILamportBase(_lamportBase);
+
         // name = "GPConcs";
         // symbol = "GPConcs";
         // decimals = 18;
@@ -88,6 +111,9 @@ contract PlayerDatabase  {
     //     return rewardAddresses;
     // }
     function getValidRewardAddressesByNames(string[] memory playerNames, uint256 lastMintTime) public returns (address[] memory) {
+
+        require(msg.sender == gameValContract, "Only the game validator contract can access this list");
+    
         address[] memory validRewardAddresses = new address[](playerNames.length);
 
         for (uint i = 0; i < playerNames.length; i++) {
@@ -182,7 +208,15 @@ contract PlayerDatabase  {
     //         playerAddresses.push(_address);
     //     }
     // }
-    function addOrUpdatePlayer(address _address, string memory _steamID, bool _isValidator, string memory _playerName) public {
+    function addOrUpdatePlayer(
+        address _address,
+        string memory _steamID,
+        bool _isValidator,
+        string memory _playerName,
+        uint256 _oracleKeyIndex // Revert for new players if this is 0
+    ) 
+        public 
+    {
         require(msg.sender == onrampContract, "Only the onramp contract can add/update players");
         require(anonIDContract.isWhitelisted(_address), "Address not whitelisted in AnonID");
 
@@ -191,26 +225,33 @@ contract PlayerDatabase  {
             // Update existing player data
             player.steamID = _steamID;
             player.isValidator = _isValidator;
-            //player.isRegistered = _isRegistered;
             player.playerName = _playerName;
-            // Update other fields as necessary
+            // If _oracleKeyIndex is not 0, update the oracleKeyIndex. Otherwise, leave it unchanged.
+            if (_oracleKeyIndex != 0) {
+                player.oracleKeyIndex = _oracleKeyIndex;
+            }
+            // No additional action required for existing players with _oracleKeyIndex = 0
         } else {
-            // Add new player
+            // For a new player, revert the transaction if _oracleKeyIndex is 0
+            require(_oracleKeyIndex != 0, "Oracle key index cannot be zero for new players");
+
+            // Since we're here, _oracleKeyIndex is guaranteed not to be 0
             playerData[_address] = Player({
                 steamID: _steamID,
                 isValidator: _isValidator,
                 isRegistered: true,
                 rewardAddress: _address,
                 playerName: _playerName,
-                // Initialize other fields as necessary
                 isModerator: false,
                 isTourneyMod: false,
                 isGameAdmin: false,
-                forumKey: 0
+                forumKey: 0,
+                oracleKeyIndex: _oracleKeyIndex // Directly set the provided index
             });
             playerAddresses.push(_address);
         }
     }
+
 
     // Function to delete a player by address
     function deletePlayer(address _address) public {

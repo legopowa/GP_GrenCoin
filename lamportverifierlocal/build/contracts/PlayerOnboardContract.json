@@ -170,24 +170,24 @@
     }
   ],
   "allSourcePaths": {
-    "1": "contracts/5_GP_Onboard.sol"
+    "4": "contracts/5_GP_Onboard.sol"
   },
   "ast": {
     "absolutePath": "contracts/5_GP_Onboard.sol",
     "exportedSymbols": {
       "IPlayerDatabase": [
-        785
+        3742
       ],
       "PlayerOnboardContract": [
-        924
+        3881
       ]
     },
-    "id": 925,
+    "id": 3882,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 754,
+        "id": 3711,
         "literals": [
           "solidity",
           "^",
@@ -195,7 +195,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:23:1"
+        "src": "33:23:4"
       },
       {
         "abstract": false,
@@ -204,36 +204,36 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 785,
+        "id": 3742,
         "linearizedBaseContracts": [
-          785
+          3742
         ],
         "name": "IPlayerDatabase",
-        "nameLocation": "243:15:1",
+        "nameLocation": "243:15:4",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "43a9c978",
-            "id": 765,
+            "id": 3722,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "addOrUpdatePlayer",
-            "nameLocation": "274:17:1",
+            "nameLocation": "274:17:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 763,
+              "id": 3720,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 756,
+                  "id": 3713,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "300:8:1",
+                  "nameLocation": "300:8:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 765,
-                  "src": "292:16:1",
+                  "scope": 3722,
+                  "src": "292:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -241,10 +241,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 755,
+                    "id": 3712,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "292:7:1",
+                    "src": "292:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -255,13 +255,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 758,
+                  "id": 3715,
                   "mutability": "mutable",
                   "name": "_steamID",
-                  "nameLocation": "326:8:1",
+                  "nameLocation": "326:8:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 765,
-                  "src": "310:24:1",
+                  "scope": 3722,
+                  "src": "310:24:4",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -269,10 +269,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 757,
+                    "id": 3714,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "310:6:1",
+                    "src": "310:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -282,13 +282,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 760,
+                  "id": 3717,
                   "mutability": "mutable",
                   "name": "_isValidator",
-                  "nameLocation": "341:12:1",
+                  "nameLocation": "341:12:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 765,
-                  "src": "336:17:1",
+                  "scope": 3722,
+                  "src": "336:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -296,10 +296,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 759,
+                    "id": 3716,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "336:4:1",
+                    "src": "336:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -309,13 +309,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 762,
+                  "id": 3719,
                   "mutability": "mutable",
                   "name": "_playerName",
-                  "nameLocation": "369:11:1",
+                  "nameLocation": "369:11:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 765,
-                  "src": "355:25:1",
+                  "scope": 3722,
+                  "src": "355:25:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -323,10 +323,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 761,
+                    "id": 3718,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "355:6:1",
+                    "src": "355:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -335,42 +335,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "291:90:1"
+              "src": "291:90:4"
             },
             "returnParameters": {
-              "id": 764,
+              "id": 3721,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "390:0:1"
+              "src": "390:0:4"
             },
-            "scope": 785,
-            "src": "265:126:1",
+            "scope": 3742,
+            "src": "265:126:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "12243b67",
-            "id": 770,
+            "id": 3727,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "deletePlayer",
-            "nameLocation": "405:12:1",
+            "nameLocation": "405:12:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 768,
+              "id": 3725,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 767,
+                  "id": 3724,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "426:8:1",
+                  "nameLocation": "426:8:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 770,
-                  "src": "418:16:1",
+                  "scope": 3727,
+                  "src": "418:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -378,10 +378,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 766,
+                    "id": 3723,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "418:7:1",
+                    "src": "418:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -391,42 +391,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "417:18:1"
+              "src": "417:18:4"
             },
             "returnParameters": {
-              "id": 769,
+              "id": 3726,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "444:0:1"
+              "src": "444:0:4"
             },
-            "scope": 785,
-            "src": "396:49:1",
+            "scope": 3742,
+            "src": "396:49:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "5889fb34",
-            "id": 777,
+            "id": 3734,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setGameAdminStatus",
-            "nameLocation": "551:18:1",
+            "nameLocation": "551:18:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 775,
+              "id": 3732,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 772,
+                  "id": 3729,
                   "mutability": "mutable",
                   "name": "admin",
-                  "nameLocation": "578:5:1",
+                  "nameLocation": "578:5:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 777,
-                  "src": "570:13:1",
+                  "scope": 3734,
+                  "src": "570:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -434,10 +434,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 771,
+                    "id": 3728,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "570:7:1",
+                    "src": "570:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -448,13 +448,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 774,
+                  "id": 3731,
                   "mutability": "mutable",
                   "name": "status",
-                  "nameLocation": "590:6:1",
+                  "nameLocation": "590:6:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 777,
-                  "src": "585:11:1",
+                  "scope": 3734,
+                  "src": "585:11:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -462,10 +462,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 773,
+                    "id": 3730,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "585:4:1",
+                    "src": "585:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -474,42 +474,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "569:28:1"
+              "src": "569:28:4"
             },
             "returnParameters": {
-              "id": 776,
+              "id": 3733,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "606:0:1"
+              "src": "606:0:4"
             },
-            "scope": 785,
-            "src": "542:65:1",
+            "scope": 3742,
+            "src": "542:65:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "aca2490b",
-            "id": 784,
+            "id": 3741,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setValidatorStatus",
-            "nameLocation": "621:18:1",
+            "nameLocation": "621:18:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 782,
+              "id": 3739,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 779,
+                  "id": 3736,
                   "mutability": "mutable",
                   "name": "validator",
-                  "nameLocation": "648:9:1",
+                  "nameLocation": "648:9:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 784,
-                  "src": "640:17:1",
+                  "scope": 3741,
+                  "src": "640:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -517,10 +517,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 778,
+                    "id": 3735,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "640:7:1",
+                    "src": "640:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -531,13 +531,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 781,
+                  "id": 3738,
                   "mutability": "mutable",
                   "name": "status",
-                  "nameLocation": "664:6:1",
+                  "nameLocation": "664:6:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 784,
-                  "src": "659:11:1",
+                  "scope": 3741,
+                  "src": "659:11:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -545,10 +545,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 780,
+                    "id": 3737,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "659:4:1",
+                    "src": "659:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -557,23 +557,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "639:32:1"
+              "src": "639:32:4"
             },
             "returnParameters": {
-              "id": 783,
+              "id": 3740,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "680:0:1"
+              "src": "680:0:4"
             },
-            "scope": 785,
-            "src": "612:69:1",
+            "scope": 3742,
+            "src": "612:69:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 925,
-        "src": "233:451:1",
+        "scope": 3882,
+        "src": "233:451:4",
         "usedErrors": [],
         "usedEvents": []
       },
@@ -584,47 +584,47 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 924,
+        "id": 3881,
         "linearizedBaseContracts": [
-          924
+          3881
         ],
         "name": "PlayerOnboardContract",
-        "nameLocation": "695:21:1",
+        "nameLocation": "695:21:4",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
             "functionSelector": "cb744993",
-            "id": 788,
+            "id": 3745,
             "mutability": "mutable",
             "name": "playerDatabase",
-            "nameLocation": "746:14:1",
+            "nameLocation": "746:14:4",
             "nodeType": "VariableDeclaration",
-            "scope": 924,
-            "src": "723:37:1",
+            "scope": 3881,
+            "src": "723:37:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+              "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
               "typeString": "contract IPlayerDatabase"
             },
             "typeName": {
-              "id": 787,
+              "id": 3744,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 786,
+                "id": 3743,
                 "name": "IPlayerDatabase",
                 "nameLocations": [
-                  "723:15:1"
+                  "723:15:4"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 785,
-                "src": "723:15:1"
+                "referencedDeclaration": 3742,
+                "src": "723:15:4"
               },
-              "referencedDeclaration": 785,
-              "src": "723:15:1",
+              "referencedDeclaration": 3742,
+              "src": "723:15:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                 "typeString": "contract IPlayerDatabase"
               }
             },
@@ -633,24 +633,24 @@
           {
             "anonymous": false,
             "eventSelector": "8e30371244f1db40392ee88b22115d21957f87a855479908276aa4055f29fa1b",
-            "id": 798,
+            "id": 3755,
             "name": "PlayerOnboarded",
-            "nameLocation": "773:15:1",
+            "nameLocation": "773:15:4",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 797,
+              "id": 3754,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 790,
+                  "id": 3747,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "playerAddress",
-                  "nameLocation": "805:13:1",
+                  "nameLocation": "805:13:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 798,
-                  "src": "789:29:1",
+                  "scope": 3755,
+                  "src": "789:29:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -658,10 +658,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 789,
+                    "id": 3746,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "789:7:1",
+                    "src": "789:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -672,14 +672,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 792,
+                  "id": 3749,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "steamID",
-                  "nameLocation": "827:7:1",
+                  "nameLocation": "827:7:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 798,
-                  "src": "820:14:1",
+                  "scope": 3755,
+                  "src": "820:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -687,10 +687,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 791,
+                    "id": 3748,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "820:6:1",
+                    "src": "820:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -700,14 +700,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 794,
+                  "id": 3751,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "isValidator",
-                  "nameLocation": "841:11:1",
+                  "nameLocation": "841:11:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 798,
-                  "src": "836:16:1",
+                  "scope": 3755,
+                  "src": "836:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -715,10 +715,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 793,
+                    "id": 3750,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "836:4:1",
+                    "src": "836:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -728,14 +728,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 796,
+                  "id": 3753,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "_playerName",
-                  "nameLocation": "861:11:1",
+                  "nameLocation": "861:11:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 798,
-                  "src": "854:18:1",
+                  "scope": 3755,
+                  "src": "854:18:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -743,10 +743,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 795,
+                    "id": 3752,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "854:6:1",
+                    "src": "854:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -755,31 +755,31 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "788:85:1"
+              "src": "788:85:4"
             },
-            "src": "767:107:1"
+            "src": "767:107:4"
           },
           {
             "anonymous": false,
             "eventSelector": "9ac3117b086b001d2bcd36ff49e64f86a26f25d7c9ff453e9dbd9d496b8bf084",
-            "id": 802,
+            "id": 3759,
             "name": "PlayerRemoved",
-            "nameLocation": "885:13:1",
+            "nameLocation": "885:13:4",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 801,
+              "id": 3758,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 800,
+                  "id": 3757,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "deletedPlayerAddress",
-                  "nameLocation": "915:20:1",
+                  "nameLocation": "915:20:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 802,
-                  "src": "899:36:1",
+                  "scope": 3759,
+                  "src": "899:36:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -787,10 +787,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 799,
+                    "id": 3756,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "899:7:1",
+                    "src": "899:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -800,19 +800,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "898:38:1"
+              "src": "898:38:4"
             },
-            "src": "879:58:1"
+            "src": "879:58:4"
           },
           {
             "constant": false,
-            "id": 805,
+            "id": 3762,
             "mutability": "mutable",
             "name": "_playerDatabaseAddress",
-            "nameLocation": "950:22:1",
+            "nameLocation": "950:22:4",
             "nodeType": "VariableDeclaration",
-            "scope": 924,
-            "src": "942:75:1",
+            "scope": 3881,
+            "src": "942:75:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -820,10 +820,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 803,
+              "id": 3760,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "942:7:1",
+              "src": "942:7:4",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -832,14 +832,14 @@
             },
             "value": {
               "hexValue": "307842303341366146643434306132613964623838333446314136303933363830663032663131313443",
-              "id": 804,
+              "id": 3761,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "975:42:1",
+              "src": "975:42:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -850,26 +850,26 @@
           },
           {
             "body": {
-              "id": 814,
+              "id": 3771,
               "nodeType": "Block",
-              "src": "1038:73:1",
+              "src": "1038:73:4",
               "statements": [
                 {
                   "expression": {
-                    "id": 812,
+                    "id": 3769,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 808,
+                      "id": 3765,
                       "name": "playerDatabase",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 788,
-                      "src": "1048:14:1",
+                      "referencedDeclaration": 3745,
+                      "src": "1048:14:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                        "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                         "typeString": "contract IPlayerDatabase"
                       }
                     },
@@ -878,12 +878,12 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 810,
+                          "id": 3767,
                           "name": "_playerDatabaseAddress",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 805,
-                          "src": "1081:22:1",
+                          "referencedDeclaration": 3762,
+                          "src": "1081:22:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -897,18 +897,18 @@
                             "typeString": "address"
                           }
                         ],
-                        "id": 809,
+                        "id": 3766,
                         "name": "IPlayerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 785,
-                        "src": "1065:15:1",
+                        "referencedDeclaration": 3742,
+                        "src": "1065:15:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IPlayerDatabase_$785_$",
+                          "typeIdentifier": "t_type$_t_contract$_IPlayerDatabase_$3742_$",
                           "typeString": "type(contract IPlayerDatabase)"
                         }
                       },
-                      "id": 811,
+                      "id": 3768,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -917,26 +917,26 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1065:39:1",
+                      "src": "1065:39:4",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                        "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                         "typeString": "contract IPlayerDatabase"
                       }
                     },
-                    "src": "1048:56:1",
+                    "src": "1048:56:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                      "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                       "typeString": "contract IPlayerDatabase"
                     }
                   },
-                  "id": 813,
+                  "id": 3770,
                   "nodeType": "ExpressionStatement",
-                  "src": "1048:56:1"
+                  "src": "1048:56:4"
                 }
               ]
             },
-            "id": 815,
+            "id": 3772,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -944,75 +944,75 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 806,
+              "id": 3763,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1035:2:1"
+              "src": "1035:2:4"
             },
             "returnParameters": {
-              "id": 807,
+              "id": 3764,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1038:0:1"
+              "src": "1038:0:4"
             },
-            "scope": 924,
-            "src": "1024:87:1",
+            "scope": 3881,
+            "src": "1024:87:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 842,
+              "id": 3799,
               "nodeType": "Block",
-              "src": "1237:231:1",
+              "src": "1237:231:4",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 829,
+                        "id": 3786,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 817,
-                        "src": "1338:8:1",
+                        "referencedDeclaration": 3774,
+                        "src": "1338:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         }
                       },
                       {
-                        "id": 830,
+                        "id": 3787,
                         "name": "_steamID",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 819,
-                        "src": "1348:8:1",
+                        "referencedDeclaration": 3776,
+                        "src": "1348:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_calldata_ptr",
                           "typeString": "string calldata"
                         }
                       },
                       {
-                        "id": 831,
+                        "id": 3788,
                         "name": "_isValidator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 821,
-                        "src": "1358:12:1",
+                        "referencedDeclaration": 3778,
+                        "src": "1358:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         }
                       },
                       {
-                        "id": 832,
+                        "id": 3789,
                         "name": "_playerName",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 823,
-                        "src": "1372:11:1",
+                        "referencedDeclaration": 3780,
+                        "src": "1372:11:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
                           "typeString": "string memory"
@@ -1039,33 +1039,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 826,
+                        "id": 3783,
                         "name": "playerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 788,
-                        "src": "1305:14:1",
+                        "referencedDeclaration": 3745,
+                        "src": "1305:14:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                          "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                           "typeString": "contract IPlayerDatabase"
                         }
                       },
-                      "id": 828,
+                      "id": 3785,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "1320:17:1",
+                      "memberLocation": "1320:17:4",
                       "memberName": "addOrUpdatePlayer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 765,
-                      "src": "1305:32:1",
+                      "referencedDeclaration": 3722,
+                      "src": "1305:32:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_string_memory_ptr_$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,string memory,bool,string memory) external"
                       }
                     },
-                    "id": 833,
+                    "id": 3790,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1074,63 +1074,63 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1305:79:1",
+                    "src": "1305:79:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 834,
+                  "id": 3791,
                   "nodeType": "ExpressionStatement",
-                  "src": "1305:79:1"
+                  "src": "1305:79:4"
                 },
                 {
                   "eventCall": {
                     "arguments": [
                       {
-                        "id": 836,
+                        "id": 3793,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 817,
-                        "src": "1415:8:1",
+                        "referencedDeclaration": 3774,
+                        "src": "1415:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         }
                       },
                       {
-                        "id": 837,
+                        "id": 3794,
                         "name": "_steamID",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 819,
-                        "src": "1425:8:1",
+                        "referencedDeclaration": 3776,
+                        "src": "1425:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_calldata_ptr",
                           "typeString": "string calldata"
                         }
                       },
                       {
-                        "id": 838,
+                        "id": 3795,
                         "name": "_isValidator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 821,
-                        "src": "1435:12:1",
+                        "referencedDeclaration": 3778,
+                        "src": "1435:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         }
                       },
                       {
-                        "id": 839,
+                        "id": 3796,
                         "name": "_playerName",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 823,
-                        "src": "1449:11:1",
+                        "referencedDeclaration": 3780,
+                        "src": "1449:11:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
                           "typeString": "string memory"
@@ -1156,18 +1156,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 835,
+                      "id": 3792,
                       "name": "PlayerOnboarded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 798,
-                      "src": "1399:15:1",
+                      "referencedDeclaration": 3755,
+                      "src": "1399:15:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_string_memory_ptr_$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (address,string memory,bool,string memory)"
                       }
                     },
-                    "id": 840,
+                    "id": 3797,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1176,40 +1176,40 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1399:62:1",
+                    "src": "1399:62:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 841,
+                  "id": 3798,
                   "nodeType": "EmitStatement",
-                  "src": "1394:67:1"
+                  "src": "1394:67:4"
                 }
               ]
             },
             "functionSelector": "7189822d",
-            "id": 843,
+            "id": 3800,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "onboardPlayer",
-            "nameLocation": "1126:13:1",
+            "nameLocation": "1126:13:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 824,
+              "id": 3781,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 817,
+                  "id": 3774,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "1148:8:1",
+                  "nameLocation": "1148:8:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 843,
-                  "src": "1140:16:1",
+                  "scope": 3800,
+                  "src": "1140:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1217,10 +1217,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 816,
+                    "id": 3773,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1140:7:1",
+                    "src": "1140:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1231,13 +1231,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 819,
+                  "id": 3776,
                   "mutability": "mutable",
                   "name": "_steamID",
-                  "nameLocation": "1174:8:1",
+                  "nameLocation": "1174:8:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 843,
-                  "src": "1158:24:1",
+                  "scope": 3800,
+                  "src": "1158:24:4",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1245,10 +1245,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 818,
+                    "id": 3775,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1158:6:1",
+                    "src": "1158:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1258,13 +1258,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 821,
+                  "id": 3778,
                   "mutability": "mutable",
                   "name": "_isValidator",
-                  "nameLocation": "1189:12:1",
+                  "nameLocation": "1189:12:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 843,
-                  "src": "1184:17:1",
+                  "scope": 3800,
+                  "src": "1184:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1272,10 +1272,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 820,
+                    "id": 3777,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1184:4:1",
+                    "src": "1184:4:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1285,13 +1285,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 823,
+                  "id": 3780,
                   "mutability": "mutable",
                   "name": "_playerName",
-                  "nameLocation": "1217:11:1",
+                  "nameLocation": "1217:11:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 843,
-                  "src": "1203:25:1",
+                  "scope": 3800,
+                  "src": "1203:25:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1299,10 +1299,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 822,
+                    "id": 3779,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1203:6:1",
+                    "src": "1203:6:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1311,36 +1311,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1139:90:1"
+              "src": "1139:90:4"
             },
             "returnParameters": {
-              "id": 825,
+              "id": 3782,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1237:0:1"
+              "src": "1237:0:4"
             },
-            "scope": 924,
-            "src": "1117:351:1",
+            "scope": 3881,
+            "src": "1117:351:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 858,
+              "id": 3815,
               "nodeType": "Block",
-              "src": "1521:92:1",
+              "src": "1521:92:4",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 851,
+                        "id": 3808,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 845,
-                        "src": "1559:8:1",
+                        "referencedDeclaration": 3802,
+                        "src": "1559:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1355,33 +1355,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 848,
+                        "id": 3805,
                         "name": "playerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 788,
-                        "src": "1531:14:1",
+                        "referencedDeclaration": 3745,
+                        "src": "1531:14:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                          "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                           "typeString": "contract IPlayerDatabase"
                         }
                       },
-                      "id": 850,
+                      "id": 3807,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "1546:12:1",
+                      "memberLocation": "1546:12:4",
                       "memberName": "deletePlayer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 770,
-                      "src": "1531:27:1",
+                      "referencedDeclaration": 3727,
+                      "src": "1531:27:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address) external"
                       }
                     },
-                    "id": 852,
+                    "id": 3809,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1390,27 +1390,27 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1531:37:1",
+                    "src": "1531:37:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 853,
+                  "id": 3810,
                   "nodeType": "ExpressionStatement",
-                  "src": "1531:37:1"
+                  "src": "1531:37:4"
                 },
                 {
                   "eventCall": {
                     "arguments": [
                       {
-                        "id": 855,
+                        "id": 3812,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 845,
-                        "src": "1597:8:1",
+                        "referencedDeclaration": 3802,
+                        "src": "1597:8:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1424,18 +1424,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 854,
+                      "id": 3811,
                       "name": "PlayerRemoved",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 802,
-                      "src": "1583:13:1",
+                      "referencedDeclaration": 3759,
+                      "src": "1583:13:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 856,
+                    "id": 3813,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1444,40 +1444,40 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1583:23:1",
+                    "src": "1583:23:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 857,
+                  "id": 3814,
                   "nodeType": "EmitStatement",
-                  "src": "1578:28:1"
+                  "src": "1578:28:4"
                 }
               ]
             },
             "functionSelector": "12243b67",
-            "id": 859,
+            "id": 3816,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "deletePlayer",
-            "nameLocation": "1483:12:1",
+            "nameLocation": "1483:12:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 846,
+              "id": 3803,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 845,
+                  "id": 3802,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "1504:8:1",
+                  "nameLocation": "1504:8:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 859,
-                  "src": "1496:16:1",
+                  "scope": 3816,
+                  "src": "1496:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1485,10 +1485,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 844,
+                    "id": 3801,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1496:7:1",
+                    "src": "1496:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1498,42 +1498,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1495:18:1"
+              "src": "1495:18:4"
             },
             "returnParameters": {
-              "id": 847,
+              "id": 3804,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1521:0:1"
+              "src": "1521:0:4"
             },
-            "scope": 924,
-            "src": "1474:139:1",
+            "scope": 3881,
+            "src": "1474:139:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 870,
+              "id": 3827,
               "nodeType": "Block",
-              "src": "1693:74:1",
+              "src": "1693:74:4",
               "statements": [
                 {
                   "expression": {
-                    "id": 868,
+                    "id": 3825,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 864,
+                      "id": 3821,
                       "name": "playerDatabase",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 788,
-                      "src": "1703:14:1",
+                      "referencedDeclaration": 3745,
+                      "src": "1703:14:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                        "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                         "typeString": "contract IPlayerDatabase"
                       }
                     },
@@ -1542,12 +1542,12 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 866,
+                          "id": 3823,
                           "name": "__playerDatabaseAddress",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 861,
-                          "src": "1736:23:1",
+                          "referencedDeclaration": 3818,
+                          "src": "1736:23:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1561,18 +1561,18 @@
                             "typeString": "address"
                           }
                         ],
-                        "id": 865,
+                        "id": 3822,
                         "name": "IPlayerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 785,
-                        "src": "1720:15:1",
+                        "referencedDeclaration": 3742,
+                        "src": "1720:15:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IPlayerDatabase_$785_$",
+                          "typeIdentifier": "t_type$_t_contract$_IPlayerDatabase_$3742_$",
                           "typeString": "type(contract IPlayerDatabase)"
                         }
                       },
-                      "id": 867,
+                      "id": 3824,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1581,46 +1581,46 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1720:40:1",
+                      "src": "1720:40:4",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                        "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                         "typeString": "contract IPlayerDatabase"
                       }
                     },
-                    "src": "1703:57:1",
+                    "src": "1703:57:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                      "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                       "typeString": "contract IPlayerDatabase"
                     }
                   },
-                  "id": 869,
+                  "id": 3826,
                   "nodeType": "ExpressionStatement",
-                  "src": "1703:57:1"
+                  "src": "1703:57:4"
                 }
               ]
             },
             "functionSelector": "143acc71",
-            "id": 871,
+            "id": 3828,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setPlayerDatabaseAddress",
-            "nameLocation": "1628:24:1",
+            "nameLocation": "1628:24:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 862,
+              "id": 3819,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 861,
+                  "id": 3818,
                   "mutability": "mutable",
                   "name": "__playerDatabaseAddress",
-                  "nameLocation": "1661:23:1",
+                  "nameLocation": "1661:23:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 871,
-                  "src": "1653:31:1",
+                  "scope": 3828,
+                  "src": "1653:31:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1628,10 +1628,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 860,
+                    "id": 3817,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1653:7:1",
+                    "src": "1653:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1641,36 +1641,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1652:33:1"
+              "src": "1652:33:4"
             },
             "returnParameters": {
-              "id": 863,
+              "id": 3820,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1693:0:1"
+              "src": "1693:0:4"
             },
-            "scope": 924,
-            "src": "1619:148:1",
+            "scope": 3881,
+            "src": "1619:148:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 883,
+              "id": 3840,
               "nodeType": "Block",
-              "src": "1894:106:1",
+              "src": "1894:106:4",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 879,
+                        "id": 3836,
                         "name": "validator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 873,
-                        "src": "1977:9:1",
+                        "referencedDeclaration": 3830,
+                        "src": "1977:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1678,14 +1678,14 @@
                       },
                       {
                         "hexValue": "74727565",
-                        "id": 880,
+                        "id": 3837,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1988:4:1",
+                        "src": "1988:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1705,33 +1705,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 876,
+                        "id": 3833,
                         "name": "playerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 788,
-                        "src": "1943:14:1",
+                        "referencedDeclaration": 3745,
+                        "src": "1943:14:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                          "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                           "typeString": "contract IPlayerDatabase"
                         }
                       },
-                      "id": 878,
+                      "id": 3835,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "1958:18:1",
+                      "memberLocation": "1958:18:4",
                       "memberName": "setValidatorStatus",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 784,
-                      "src": "1943:33:1",
+                      "referencedDeclaration": 3741,
+                      "src": "1943:33:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bool_$returns$__$",
                         "typeString": "function (address,bool) external"
                       }
                     },
-                    "id": 881,
+                    "id": 3838,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1740,40 +1740,40 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1943:50:1",
+                    "src": "1943:50:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 882,
+                  "id": 3839,
                   "nodeType": "ExpressionStatement",
-                  "src": "1943:50:1"
+                  "src": "1943:50:4"
                 }
               ]
             },
             "functionSelector": "9fca5169",
-            "id": 884,
+            "id": 3841,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "registerValidator",
-            "nameLocation": "1850:17:1",
+            "nameLocation": "1850:17:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 874,
+              "id": 3831,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 873,
+                  "id": 3830,
                   "mutability": "mutable",
                   "name": "validator",
-                  "nameLocation": "1876:9:1",
+                  "nameLocation": "1876:9:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 884,
-                  "src": "1868:17:1",
+                  "scope": 3841,
+                  "src": "1868:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1781,10 +1781,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 872,
+                    "id": 3829,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1868:7:1",
+                    "src": "1868:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1794,36 +1794,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1867:19:1"
+              "src": "1867:19:4"
             },
             "returnParameters": {
-              "id": 875,
+              "id": 3832,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1894:0:1"
+              "src": "1894:0:4"
             },
-            "scope": 924,
-            "src": "1841:159:1",
+            "scope": 3881,
+            "src": "1841:159:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 896,
+              "id": 3853,
               "nodeType": "Block",
-              "src": "2057:107:1",
+              "src": "2057:107:4",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 892,
+                        "id": 3849,
                         "name": "validator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 886,
-                        "src": "2140:9:1",
+                        "referencedDeclaration": 3843,
+                        "src": "2140:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1831,14 +1831,14 @@
                       },
                       {
                         "hexValue": "66616c7365",
-                        "id": 893,
+                        "id": 3850,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2151:5:1",
+                        "src": "2151:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1858,33 +1858,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 889,
+                        "id": 3846,
                         "name": "playerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 788,
-                        "src": "2106:14:1",
+                        "referencedDeclaration": 3745,
+                        "src": "2106:14:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                          "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                           "typeString": "contract IPlayerDatabase"
                         }
                       },
-                      "id": 891,
+                      "id": 3848,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "2121:18:1",
+                      "memberLocation": "2121:18:4",
                       "memberName": "setValidatorStatus",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 784,
-                      "src": "2106:33:1",
+                      "referencedDeclaration": 3741,
+                      "src": "2106:33:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bool_$returns$__$",
                         "typeString": "function (address,bool) external"
                       }
                     },
-                    "id": 894,
+                    "id": 3851,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1893,40 +1893,40 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2106:51:1",
+                    "src": "2106:51:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 895,
+                  "id": 3852,
                   "nodeType": "ExpressionStatement",
-                  "src": "2106:51:1"
+                  "src": "2106:51:4"
                 }
               ]
             },
             "functionSelector": "40a141ff",
-            "id": 897,
+            "id": 3854,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "removeValidator",
-            "nameLocation": "2015:15:1",
+            "nameLocation": "2015:15:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 887,
+              "id": 3844,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 886,
+                  "id": 3843,
                   "mutability": "mutable",
                   "name": "validator",
-                  "nameLocation": "2039:9:1",
+                  "nameLocation": "2039:9:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 897,
-                  "src": "2031:17:1",
+                  "scope": 3854,
+                  "src": "2031:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1934,10 +1934,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 885,
+                    "id": 3842,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2031:7:1",
+                    "src": "2031:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1947,36 +1947,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2030:19:1"
+              "src": "2030:19:4"
             },
             "returnParameters": {
-              "id": 888,
+              "id": 3845,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2057:0:1"
+              "src": "2057:0:4"
             },
-            "scope": 924,
-            "src": "2006:158:1",
+            "scope": 3881,
+            "src": "2006:158:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 909,
+              "id": 3866,
               "nodeType": "Block",
-              "src": "2215:102:1",
+              "src": "2215:102:4",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 905,
+                        "id": 3862,
                         "name": "admin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 899,
-                        "src": "2298:5:1",
+                        "referencedDeclaration": 3856,
+                        "src": "2298:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1984,14 +1984,14 @@
                       },
                       {
                         "hexValue": "74727565",
-                        "id": 906,
+                        "id": 3863,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2305:4:1",
+                        "src": "2305:4:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2011,33 +2011,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 902,
+                        "id": 3859,
                         "name": "playerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 788,
-                        "src": "2264:14:1",
+                        "referencedDeclaration": 3745,
+                        "src": "2264:14:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                          "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                           "typeString": "contract IPlayerDatabase"
                         }
                       },
-                      "id": 904,
+                      "id": 3861,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "2279:18:1",
+                      "memberLocation": "2279:18:4",
                       "memberName": "setGameAdminStatus",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 777,
-                      "src": "2264:33:1",
+                      "referencedDeclaration": 3734,
+                      "src": "2264:33:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bool_$returns$__$",
                         "typeString": "function (address,bool) external"
                       }
                     },
-                    "id": 907,
+                    "id": 3864,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2046,40 +2046,40 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2264:46:1",
+                    "src": "2264:46:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 908,
+                  "id": 3865,
                   "nodeType": "ExpressionStatement",
-                  "src": "2264:46:1"
+                  "src": "2264:46:4"
                 }
               ]
             },
             "functionSelector": "c38c5813",
-            "id": 910,
+            "id": 3867,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "registerAdmin",
-            "nameLocation": "2179:13:1",
+            "nameLocation": "2179:13:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 900,
+              "id": 3857,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 899,
+                  "id": 3856,
                   "mutability": "mutable",
                   "name": "admin",
-                  "nameLocation": "2201:5:1",
+                  "nameLocation": "2201:5:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 910,
-                  "src": "2193:13:1",
+                  "scope": 3867,
+                  "src": "2193:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2087,10 +2087,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 898,
+                    "id": 3855,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2193:7:1",
+                    "src": "2193:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2100,36 +2100,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2192:15:1"
+              "src": "2192:15:4"
             },
             "returnParameters": {
-              "id": 901,
+              "id": 3858,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2215:0:1"
+              "src": "2215:0:4"
             },
-            "scope": 924,
-            "src": "2170:147:1",
+            "scope": 3881,
+            "src": "2170:147:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 922,
+              "id": 3879,
               "nodeType": "Block",
-              "src": "2366:103:1",
+              "src": "2366:103:4",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 918,
+                        "id": 3875,
                         "name": "admin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 912,
-                        "src": "2449:5:1",
+                        "referencedDeclaration": 3869,
+                        "src": "2449:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2137,14 +2137,14 @@
                       },
                       {
                         "hexValue": "66616c7365",
-                        "id": 919,
+                        "id": 3876,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2456:5:1",
+                        "src": "2456:5:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2164,33 +2164,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 915,
+                        "id": 3872,
                         "name": "playerDatabase",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 788,
-                        "src": "2415:14:1",
+                        "referencedDeclaration": 3745,
+                        "src": "2415:14:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IPlayerDatabase_$785",
+                          "typeIdentifier": "t_contract$_IPlayerDatabase_$3742",
                           "typeString": "contract IPlayerDatabase"
                         }
                       },
-                      "id": 917,
+                      "id": 3874,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "2430:18:1",
+                      "memberLocation": "2430:18:4",
                       "memberName": "setGameAdminStatus",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 777,
-                      "src": "2415:33:1",
+                      "referencedDeclaration": 3734,
+                      "src": "2415:33:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bool_$returns$__$",
                         "typeString": "function (address,bool) external"
                       }
                     },
-                    "id": 920,
+                    "id": 3877,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2199,40 +2199,40 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2415:47:1",
+                    "src": "2415:47:4",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 921,
+                  "id": 3878,
                   "nodeType": "ExpressionStatement",
-                  "src": "2415:47:1"
+                  "src": "2415:47:4"
                 }
               ]
             },
             "functionSelector": "1785f53c",
-            "id": 923,
+            "id": 3880,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "removeAdmin",
-            "nameLocation": "2332:11:1",
+            "nameLocation": "2332:11:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 913,
+              "id": 3870,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 912,
+                  "id": 3869,
                   "mutability": "mutable",
                   "name": "admin",
-                  "nameLocation": "2352:5:1",
+                  "nameLocation": "2352:5:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 923,
-                  "src": "2344:13:1",
+                  "scope": 3880,
+                  "src": "2344:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2240,10 +2240,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 911,
+                    "id": 3868,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2344:7:1",
+                    "src": "2344:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2253,31 +2253,31 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2343:15:1"
+              "src": "2343:15:4"
             },
             "returnParameters": {
-              "id": 914,
+              "id": 3871,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2366:0:1"
+              "src": "2366:0:4"
             },
-            "scope": 924,
-            "src": "2323:146:1",
+            "scope": 3881,
+            "src": "2323:146:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 925,
-        "src": "686:1785:1",
+        "scope": 3882,
+        "src": "686:1785:4",
         "usedErrors": [],
         "usedEvents": [
-          798,
-          802
+          3755,
+          3759
         ]
       }
     ],
-    "src": "33:3227:1"
+    "src": "33:3227:4"
   },
   "bytecode": "6080604052600180546001600160a01b03191673b03a6afd440a2a9db8834f1a6093680f02f1114c17905534801561003657600080fd5b50600154600080546001600160a01b0319166001600160a01b03909216919091179055610696806100686000396000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c80637189822d1161005b5780637189822d146100f85780639fca51691461010b578063c38c58131461011e578063cb7449931461013157600080fd5b806312243b671461008d578063143acc71146100a25780631785f53c146100d257806340a141ff146100e5575b600080fd5b6100a061009b3660046103e1565b610160565b005b6100a06100b03660046103e1565b600080546001600160a01b0319166001600160a01b0392909216919091179055565b6100a06100e03660046103e1565b6101f6565b6100a06100f33660046103e1565b610261565b6100a06101063660046104b6565b61029b565b6100a06101193660046103e1565b610353565b6100a061012c3660046103e1565b61038c565b600054610144906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546040516312243b6760e01b81526001600160a01b038381166004830152909116906312243b6790602401600060405180830381600087803b1580156101a757600080fd5b505af11580156101bb573d6000803e3d6000fd5b50506040516001600160a01b03841692507f9ac3117b086b001d2bcd36ff49e64f86a26f25d7c9ff453e9dbd9d496b8bf0849150600090a250565b600080546040516316227ecd60e21b81526001600160a01b0384811660048301526024820193909352911690635889fb34906044015b600060405180830381600087803b15801561024657600080fd5b505af115801561025a573d6000803e3d6000fd5b5050505050565b6000805460405163aca2490b60e01b81526001600160a01b038481166004830152602482019390935291169063aca2490b9060440161022c565b600054604051630875392f60e31b81526001600160a01b03909116906343a9c978906102d390889088908890889088906004016105dc565b600060405180830381600087803b1580156102ed57600080fd5b505af1158015610301573d6000803e3d6000fd5b50505050846001600160a01b03167f8e30371244f1db40392ee88b22115d21957f87a855479908276aa4055f29fa1b858585856040516103449493929190610627565b60405180910390a25050505050565b60005460405163aca2490b60e01b81526001600160a01b038381166004830152600160248301529091169063aca2490b9060440161022c565b6000546040516316227ecd60e21b81526001600160a01b0383811660048301526001602483015290911690635889fb349060440161022c565b80356001600160a01b03811681146103dc57600080fd5b919050565b6000602082840312156103f357600080fd5b6103fc826103c5565b9392505050565b803580151581146103dc57600080fd5b634e487b7160e01b600052604160045260246000fd5b600082601f83011261043a57600080fd5b813567ffffffffffffffff8082111561045557610455610413565b604051601f8301601f19908116603f0116810190828211818310171561047d5761047d610413565b8160405283815286602085880101111561049657600080fd5b836020870160208301376000602085830101528094505050505092915050565b6000806000806000608086880312156104ce57600080fd5b6104d7866103c5565b9450602086013567ffffffffffffffff808211156104f457600080fd5b818801915088601f83011261050857600080fd5b81358181111561051757600080fd5b89602082850101111561052957600080fd5b602083019650945061053d60408901610403565b9350606088013591508082111561055357600080fd5b5061056088828901610429565b9150509295509295909350565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6000815180845260005b818110156105bc576020818501810151868301820152016105a0565b506000602082860101526020601f19601f83011685010191505092915050565b6001600160a01b0386168152608060208201819052600090610601908301868861056d565b8415156040840152828103606084015261061b8185610596565b98975050505050505050565b60608152600061063b60608301868861056d565b841515602084015282810360408401526106558185610596565b97965050505050505056fea2646970667358221220500981c3bf7ad86fe609a8f8c7432f62b3b140081e12b6ca8420b1625536839664736f6c63430008180033",
   "bytecodeSha1": "eb675b2d704e829ac93f20cd706f4ffc6c8a916b",
@@ -2292,10 +2292,10 @@
   "contractName": "PlayerOnboardContract",
   "coverageMap": {
     "branches": {
-      "1": {}
+      "4": {}
     },
     "statements": {
-      "1": {
+      "4": {
         "PlayerOnboardContract.deletePlayer": {
           "1": [
             1531,
@@ -2353,7 +2353,7 @@
     "IPlayerDatabase"
   ],
   "deployedBytecode": "608060405234801561001057600080fd5b50600436106100885760003560e01c80637189822d1161005b5780637189822d146100f85780639fca51691461010b578063c38c58131461011e578063cb7449931461013157600080fd5b806312243b671461008d578063143acc71146100a25780631785f53c146100d257806340a141ff146100e5575b600080fd5b6100a061009b3660046103e1565b610160565b005b6100a06100b03660046103e1565b600080546001600160a01b0319166001600160a01b0392909216919091179055565b6100a06100e03660046103e1565b6101f6565b6100a06100f33660046103e1565b610261565b6100a06101063660046104b6565b61029b565b6100a06101193660046103e1565b610353565b6100a061012c3660046103e1565b61038c565b600054610144906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546040516312243b6760e01b81526001600160a01b038381166004830152909116906312243b6790602401600060405180830381600087803b1580156101a757600080fd5b505af11580156101bb573d6000803e3d6000fd5b50506040516001600160a01b03841692507f9ac3117b086b001d2bcd36ff49e64f86a26f25d7c9ff453e9dbd9d496b8bf0849150600090a250565b600080546040516316227ecd60e21b81526001600160a01b0384811660048301526024820193909352911690635889fb34906044015b600060405180830381600087803b15801561024657600080fd5b505af115801561025a573d6000803e3d6000fd5b5050505050565b6000805460405163aca2490b60e01b81526001600160a01b038481166004830152602482019390935291169063aca2490b9060440161022c565b600054604051630875392f60e31b81526001600160a01b03909116906343a9c978906102d390889088908890889088906004016105dc565b600060405180830381600087803b1580156102ed57600080fd5b505af1158015610301573d6000803e3d6000fd5b50505050846001600160a01b03167f8e30371244f1db40392ee88b22115d21957f87a855479908276aa4055f29fa1b858585856040516103449493929190610627565b60405180910390a25050505050565b60005460405163aca2490b60e01b81526001600160a01b038381166004830152600160248301529091169063aca2490b9060440161022c565b6000546040516316227ecd60e21b81526001600160a01b0383811660048301526001602483015290911690635889fb349060440161022c565b80356001600160a01b03811681146103dc57600080fd5b919050565b6000602082840312156103f357600080fd5b6103fc826103c5565b9392505050565b803580151581146103dc57600080fd5b634e487b7160e01b600052604160045260246000fd5b600082601f83011261043a57600080fd5b813567ffffffffffffffff8082111561045557610455610413565b604051601f8301601f19908116603f0116810190828211818310171561047d5761047d610413565b8160405283815286602085880101111561049657600080fd5b836020870160208301376000602085830101528094505050505092915050565b6000806000806000608086880312156104ce57600080fd5b6104d7866103c5565b9450602086013567ffffffffffffffff808211156104f457600080fd5b818801915088601f83011261050857600080fd5b81358181111561051757600080fd5b89602082850101111561052957600080fd5b602083019650945061053d60408901610403565b9350606088013591508082111561055357600080fd5b5061056088828901610429565b9150509295509295909350565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6000815180845260005b818110156105bc576020818501810151868301820152016105a0565b506000602082860101526020601f19601f83011685010191505092915050565b6001600160a01b0386168152608060208201819052600090610601908301868861056d565b8415156040840152828103606084015261061b8185610596565b98975050505050505050565b60608152600061063b60608301868861056d565b841515602084015282810360408401526106558185610596565b97965050505050505056fea2646970667358221220500981c3bf7ad86fe609a8f8c7432f62b3b140081e12b6ca8420b1625536839664736f6c63430008180033",
-  "deployedSourceMap": "686:1785:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1474:139;;;;;;:::i;:::-;;:::i;:::-;;1619:148;;;;;;:::i;:::-;1703:14;:57;;-1:-1:-1;;;;;;1703:57:1;-1:-1:-1;;;;;1703:57:1;;;;;;;;;;1619:148;2323:146;;;;;;:::i;:::-;;:::i;2006:158::-;;;;;;:::i;:::-;;:::i;1117:351::-;;;;;;:::i;:::-;;:::i;1841:159::-;;;;;;:::i;:::-;;:::i;2170:147::-;;;;;;:::i;:::-;;:::i;723:37::-;;;;;-1:-1:-1;;;;;723:37:1;;;;;;-1:-1:-1;;;;;2531:32:2;;;2513:51;;2501:2;2486:18;723:37:1;;;;;;;1474:139;1531:14;;:37;;-1:-1:-1;;;1531:37:1;;-1:-1:-1;;;;;2531:32:2;;;1531:37:1;;;2513:51:2;1531:14:1;;;;:27;;2486:18:2;;1531:37:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1583:23:1;;-1:-1:-1;;;;;1583:23:1;;;-1:-1:-1;1583:23:1;;-1:-1:-1;1583:23:1;;;1474:139;:::o;2323:146::-;2415:14;;;:47;;-1:-1:-1;;;2415:47:1;;-1:-1:-1;;;;;2969:32:2;;;2415:47:1;;;2951:51:2;3018:18;;;3011:50;;;;2415:14:1;;;:33;;2924:18:2;;2415:47:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2323:146;:::o;2006:158::-;2106:14;;;:51;;-1:-1:-1;;;2106:51:1;;-1:-1:-1;;;;;2969:32:2;;;2106:51:1;;;2951::2;3018:18;;;3011:50;;;;2106:14:1;;;:33;;2924:18:2;;2106:51:1;2783:284:2;1117:351:1;1305:14;;:79;;-1:-1:-1;;;1305:79:1;;-1:-1:-1;;;;;1305:14:1;;;;:32;;:79;;1338:8;;1348;;;;1358:12;;1372:11;;1305:79;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1415:8;-1:-1:-1;;;;;1399:62:1;;1425:8;;1435:12;1449:11;1399:62;;;;;;;;;:::i;:::-;;;;;;;;1117:351;;;;;:::o;1841:159::-;1943:14;;:50;;-1:-1:-1;;;1943:50:1;;-1:-1:-1;;;;;2969:32:2;;;1943:50:1;;;2951:51:2;1943:14:1;3018:18:2;;;3011:50;1943:14:1;;;;:33;;2924:18:2;;1943:50:1;2783:284:2;2170:147:1;2264:14;;:46;;-1:-1:-1;;;2264:46:1;;-1:-1:-1;;;;;2969:32:2;;;2264:46:1;;;2951:51:2;2264:14:1;3018:18:2;;;3011:50;2264:14:1;;;;:33;;2924:18:2;;2264:46:1;2783:284:2;14:173;82:20;;-1:-1:-1;;;;;131:31:2;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:186::-;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:2:o;383:160::-;448:20;;504:13;;497:21;487:32;;477:60;;533:1;530;523:12;548:127;609:10;604:3;600:20;597:1;590:31;640:4;637:1;630:15;664:4;661:1;654:15;680:719;723:5;776:3;769:4;761:6;757:17;753:27;743:55;;794:1;791;784:12;743:55;830:6;817:20;856:18;893:2;889;886:10;883:36;;;899:18;;:::i;:::-;974:2;968:9;942:2;1028:13;;-1:-1:-1;;1024:22:2;;;1048:2;1020:31;1016:40;1004:53;;;1072:18;;;1092:22;;;1069:46;1066:72;;;1118:18;;:::i;:::-;1158:10;1154:2;1147:22;1193:2;1185:6;1178:18;1239:3;1232:4;1227:2;1219:6;1215:15;1211:26;1208:35;1205:55;;;1256:1;1253;1246:12;1205:55;1320:2;1313:4;1305:6;1301:17;1294:4;1286:6;1282:17;1269:54;1367:1;1360:4;1355:2;1347:6;1343:15;1339:26;1332:37;1387:6;1378:15;;;;;;680:719;;;;:::o;1404:935::-;1509:6;1517;1525;1533;1541;1594:3;1582:9;1573:7;1569:23;1565:33;1562:53;;;1611:1;1608;1601:12;1562:53;1634:29;1653:9;1634:29;:::i;:::-;1624:39;;1714:2;1703:9;1699:18;1686:32;1737:18;1778:2;1770:6;1767:14;1764:34;;;1794:1;1791;1784:12;1764:34;1832:6;1821:9;1817:22;1807:32;;1877:7;1870:4;1866:2;1862:13;1858:27;1848:55;;1899:1;1896;1889:12;1848:55;1939:2;1926:16;1965:2;1957:6;1954:14;1951:34;;;1981:1;1978;1971:12;1951:34;2026:7;2021:2;2012:6;2008:2;2004:15;2000:24;1997:37;1994:57;;;2047:1;2044;2037:12;1994:57;2078:2;2070:11;;;-1:-1:-1;2100:6:2;-1:-1:-1;2125:35:2;2156:2;2141:18;;2125:35;:::i;:::-;2115:45;;2213:2;2202:9;2198:18;2185:32;2169:48;;2242:2;2232:8;2229:16;2226:36;;;2258:1;2255;2248:12;2226:36;;2281:52;2325:7;2314:8;2303:9;2299:24;2281:52;:::i;:::-;2271:62;;;1404:935;;;;;;;;:::o;3072:267::-;3161:6;3156:3;3149:19;3213:6;3206:5;3199:4;3194:3;3190:14;3177:43;-1:-1:-1;3265:1:2;3240:16;;;3258:4;3236:27;;;3229:38;;;;3321:2;3300:15;;;-1:-1:-1;;3296:29:2;3287:39;;;3283:50;;3072:267::o;3344:423::-;3386:3;3424:5;3418:12;3451:6;3446:3;3439:19;3476:1;3486:162;3500:6;3497:1;3494:13;3486:162;;;3562:4;3618:13;;;3614:22;;3608:29;3590:11;;;3586:20;;3579:59;3515:12;3486:162;;;3490:3;3693:1;3686:4;3677:6;3672:3;3668:16;3664:27;3657:38;3756:4;3749:2;3745:7;3740:2;3732:6;3728:15;3724:29;3719:3;3715:39;3711:50;3704:57;;;3344:423;;;;:::o;3772:590::-;-1:-1:-1;;;;;4029:32:2;;4011:51;;4098:3;4093:2;4078:18;;4071:31;;;-1:-1:-1;;4125:63:2;;4168:19;;4160:6;4152;4125:63;:::i;:::-;4238:6;4231:14;4224:22;4219:2;4208:9;4204:18;4197:50;4295:9;4287:6;4283:22;4278:2;4267:9;4263:18;4256:50;4323:33;4349:6;4341;4323:33;:::i;:::-;4315:41;3772:590;-1:-1:-1;;;;;;;;3772:590:2:o;4367:491::-;4596:2;4585:9;4578:21;4559:4;4622:62;4680:2;4669:9;4665:18;4657:6;4649;4622:62;:::i;:::-;4734:6;4727:14;4720:22;4715:2;4704:9;4700:18;4693:50;4791:9;4783:6;4779:22;4774:2;4763:9;4759:18;4752:50;4819:33;4845:6;4837;4819:33;:::i;:::-;4811:41;4367:491;-1:-1:-1;;;;;;;4367:491:2:o",
+  "deployedSourceMap": "686:1785:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1474:139;;;;;;:::i;:::-;;:::i;:::-;;1619:148;;;;;;:::i;:::-;1703:14;:57;;-1:-1:-1;;;;;;1703:57:4;-1:-1:-1;;;;;1703:57:4;;;;;;;;;;1619:148;2323:146;;;;;;:::i;:::-;;:::i;2006:158::-;;;;;;:::i;:::-;;:::i;1117:351::-;;;;;;:::i;:::-;;:::i;1841:159::-;;;;;;:::i;:::-;;:::i;2170:147::-;;;;;;:::i;:::-;;:::i;723:37::-;;;;;-1:-1:-1;;;;;723:37:4;;;;;;-1:-1:-1;;;;;2532:32:6;;;2514:51;;2502:2;2487:18;723:37:4;;;;;;;1474:139;1531:14;;:37;;-1:-1:-1;;;1531:37:4;;-1:-1:-1;;;;;2532:32:6;;;1531:37:4;;;2514:51:6;1531:14:4;;;;:27;;2487:18:6;;1531:37:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1583:23:4;;-1:-1:-1;;;;;1583:23:4;;;-1:-1:-1;1583:23:4;;-1:-1:-1;1583:23:4;;;1474:139;:::o;2323:146::-;2415:14;;;:47;;-1:-1:-1;;;2415:47:4;;-1:-1:-1;;;;;2970:32:6;;;2415:47:4;;;2952:51:6;3019:18;;;3012:50;;;;2415:14:4;;;:33;;2925:18:6;;2415:47:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2323:146;:::o;2006:158::-;2106:14;;;:51;;-1:-1:-1;;;2106:51:4;;-1:-1:-1;;;;;2970:32:6;;;2106:51:4;;;2952::6;3019:18;;;3012:50;;;;2106:14:4;;;:33;;2925:18:6;;2106:51:4;2784:284:6;1117:351:4;1305:14;;:79;;-1:-1:-1;;;1305:79:4;;-1:-1:-1;;;;;1305:14:4;;;;:32;;:79;;1338:8;;1348;;;;1358:12;;1372:11;;1305:79;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1415:8;-1:-1:-1;;;;;1399:62:4;;1425:8;;1435:12;1449:11;1399:62;;;;;;;;;:::i;:::-;;;;;;;;1117:351;;;;;:::o;1841:159::-;1943:14;;:50;;-1:-1:-1;;;1943:50:4;;-1:-1:-1;;;;;2970:32:6;;;1943:50:4;;;2952:51:6;1943:14:4;3019:18:6;;;3012:50;1943:14:4;;;;:33;;2925:18:6;;1943:50:4;2784:284:6;2170:147:4;2264:14;;:46;;-1:-1:-1;;;2264:46:4;;-1:-1:-1;;;;;2970:32:6;;;2264:46:4;;;2952:51:6;2264:14:4;3019:18:6;;;3012:50;2264:14:4;;;;:33;;2925:18:6;;2264:46:4;2784:284:6;14:173;82:20;;-1:-1:-1;;;;;131:31:6;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:186::-;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:6:o;383:160::-;448:20;;504:13;;497:21;487:32;;477:60;;533:1;530;523:12;548:127;609:10;604:3;600:20;597:1;590:31;640:4;637:1;630:15;664:4;661:1;654:15;680:719;723:5;776:3;769:4;761:6;757:17;753:27;743:55;;794:1;791;784:12;743:55;830:6;817:20;856:18;893:2;889;886:10;883:36;;;899:18;;:::i;:::-;974:2;968:9;942:2;1028:13;;-1:-1:-1;;1024:22:6;;;1048:2;1020:31;1016:40;1004:53;;;1072:18;;;1092:22;;;1069:46;1066:72;;;1118:18;;:::i;:::-;1158:10;1154:2;1147:22;1193:2;1185:6;1178:18;1239:3;1232:4;1227:2;1219:6;1215:15;1211:26;1208:35;1205:55;;;1256:1;1253;1246:12;1205:55;1320:2;1313:4;1305:6;1301:17;1294:4;1286:6;1282:17;1269:54;1367:1;1360:4;1355:2;1347:6;1343:15;1339:26;1332:37;1387:6;1378:15;;;;;;680:719;;;;:::o;1404:935::-;1509:6;1517;1525;1533;1541;1594:3;1582:9;1573:7;1569:23;1565:33;1562:53;;;1611:1;1608;1601:12;1562:53;1634:29;1653:9;1634:29;:::i;:::-;1624:39;;1714:2;1703:9;1699:18;1686:32;1737:18;1778:2;1770:6;1767:14;1764:34;;;1794:1;1791;1784:12;1764:34;1832:6;1821:9;1817:22;1807:32;;1877:7;1870:4;1866:2;1862:13;1858:27;1848:55;;1899:1;1896;1889:12;1848:55;1939:2;1926:16;1965:2;1957:6;1954:14;1951:34;;;1981:1;1978;1971:12;1951:34;2026:7;2021:2;2012:6;2008:2;2004:15;2000:24;1997:37;1994:57;;;2047:1;2044;2037:12;1994:57;2078:2;2070:11;;;-1:-1:-1;2100:6:6;-1:-1:-1;2125:35:6;2156:2;2141:18;;2125:35;:::i;:::-;2115:45;;2213:2;2202:9;2198:18;2185:32;2169:48;;2242:2;2232:8;2229:16;2226:36;;;2258:1;2255;2248:12;2226:36;;2281:52;2325:7;2314:8;2303:9;2299:24;2281:52;:::i;:::-;2271:62;;;1404:935;;;;;;;;:::o;3073:267::-;3162:6;3157:3;3150:19;3214:6;3207:5;3200:4;3195:3;3191:14;3178:43;-1:-1:-1;3266:1:6;3241:16;;;3259:4;3237:27;;;3230:38;;;;3322:2;3301:15;;;-1:-1:-1;;3297:29:6;3288:39;;;3284:50;;3073:267::o;3345:423::-;3387:3;3425:5;3419:12;3452:6;3447:3;3440:19;3477:1;3487:162;3501:6;3498:1;3495:13;3487:162;;;3563:4;3619:13;;;3615:22;;3609:29;3591:11;;;3587:20;;3580:59;3516:12;3487:162;;;3491:3;3694:1;3687:4;3678:6;3673:3;3669:16;3665:27;3658:38;3757:4;3750:2;3746:7;3741:2;3733:6;3729:15;3725:29;3720:3;3716:39;3712:50;3705:57;;;3345:423;;;;:::o;3773:590::-;-1:-1:-1;;;;;4030:32:6;;4012:51;;4099:3;4094:2;4079:18;;4072:31;;;-1:-1:-1;;4126:63:6;;4169:19;;4161:6;4153;4126:63;:::i;:::-;4239:6;4232:14;4225:22;4220:2;4209:9;4205:18;4198:50;4296:9;4288:6;4284:22;4279:2;4268:9;4264:18;4257:50;4324:33;4350:6;4342;4324:33;:::i;:::-;4316:41;3773:590;-1:-1:-1;;;;;;;;3773:590:6:o;4368:491::-;4597:2;4586:9;4579:21;4560:4;4623:62;4681:2;4670:9;4666:18;4658:6;4650;4623:62;:::i;:::-;4735:6;4728:14;4721:22;4716:2;4705:9;4701:18;4694:50;4792:9;4784:6;4780:22;4775:2;4764:9;4760:18;4753:50;4820:33;4846:6;4838;4820:33;:::i;:::-;4812:41;4368:491;-1:-1:-1;;;;;;;4368:491:6:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
@@ -2372,7 +2372,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x80"
     },
     "2": {
@@ -2382,7 +2382,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "4": {
@@ -2392,7 +2392,7 @@
         2471
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "5": {
       "fn": null,
@@ -2401,7 +2401,7 @@
         2471
       ],
       "op": "CALLVALUE",
-      "path": "1"
+      "path": "4"
     },
     "6": {
       "fn": null,
@@ -2410,7 +2410,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "7": {
       "fn": null,
@@ -2419,7 +2419,7 @@
         2471
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "8": {
       "fn": null,
@@ -2428,7 +2428,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x10"
     },
     "11": {
@@ -2438,7 +2438,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "12": {
       "fn": null,
@@ -2447,7 +2447,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "14": {
@@ -2457,7 +2457,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "15": {
       "dev": "Cannot send ether to nonpayable function",
@@ -2467,7 +2467,7 @@
         2471
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "16": {
       "fn": null,
@@ -2476,7 +2476,7 @@
         2471
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "17": {
       "fn": null,
@@ -2485,7 +2485,7 @@
         2471
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "18": {
       "fn": null,
@@ -2494,7 +2494,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "20": {
@@ -2504,7 +2504,7 @@
         2471
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "21": {
       "fn": null,
@@ -2513,7 +2513,7 @@
         2471
       ],
       "op": "LT",
-      "path": "1"
+      "path": "4"
     },
     "22": {
       "fn": null,
@@ -2522,7 +2522,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x88"
     },
     "25": {
@@ -2532,7 +2532,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "26": {
       "fn": null,
@@ -2541,7 +2541,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "28": {
@@ -2551,7 +2551,7 @@
         2471
       ],
       "op": "CALLDATALOAD",
-      "path": "1"
+      "path": "4"
     },
     "29": {
       "fn": null,
@@ -2560,7 +2560,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0xE0"
     },
     "31": {
@@ -2570,7 +2570,7 @@
         2471
       ],
       "op": "SHR",
-      "path": "1"
+      "path": "4"
     },
     "32": {
       "fn": null,
@@ -2579,7 +2579,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "33": {
       "fn": null,
@@ -2588,7 +2588,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x7189822D"
     },
     "38": {
@@ -2598,7 +2598,7 @@
         2471
       ],
       "op": "GT",
-      "path": "1"
+      "path": "4"
     },
     "39": {
       "fn": null,
@@ -2607,7 +2607,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x5B"
     },
     "42": {
@@ -2617,7 +2617,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "43": {
       "fn": null,
@@ -2626,7 +2626,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "44": {
       "fn": null,
@@ -2635,7 +2635,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x7189822D"
     },
     "49": {
@@ -2645,7 +2645,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "50": {
       "fn": null,
@@ -2654,7 +2654,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xF8"
     },
     "53": {
@@ -2664,7 +2664,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "54": {
       "fn": null,
@@ -2673,7 +2673,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "55": {
       "fn": null,
@@ -2682,7 +2682,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x9FCA5169"
     },
     "60": {
@@ -2692,7 +2692,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "61": {
       "fn": null,
@@ -2701,7 +2701,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x10B"
     },
     "64": {
@@ -2711,7 +2711,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "65": {
       "fn": null,
@@ -2720,7 +2720,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "66": {
       "fn": null,
@@ -2729,7 +2729,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0xC38C5813"
     },
     "71": {
@@ -2739,7 +2739,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "72": {
       "fn": null,
@@ -2748,7 +2748,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x11E"
     },
     "75": {
@@ -2758,7 +2758,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "76": {
       "fn": null,
@@ -2767,7 +2767,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "77": {
       "fn": null,
@@ -2776,7 +2776,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0xCB744993"
     },
     "82": {
@@ -2786,7 +2786,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "83": {
       "fn": null,
@@ -2795,7 +2795,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x131"
     },
     "86": {
@@ -2805,7 +2805,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "87": {
       "fn": null,
@@ -2814,7 +2814,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "89": {
@@ -2824,7 +2824,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "90": {
       "fn": null,
@@ -2833,7 +2833,7 @@
         2471
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "91": {
       "fn": null,
@@ -2842,7 +2842,7 @@
         2471
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "92": {
       "fn": null,
@@ -2851,7 +2851,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "93": {
       "fn": null,
@@ -2860,7 +2860,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x12243B67"
     },
     "98": {
@@ -2870,7 +2870,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "99": {
       "fn": null,
@@ -2879,7 +2879,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x8D"
     },
     "102": {
@@ -2889,7 +2889,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "103": {
       "fn": null,
@@ -2898,7 +2898,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "104": {
       "fn": null,
@@ -2907,7 +2907,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x143ACC71"
     },
     "109": {
@@ -2917,7 +2917,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "110": {
       "fn": null,
@@ -2926,7 +2926,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA2"
     },
     "113": {
@@ -2936,7 +2936,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "114": {
       "fn": null,
@@ -2945,7 +2945,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "115": {
       "fn": null,
@@ -2954,7 +2954,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x1785F53C"
     },
     "120": {
@@ -2964,7 +2964,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "121": {
       "fn": null,
@@ -2973,7 +2973,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xD2"
     },
     "124": {
@@ -2983,7 +2983,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "125": {
       "fn": null,
@@ -2992,7 +2992,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "126": {
       "fn": null,
@@ -3001,7 +3001,7 @@
         2471
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x40A141FF"
     },
     "131": {
@@ -3011,7 +3011,7 @@
         2471
       ],
       "op": "EQ",
-      "path": "1"
+      "path": "4"
     },
     "132": {
       "fn": null,
@@ -3020,7 +3020,7 @@
         2471
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xE5"
     },
     "135": {
@@ -3030,7 +3030,7 @@
         2471
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "136": {
       "fn": null,
@@ -3039,7 +3039,7 @@
         2471
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "137": {
       "fn": null,
@@ -3048,7 +3048,7 @@
         2471
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "139": {
@@ -3058,7 +3058,7 @@
         2471
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "140": {
       "first_revert": true,
@@ -3068,7 +3068,7 @@
         2471
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "141": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3077,7 +3077,7 @@
         1613
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "142": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3086,7 +3086,7 @@
         1613
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "145": {
@@ -3096,7 +3096,7 @@
         1613
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x9B"
     },
     "148": {
@@ -3106,7 +3106,7 @@
         1613
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "149": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3115,7 +3115,7 @@
         1613
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "151": {
@@ -3125,7 +3125,7 @@
         1613
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x3E1"
     },
     "154": {
@@ -3136,7 +3136,7 @@
         1613
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "155": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3145,7 +3145,7 @@
         1613
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "156": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3154,7 +3154,7 @@
         1613
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x160"
     },
     "159": {
@@ -3165,7 +3165,7 @@
         1613
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "160": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3174,7 +3174,7 @@
         1613
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "161": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -3183,7 +3183,7 @@
         1613
       ],
       "op": "STOP",
-      "path": "1"
+      "path": "4"
     },
     "162": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3192,7 +3192,7 @@
         1767
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "163": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3201,7 +3201,7 @@
         1767
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "166": {
@@ -3211,7 +3211,7 @@
         1767
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xB0"
     },
     "169": {
@@ -3221,7 +3221,7 @@
         1767
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "170": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3230,7 +3230,7 @@
         1767
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "172": {
@@ -3240,7 +3240,7 @@
         1767
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x3E1"
     },
     "175": {
@@ -3251,7 +3251,7 @@
         1767
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "176": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3260,7 +3260,7 @@
         1767
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "177": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3269,7 +3269,7 @@
         1717
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 0,
       "value": "0x0"
     },
@@ -3280,7 +3280,7 @@
         1760
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "180": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3289,7 +3289,7 @@
         1760
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "181": {
       "op": "PUSH1",
@@ -3319,7 +3319,7 @@
         1760
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "191": {
       "op": "PUSH1",
@@ -3346,7 +3346,7 @@
         1760
       ],
       "op": "SWAP3",
-      "path": "1"
+      "path": "4"
     },
     "200": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3355,7 +3355,7 @@
         1760
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "201": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3364,7 +3364,7 @@
         1760
       ],
       "op": "SWAP3",
-      "path": "1"
+      "path": "4"
     },
     "202": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3373,7 +3373,7 @@
         1760
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "203": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3382,7 +3382,7 @@
         1760
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "204": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3391,7 +3391,7 @@
         1760
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "205": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3400,7 +3400,7 @@
         1760
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "206": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3409,7 +3409,7 @@
         1760
       ],
       "op": "OR",
-      "path": "1"
+      "path": "4"
     },
     "207": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3418,7 +3418,7 @@
         1760
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "208": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3427,7 +3427,7 @@
         1760
       ],
       "op": "SSTORE",
-      "path": "1"
+      "path": "4"
     },
     "209": {
       "fn": "PlayerOnboardContract.setPlayerDatabaseAddress",
@@ -3436,7 +3436,7 @@
         1767
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "210": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -3445,7 +3445,7 @@
         2469
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "211": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -3454,7 +3454,7 @@
         2469
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "214": {
@@ -3464,7 +3464,7 @@
         2469
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xE0"
     },
     "217": {
@@ -3474,7 +3474,7 @@
         2469
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "218": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -3483,7 +3483,7 @@
         2469
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "220": {
@@ -3493,7 +3493,7 @@
         2469
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x3E1"
     },
     "223": {
@@ -3504,7 +3504,7 @@
         2469
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "224": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -3513,7 +3513,7 @@
         2469
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "225": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -3522,7 +3522,7 @@
         2469
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x1F6"
     },
     "228": {
@@ -3533,7 +3533,7 @@
         2469
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "229": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -3542,7 +3542,7 @@
         2164
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "230": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -3551,7 +3551,7 @@
         2164
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "233": {
@@ -3561,7 +3561,7 @@
         2164
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xF3"
     },
     "236": {
@@ -3571,7 +3571,7 @@
         2164
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "237": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -3580,7 +3580,7 @@
         2164
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "239": {
@@ -3590,7 +3590,7 @@
         2164
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x3E1"
     },
     "242": {
@@ -3601,7 +3601,7 @@
         2164
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "243": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -3610,7 +3610,7 @@
         2164
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "244": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -3619,7 +3619,7 @@
         2164
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x261"
     },
     "247": {
@@ -3630,7 +3630,7 @@
         2164
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "248": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -3639,7 +3639,7 @@
         1468
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "249": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -3648,7 +3648,7 @@
         1468
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "252": {
@@ -3658,7 +3658,7 @@
         1468
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x106"
     },
     "255": {
@@ -3668,7 +3668,7 @@
         1468
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "256": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -3677,7 +3677,7 @@
         1468
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "258": {
@@ -3687,7 +3687,7 @@
         1468
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x4B6"
     },
     "261": {
@@ -3698,7 +3698,7 @@
         1468
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "262": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -3707,7 +3707,7 @@
         1468
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "263": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -3716,7 +3716,7 @@
         1468
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x29B"
     },
     "266": {
@@ -3727,7 +3727,7 @@
         1468
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "267": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -3736,7 +3736,7 @@
         2000
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "268": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -3745,7 +3745,7 @@
         2000
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "271": {
@@ -3755,7 +3755,7 @@
         2000
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x119"
     },
     "274": {
@@ -3765,7 +3765,7 @@
         2000
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "275": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -3774,7 +3774,7 @@
         2000
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "277": {
@@ -3784,7 +3784,7 @@
         2000
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x3E1"
     },
     "280": {
@@ -3795,7 +3795,7 @@
         2000
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "281": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -3804,7 +3804,7 @@
         2000
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "282": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -3813,7 +3813,7 @@
         2000
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x353"
     },
     "285": {
@@ -3824,7 +3824,7 @@
         2000
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "286": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3833,7 +3833,7 @@
         2317
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "287": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3842,7 +3842,7 @@
         2317
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0xA0"
     },
     "290": {
@@ -3852,7 +3852,7 @@
         2317
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x12C"
     },
     "293": {
@@ -3862,7 +3862,7 @@
         2317
       ],
       "op": "CALLDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "294": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3871,7 +3871,7 @@
         2317
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "296": {
@@ -3881,7 +3881,7 @@
         2317
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x3E1"
     },
     "299": {
@@ -3892,7 +3892,7 @@
         2317
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "300": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3901,7 +3901,7 @@
         2317
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "301": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3910,7 +3910,7 @@
         2317
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x38C"
     },
     "304": {
@@ -3921,7 +3921,7 @@
         2317
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "305": {
       "offset": [
@@ -3929,7 +3929,7 @@
         760
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "306": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3938,7 +3938,7 @@
         760
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "308": {
@@ -3948,7 +3948,7 @@
         760
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "309": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -3957,7 +3957,7 @@
         760
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x144"
     },
     "312": {
@@ -3967,7 +3967,7 @@
         760
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "313": {
       "op": "PUSH1",
@@ -3993,7 +3993,7 @@
         760
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "322": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4002,7 +4002,7 @@
         760
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "323": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4011,7 +4011,7 @@
         760
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "324": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4020,7 +4020,7 @@
         760
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "325": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4029,7 +4029,7 @@
         760
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "327": {
@@ -4039,7 +4039,7 @@
         760
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "328": {
       "op": "PUSH1",
@@ -4087,7 +4087,7 @@
         760
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "346": {
@@ -4097,7 +4097,7 @@
         760
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "347": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4106,7 +4106,7 @@
         760
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "348": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4115,7 +4115,7 @@
         760
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "349": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4124,7 +4124,7 @@
         760
       ],
       "op": "SUB",
-      "path": "1"
+      "path": "4"
     },
     "350": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4133,7 +4133,7 @@
         760
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "351": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -4142,7 +4142,7 @@
         760
       ],
       "op": "RETURN",
-      "path": "1"
+      "path": "4"
     },
     "352": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4151,7 +4151,7 @@
         1613
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "353": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4160,7 +4160,7 @@
         1545
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 1,
       "value": "0x0"
     },
@@ -4171,7 +4171,7 @@
         1545
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "356": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4180,7 +4180,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "358": {
@@ -4190,7 +4190,7 @@
         1568
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "359": {
       "op": "PUSH4",
@@ -4210,7 +4210,7 @@
         1568
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "368": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4219,7 +4219,7 @@
         1568
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "369": {
       "op": "PUSH1",
@@ -4255,7 +4255,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "382": {
@@ -4265,7 +4265,7 @@
         1568
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "383": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4274,7 +4274,7 @@
         1568
       ],
       "op": "ADD",
-      "path": "1"
+      "path": "4"
     },
     "384": {
       "op": "MSTORE"
@@ -4286,7 +4286,7 @@
         1545
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "386": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4295,7 +4295,7 @@
         1545
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "387": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4304,7 +4304,7 @@
         1545
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "388": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4313,7 +4313,7 @@
         1545
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "389": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4322,7 +4322,7 @@
         1558
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x12243B67"
     },
     "394": {
@@ -4332,7 +4332,7 @@
         1558
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "395": {
       "op": "PUSH1",
@@ -4348,7 +4348,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "400": {
@@ -4358,7 +4358,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "402": {
@@ -4368,7 +4368,7 @@
         1568
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "403": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4377,7 +4377,7 @@
         1568
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "404": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4386,7 +4386,7 @@
         1568
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "405": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4395,7 +4395,7 @@
         1568
       ],
       "op": "SUB",
-      "path": "1"
+      "path": "4"
     },
     "406": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4404,7 +4404,7 @@
         1568
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "407": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4413,7 +4413,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "409": {
@@ -4423,7 +4423,7 @@
         1568
       ],
       "op": "DUP8",
-      "path": "1"
+      "path": "4"
     },
     "410": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4432,7 +4432,7 @@
         1568
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "411": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4441,7 +4441,7 @@
         1568
       ],
       "op": "EXTCODESIZE",
-      "path": "1"
+      "path": "4"
     },
     "412": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4450,7 +4450,7 @@
         1568
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "413": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4459,7 +4459,7 @@
         1568
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "414": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4468,7 +4468,7 @@
         1568
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "415": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4477,7 +4477,7 @@
         1568
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x1A7"
     },
     "418": {
@@ -4487,7 +4487,7 @@
         1568
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "419": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4496,7 +4496,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "421": {
@@ -4506,7 +4506,7 @@
         1568
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "422": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4515,7 +4515,7 @@
         1568
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "423": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4524,7 +4524,7 @@
         1568
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "424": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4533,7 +4533,7 @@
         1568
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "425": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4542,7 +4542,7 @@
         1568
       ],
       "op": "GAS",
-      "path": "1"
+      "path": "4"
     },
     "426": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4551,7 +4551,7 @@
         1568
       ],
       "op": "CALL",
-      "path": "1"
+      "path": "4"
     },
     "427": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4560,7 +4560,7 @@
         1568
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "428": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4569,7 +4569,7 @@
         1568
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "429": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4578,7 +4578,7 @@
         1568
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "430": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4587,7 +4587,7 @@
         1568
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x1BB"
     },
     "433": {
@@ -4597,7 +4597,7 @@
         1568
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "434": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4606,7 +4606,7 @@
         1568
       ],
       "op": "RETURNDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "435": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4615,7 +4615,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "437": {
@@ -4625,7 +4625,7 @@
         1568
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "438": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4634,7 +4634,7 @@
         1568
       ],
       "op": "RETURNDATACOPY",
-      "path": "1"
+      "path": "4"
     },
     "439": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4643,7 +4643,7 @@
         1568
       ],
       "op": "RETURNDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "440": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4652,7 +4652,7 @@
         1568
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "442": {
@@ -4662,7 +4662,7 @@
         1568
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "443": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4671,7 +4671,7 @@
         1568
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "444": {
       "op": "POP"
@@ -4686,7 +4686,7 @@
         1606
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 2,
       "value": "0x40"
     },
@@ -4697,7 +4697,7 @@
         1606
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "449": {
       "op": "PUSH1",
@@ -4724,7 +4724,7 @@
         1606
       ],
       "op": "DUP5",
-      "path": "1"
+      "path": "4"
     },
     "458": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4733,7 +4733,7 @@
         1606
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "459": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4742,7 +4742,7 @@
         1606
       ],
       "op": "SWAP3",
-      "path": "1"
+      "path": "4"
     },
     "460": {
       "op": "POP"
@@ -4754,7 +4754,7 @@
         1606
       ],
       "op": "PUSH32",
-      "path": "1",
+      "path": "4",
       "value": "0x9AC3117B086B001D2BCD36FF49E64F86A26F25D7C9FF453E9DBD9D496B8BF084"
     },
     "494": {
@@ -4764,7 +4764,7 @@
         1606
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "495": {
       "op": "POP"
@@ -4776,7 +4776,7 @@
         1606
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "498": {
@@ -4786,7 +4786,7 @@
         1606
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "499": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4795,7 +4795,7 @@
         1606
       ],
       "op": "LOG2",
-      "path": "1"
+      "path": "4"
     },
     "500": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4804,7 +4804,7 @@
         1613
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "501": {
       "fn": "PlayerOnboardContract.deletePlayer",
@@ -4814,7 +4814,7 @@
         1613
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "502": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4823,7 +4823,7 @@
         2469
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "503": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4832,7 +4832,7 @@
         2429
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 3,
       "value": "0x0"
     },
@@ -4843,7 +4843,7 @@
         2429
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "506": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4852,7 +4852,7 @@
         2429
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "507": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4861,7 +4861,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "509": {
@@ -4871,7 +4871,7 @@
         2462
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "510": {
       "op": "PUSH4",
@@ -4891,7 +4891,7 @@
         2462
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "519": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4900,7 +4900,7 @@
         2462
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "520": {
       "op": "PUSH1",
@@ -4936,7 +4936,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "533": {
@@ -4946,7 +4946,7 @@
         2462
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "534": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4955,7 +4955,7 @@
         2462
       ],
       "op": "ADD",
-      "path": "1"
+      "path": "4"
     },
     "535": {
       "op": "MSTORE"
@@ -4989,7 +4989,7 @@
         2429
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "545": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -4998,7 +4998,7 @@
         2429
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "546": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5007,7 +5007,7 @@
         2429
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "547": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5016,7 +5016,7 @@
         2448
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x5889FB34"
     },
     "552": {
@@ -5026,7 +5026,7 @@
         2448
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "553": {
       "op": "PUSH1",
@@ -5042,7 +5042,7 @@
         2462
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "557": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5051,7 +5051,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "559": {
@@ -5061,7 +5061,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "561": {
@@ -5071,7 +5071,7 @@
         2462
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "562": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5080,7 +5080,7 @@
         2462
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "563": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5089,7 +5089,7 @@
         2462
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "564": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5098,7 +5098,7 @@
         2462
       ],
       "op": "SUB",
-      "path": "1"
+      "path": "4"
     },
     "565": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5107,7 +5107,7 @@
         2462
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "566": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5116,7 +5116,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "568": {
@@ -5126,7 +5126,7 @@
         2462
       ],
       "op": "DUP8",
-      "path": "1"
+      "path": "4"
     },
     "569": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5135,7 +5135,7 @@
         2462
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "570": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5144,7 +5144,7 @@
         2462
       ],
       "op": "EXTCODESIZE",
-      "path": "1"
+      "path": "4"
     },
     "571": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5153,7 +5153,7 @@
         2462
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "572": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5162,7 +5162,7 @@
         2462
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "573": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5171,7 +5171,7 @@
         2462
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "574": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5180,7 +5180,7 @@
         2462
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x246"
     },
     "577": {
@@ -5190,7 +5190,7 @@
         2462
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "578": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5199,7 +5199,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "580": {
@@ -5209,7 +5209,7 @@
         2462
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "581": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5218,7 +5218,7 @@
         2462
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "582": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5227,7 +5227,7 @@
         2462
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "583": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5236,7 +5236,7 @@
         2462
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "584": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5245,7 +5245,7 @@
         2462
       ],
       "op": "GAS",
-      "path": "1"
+      "path": "4"
     },
     "585": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5254,7 +5254,7 @@
         2462
       ],
       "op": "CALL",
-      "path": "1"
+      "path": "4"
     },
     "586": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5263,7 +5263,7 @@
         2462
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "587": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5272,7 +5272,7 @@
         2462
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "588": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5281,7 +5281,7 @@
         2462
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "589": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5290,7 +5290,7 @@
         2462
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x25A"
     },
     "592": {
@@ -5300,7 +5300,7 @@
         2462
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "593": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5309,7 +5309,7 @@
         2462
       ],
       "op": "RETURNDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "594": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5318,7 +5318,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "596": {
@@ -5328,7 +5328,7 @@
         2462
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "597": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5337,7 +5337,7 @@
         2462
       ],
       "op": "RETURNDATACOPY",
-      "path": "1"
+      "path": "4"
     },
     "598": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5346,7 +5346,7 @@
         2462
       ],
       "op": "RETURNDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "599": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5355,7 +5355,7 @@
         2462
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "601": {
@@ -5365,7 +5365,7 @@
         2462
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "602": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5374,7 +5374,7 @@
         2462
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "603": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5383,7 +5383,7 @@
         2462
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "604": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5392,7 +5392,7 @@
         2462
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "605": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5401,7 +5401,7 @@
         2462
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "606": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5410,7 +5410,7 @@
         2462
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "607": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5419,7 +5419,7 @@
         2469
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "608": {
       "fn": "PlayerOnboardContract.removeAdmin",
@@ -5429,7 +5429,7 @@
         2469
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "609": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5438,7 +5438,7 @@
         2164
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "610": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5447,7 +5447,7 @@
         2120
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 4,
       "value": "0x0"
     },
@@ -5458,7 +5458,7 @@
         2120
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "613": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5467,7 +5467,7 @@
         2120
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "614": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5476,7 +5476,7 @@
         2157
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "616": {
@@ -5486,7 +5486,7 @@
         2157
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "617": {
       "op": "PUSH4",
@@ -5506,7 +5506,7 @@
         2157
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "626": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5515,7 +5515,7 @@
         2157
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "627": {
       "op": "PUSH1",
@@ -5551,7 +5551,7 @@
         2157
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "640": {
@@ -5561,7 +5561,7 @@
         2157
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "641": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5570,7 +5570,7 @@
         2157
       ],
       "op": "ADD",
-      "path": "1"
+      "path": "4"
     },
     "642": {
       "op": "MSTORE"
@@ -5604,7 +5604,7 @@
         2120
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "652": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5613,7 +5613,7 @@
         2120
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "653": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5622,7 +5622,7 @@
         2120
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "654": {
       "fn": "PlayerOnboardContract.removeValidator",
@@ -5631,7 +5631,7 @@
         2139
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0xACA2490B"
     },
     "659": {
@@ -5641,7 +5641,7 @@
         2139
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "660": {
       "op": "PUSH1",
@@ -5657,7 +5657,7 @@
         2157
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x22C"
     },
     "666": {
@@ -5670,7 +5670,7 @@
         1468
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "668": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5679,7 +5679,7 @@
         1319
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 5,
       "value": "0x0"
     },
@@ -5690,7 +5690,7 @@
         1319
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "671": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5699,7 +5699,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "673": {
@@ -5709,7 +5709,7 @@
         1384
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "674": {
       "op": "PUSH4",
@@ -5729,7 +5729,7 @@
         1384
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "683": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5738,7 +5738,7 @@
         1384
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "684": {
       "op": "PUSH1",
@@ -5765,7 +5765,7 @@
         1319
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "693": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5774,7 +5774,7 @@
         1319
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "694": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5783,7 +5783,7 @@
         1319
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "695": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5792,7 +5792,7 @@
         1319
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "696": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5801,7 +5801,7 @@
         1337
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x43A9C978"
     },
     "701": {
@@ -5811,7 +5811,7 @@
         1337
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "702": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5820,7 +5820,7 @@
         1384
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x2D3"
     },
     "705": {
@@ -5830,7 +5830,7 @@
         1384
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "706": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5839,7 +5839,7 @@
         1346
       ],
       "op": "DUP9",
-      "path": "1"
+      "path": "4"
     },
     "707": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5848,7 +5848,7 @@
         1346
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "708": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5857,7 +5857,7 @@
         1356
       ],
       "op": "DUP9",
-      "path": "1"
+      "path": "4"
     },
     "709": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5866,7 +5866,7 @@
         1356
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "710": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5875,7 +5875,7 @@
         1356
       ],
       "op": "DUP9",
-      "path": "1"
+      "path": "4"
     },
     "711": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5884,7 +5884,7 @@
         1356
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "712": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5893,7 +5893,7 @@
         1370
       ],
       "op": "DUP9",
-      "path": "1"
+      "path": "4"
     },
     "713": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5902,7 +5902,7 @@
         1370
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "714": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5911,7 +5911,7 @@
         1383
       ],
       "op": "DUP9",
-      "path": "1"
+      "path": "4"
     },
     "715": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5920,7 +5920,7 @@
         1383
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "716": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5929,7 +5929,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "718": {
@@ -5939,7 +5939,7 @@
         1384
       ],
       "op": "ADD",
-      "path": "1"
+      "path": "4"
     },
     "719": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5948,7 +5948,7 @@
         1384
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x5DC"
     },
     "722": {
@@ -5959,7 +5959,7 @@
         1384
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "723": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5968,7 +5968,7 @@
         1384
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "724": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -5977,7 +5977,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "726": {
@@ -5987,7 +5987,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "728": {
@@ -5997,7 +5997,7 @@
         1384
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "729": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6006,7 +6006,7 @@
         1384
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "730": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6015,7 +6015,7 @@
         1384
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "731": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6024,7 +6024,7 @@
         1384
       ],
       "op": "SUB",
-      "path": "1"
+      "path": "4"
     },
     "732": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6033,7 +6033,7 @@
         1384
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "733": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6042,7 +6042,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "735": {
@@ -6052,7 +6052,7 @@
         1384
       ],
       "op": "DUP8",
-      "path": "1"
+      "path": "4"
     },
     "736": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6061,7 +6061,7 @@
         1384
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "737": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6070,7 +6070,7 @@
         1384
       ],
       "op": "EXTCODESIZE",
-      "path": "1"
+      "path": "4"
     },
     "738": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6079,7 +6079,7 @@
         1384
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "739": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6088,7 +6088,7 @@
         1384
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "740": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6097,7 +6097,7 @@
         1384
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "741": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6106,7 +6106,7 @@
         1384
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x2ED"
     },
     "744": {
@@ -6116,7 +6116,7 @@
         1384
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "745": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6125,7 +6125,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "747": {
@@ -6135,7 +6135,7 @@
         1384
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "748": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6144,7 +6144,7 @@
         1384
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "749": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6153,7 +6153,7 @@
         1384
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "750": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6162,7 +6162,7 @@
         1384
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "751": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6171,7 +6171,7 @@
         1384
       ],
       "op": "GAS",
-      "path": "1"
+      "path": "4"
     },
     "752": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6180,7 +6180,7 @@
         1384
       ],
       "op": "CALL",
-      "path": "1"
+      "path": "4"
     },
     "753": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6189,7 +6189,7 @@
         1384
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "754": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6198,7 +6198,7 @@
         1384
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "755": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6207,7 +6207,7 @@
         1384
       ],
       "op": "ISZERO",
-      "path": "1"
+      "path": "4"
     },
     "756": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6216,7 +6216,7 @@
         1384
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x301"
     },
     "759": {
@@ -6226,7 +6226,7 @@
         1384
       ],
       "op": "JUMPI",
-      "path": "1"
+      "path": "4"
     },
     "760": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6235,7 +6235,7 @@
         1384
       ],
       "op": "RETURNDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "761": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6244,7 +6244,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "763": {
@@ -6254,7 +6254,7 @@
         1384
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "764": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6263,7 +6263,7 @@
         1384
       ],
       "op": "RETURNDATACOPY",
-      "path": "1"
+      "path": "4"
     },
     "765": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6272,7 +6272,7 @@
         1384
       ],
       "op": "RETURNDATASIZE",
-      "path": "1"
+      "path": "4"
     },
     "766": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6281,7 +6281,7 @@
         1384
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x0"
     },
     "768": {
@@ -6291,7 +6291,7 @@
         1384
       ],
       "op": "REVERT",
-      "path": "1"
+      "path": "4"
     },
     "769": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6300,7 +6300,7 @@
         1384
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "770": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6309,7 +6309,7 @@
         1384
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "771": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6318,7 +6318,7 @@
         1384
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "772": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6327,7 +6327,7 @@
         1384
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "773": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6336,7 +6336,7 @@
         1384
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "774": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6345,7 +6345,7 @@
         1423
       ],
       "op": "DUP5",
-      "path": "1",
+      "path": "4",
       "statement": 6
     },
     "775": {
@@ -6373,7 +6373,7 @@
         1461
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "784": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6382,7 +6382,7 @@
         1461
       ],
       "op": "PUSH32",
-      "path": "1",
+      "path": "4",
       "value": "0x8E30371244F1DB40392EE88B22115D21957F87A855479908276AA4055F29FA1B"
     },
     "817": {
@@ -6392,7 +6392,7 @@
         1433
       ],
       "op": "DUP6",
-      "path": "1"
+      "path": "4"
     },
     "818": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6401,7 +6401,7 @@
         1433
       ],
       "op": "DUP6",
-      "path": "1"
+      "path": "4"
     },
     "819": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6410,7 +6410,7 @@
         1447
       ],
       "op": "DUP6",
-      "path": "1"
+      "path": "4"
     },
     "820": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6419,7 +6419,7 @@
         1460
       ],
       "op": "DUP6",
-      "path": "1"
+      "path": "4"
     },
     "821": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6428,7 +6428,7 @@
         1461
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "823": {
@@ -6438,7 +6438,7 @@
         1461
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "824": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6447,7 +6447,7 @@
         1461
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x344"
     },
     "827": {
@@ -6457,7 +6457,7 @@
         1461
       ],
       "op": "SWAP5",
-      "path": "1"
+      "path": "4"
     },
     "828": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6466,7 +6466,7 @@
         1461
       ],
       "op": "SWAP4",
-      "path": "1"
+      "path": "4"
     },
     "829": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6475,7 +6475,7 @@
         1461
       ],
       "op": "SWAP3",
-      "path": "1"
+      "path": "4"
     },
     "830": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6484,7 +6484,7 @@
         1461
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "831": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6493,7 +6493,7 @@
         1461
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "832": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6502,7 +6502,7 @@
         1461
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x627"
     },
     "835": {
@@ -6513,7 +6513,7 @@
         1461
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "836": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6522,7 +6522,7 @@
         1461
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "837": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6531,7 +6531,7 @@
         1461
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "839": {
@@ -6541,7 +6541,7 @@
         1461
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "840": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6550,7 +6550,7 @@
         1461
       ],
       "op": "DUP1",
-      "path": "1"
+      "path": "4"
     },
     "841": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6559,7 +6559,7 @@
         1461
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "842": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6568,7 +6568,7 @@
         1461
       ],
       "op": "SUB",
-      "path": "1"
+      "path": "4"
     },
     "843": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6577,7 +6577,7 @@
         1461
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "844": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6586,7 +6586,7 @@
         1461
       ],
       "op": "LOG2",
-      "path": "1"
+      "path": "4"
     },
     "845": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6595,7 +6595,7 @@
         1468
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "846": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6604,7 +6604,7 @@
         1468
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "847": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6613,7 +6613,7 @@
         1468
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "848": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6622,7 +6622,7 @@
         1468
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "849": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6631,7 +6631,7 @@
         1468
       ],
       "op": "POP",
-      "path": "1"
+      "path": "4"
     },
     "850": {
       "fn": "PlayerOnboardContract.onboardPlayer",
@@ -6641,7 +6641,7 @@
         1468
       ],
       "op": "JUMP",
-      "path": "1"
+      "path": "4"
     },
     "851": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6650,7 +6650,7 @@
         2000
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "852": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6659,7 +6659,7 @@
         1957
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 7,
       "value": "0x0"
     },
@@ -6670,7 +6670,7 @@
         1957
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "855": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6679,7 +6679,7 @@
         1993
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "857": {
@@ -6689,7 +6689,7 @@
         1993
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "858": {
       "op": "PUSH4",
@@ -6709,7 +6709,7 @@
         1993
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "867": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6718,7 +6718,7 @@
         1993
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "868": {
       "op": "PUSH1",
@@ -6754,7 +6754,7 @@
         1993
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "881": {
@@ -6764,7 +6764,7 @@
         1993
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "882": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6773,7 +6773,7 @@
         1993
       ],
       "op": "ADD",
-      "path": "1"
+      "path": "4"
     },
     "883": {
       "op": "MSTORE"
@@ -6785,7 +6785,7 @@
         1957
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x1"
     },
     "886": {
@@ -6808,7 +6808,7 @@
         1957
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "892": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6817,7 +6817,7 @@
         1957
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "893": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6826,7 +6826,7 @@
         1957
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "894": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6835,7 +6835,7 @@
         1957
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "895": {
       "fn": "PlayerOnboardContract.registerValidator",
@@ -6844,7 +6844,7 @@
         1976
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0xACA2490B"
     },
     "900": {
@@ -6854,7 +6854,7 @@
         1976
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "901": {
       "op": "PUSH1",
@@ -6870,7 +6870,7 @@
         1993
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x22C"
     },
     "907": {
@@ -6883,7 +6883,7 @@
         2317
       ],
       "op": "JUMPDEST",
-      "path": "1"
+      "path": "4"
     },
     "909": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -6892,7 +6892,7 @@
         2278
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "statement": 8,
       "value": "0x0"
     },
@@ -6903,7 +6903,7 @@
         2278
       ],
       "op": "SLOAD",
-      "path": "1"
+      "path": "4"
     },
     "912": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -6912,7 +6912,7 @@
         2310
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x40"
     },
     "914": {
@@ -6922,7 +6922,7 @@
         2310
       ],
       "op": "MLOAD",
-      "path": "1"
+      "path": "4"
     },
     "915": {
       "op": "PUSH4",
@@ -6942,7 +6942,7 @@
         2310
       ],
       "op": "DUP2",
-      "path": "1"
+      "path": "4"
     },
     "924": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -6951,7 +6951,7 @@
         2310
       ],
       "op": "MSTORE",
-      "path": "1"
+      "path": "4"
     },
     "925": {
       "op": "PUSH1",
@@ -6987,7 +6987,7 @@
         2310
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x4"
     },
     "938": {
@@ -6997,7 +6997,7 @@
         2310
       ],
       "op": "DUP4",
-      "path": "1"
+      "path": "4"
     },
     "939": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -7006,7 +7006,7 @@
         2310
       ],
       "op": "ADD",
-      "path": "1"
+      "path": "4"
     },
     "940": {
       "op": "MSTORE"
@@ -7018,7 +7018,7 @@
         2278
       ],
       "op": "PUSH1",
-      "path": "1",
+      "path": "4",
       "value": "0x1"
     },
     "943": {
@@ -7041,7 +7041,7 @@
         2278
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "949": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -7050,7 +7050,7 @@
         2278
       ],
       "op": "SWAP2",
-      "path": "1"
+      "path": "4"
     },
     "950": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -7059,7 +7059,7 @@
         2278
       ],
       "op": "AND",
-      "path": "1"
+      "path": "4"
     },
     "951": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -7068,7 +7068,7 @@
         2278
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "952": {
       "fn": "PlayerOnboardContract.registerAdmin",
@@ -7077,7 +7077,7 @@
         2297
       ],
       "op": "PUSH4",
-      "path": "1",
+      "path": "4",
       "value": "0x5889FB34"
     },
     "957": {
@@ -7087,7 +7087,7 @@
         2297
       ],
       "op": "SWAP1",
-      "path": "1"
+      "path": "4"
     },
     "958": {
       "op": "PUSH1",
@@ -7103,7 +7103,7 @@
         2310
       ],
       "op": "PUSH2",
-      "path": "1",
+      "path": "4",
       "value": "0x22C"
     },
     "964": {
@@ -8759,7 +8759,7 @@
   },
   "sha1": "275dc02313710a16e976024b8738bd188f7382e4",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\n// interface IPlayerDatabaseSubcontract {\n//     function addOrUpdatePlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered) external;\n// }\n\ninterface IPlayerDatabase {\n    function addOrUpdatePlayer(address _address, string calldata _steamID, bool _isValidator, string memory _playerName) external;\n    function deletePlayer(address _address) external;\n    // Include other functions from PlayerDatabase that PlayerOnrampContract needs to call\n\n    function setGameAdminStatus(address admin, bool status) external;\n    function setValidatorStatus(address validator, bool status) external;\n\n}\n\ncontract PlayerOnboardContract {\n    IPlayerDatabase public playerDatabase;\n\n    event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, string _playerName);\n    event PlayerRemoved(address indexed deletedPlayerAddress);\n    address _playerDatabaseAddress = 0xB03A6aFd440a2a9db8834F1A6093680f02f1114C;\n\n    constructor() {\n        playerDatabase = IPlayerDatabase(_playerDatabaseAddress);\n    }\n\n    function onboardPlayer(address _address, string calldata _steamID, bool _isValidator, string memory _playerName) public {\n        // Additional logic and security checks as needed\n        playerDatabase.addOrUpdatePlayer(_address, _steamID, _isValidator, _playerName);\n        emit PlayerOnboarded(_address, _steamID, _isValidator, _playerName);\n    }\n\n    function deletePlayer(address _address) public {\n        playerDatabase.deletePlayer(_address);\n        emit PlayerRemoved(_address);\n    }\n\n    function setPlayerDatabaseAddress(address __playerDatabaseAddress) public {\n        playerDatabase = IPlayerDatabase(__playerDatabaseAddress);\n    }\n    // Additional functions and logic as required for onramping...\n\n\n    function registerValidator(address validator) public {\n        // Add appropriate checks here\n        playerDatabase.setValidatorStatus(validator, true);\n    }\n\n    function removeValidator(address validator) public {\n        // Add appropriate checks here\n        playerDatabase.setValidatorStatus(validator, false);\n    }\n\n    function registerAdmin(address admin) public {\n        // Add appropriate checks here\n        playerDatabase.setGameAdminStatus(admin, true);\n    }\n\n    function removeAdmin(address admin) public {\n        // Add appropriate checks here\n        playerDatabase.setGameAdminStatus(admin, false);\n    }\n}\n// contract PlayerOnrampContract {\n//     IMintyDatabaseSubcontract public mintyDatabase;\n\n//     event PlayerOnboarded(address indexed playerAddress, string steamID, bool isValidator, bool isRegistered);\n\n//     constructor(address _mintyDatabaseAddress) {\n//         mintyDatabase = IMintyDatabaseSubcontract(_mintyDatabaseAddress);\n//     }\n\n//     function onboardPlayer(address _address, string calldata _steamID, bool _isValidator, bool _isRegistered) public {\n//         // Additional logic and security checks as needed\n//         mintyDatabase.addOrUpdatePlayer(_address, _steamID, _isValidator, _isRegistered);\n//         emit PlayerOnboarded(_address, _steamID, _isValidator, _isRegistered);\n//     }\n\n//     // Additional functions and logic as required for onramping...\n// }\n",
-  "sourceMap": "686:1785:1:-:0;;;942:75;;;-1:-1:-1;;;;;;942:75:1;975:42;942:75;;;1024:87;;;;;;;;;-1:-1:-1;1081:22:1;;;1048:56;;-1:-1:-1;;;;;;1048:56:1;-1:-1:-1;;;;;1081:22:1;;;1048:56;;;;;;686:1785;;;;;;",
+  "sourceMap": "686:1785:4:-:0;;;942:75;;;-1:-1:-1;;;;;;942:75:4;975:42;942:75;;;1024:87;;;;;;;;;-1:-1:-1;1081:22:4;;;1048:56;;-1:-1:-1;;;;;;1048:56:4;-1:-1:-1;;;;;1081:22:4;;;1048:56;;;;;;686:1785;;;;;;",
   "sourcePath": "contracts/5_GP_Onboard.sol",
   "type": "contract"
 }

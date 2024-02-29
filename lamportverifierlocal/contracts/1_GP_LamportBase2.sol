@@ -426,14 +426,14 @@ contract LamportBase2 {
         bytes32[2][256] calldata currentpub,
         bytes[256] calldata sig,
         bytes32 nextPKH,
-        bytes memory newmasterPKH
+        bytes32 newmasterPKH
     )
         public
         onlyLamportMaster(
             currentpub,
             sig,
             nextPKH,
-            newmasterPKH
+            abi.encodePacked(newmasterPKH)
         )
     {
         // Save the used master NextPKH in a global variable
@@ -468,23 +468,69 @@ contract LamportBase2 {
         lastUsedNextPKH = bytes32(0);
     }
 
-
-    function createOracleKeyFromMaster(
+    function createOracleKeyStepOne(
         bytes32[2][256] calldata currentpub,
-        bytes32 nextPKH,
         bytes[256] calldata sig,
-        bytes32 neworaclePKH
+        bytes32 nextPKH,
+        bytes32 newOraclePKH
     )
         public
         onlyLamportMaster(
             currentpub,
             sig,
             nextPKH,
-            abi.encodePacked(neworaclePKH)
+            abi.encodePacked(newOraclePKH)
         )
     {
-        
-        addKey(KeyType.ORACLE, neworaclePKH);
-      
+        // Save the used master NextPKH in a global variable
+        lastUsedNextPKH = nextPKH;
     }
+
+    function createOracleKeyStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        bytes32 newOraclePKH
+    )
+        public
+        onlyLamportMaster(
+            currentpub,
+            sig,
+            nextPKH,
+            abi.encodePacked(newOraclePKH)
+        )
+    {
+        // Check if the used master NextPKH matches the last used PKH
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        bool pkhMatched = (lastUsedNextPKH != currentPKH);
+        //require(lastUsedNextPKH != nextPKH, "LamportBase: Same master key is being used again, need a separate one");
+        lastUsedNextPKH = bytes32(0);
+        // If checks pass, add the new master key
+        require(pkhMatched, "LamportBase: PKH matches last used PKH (use separate second key)");
+
+        addKey(KeyType.ORACLE, newOraclePKH);
+
+        // Reset lastUsedNextPKH
+        lastUsedNextPKH = bytes32(0);
+    }
+
+
+    // function createOracleKeyFromMaster(
+    //     bytes32[2][256] calldata currentpub,
+    //     bytes32 nextPKH,
+    //     bytes[256] calldata sig,
+    //     bytes32 neworaclePKH
+    // )
+    //     public
+    //     onlyLamportMaster(
+    //         currentpub,
+    //         sig,
+    //         nextPKH,
+    //         abi.encodePacked(neworaclePKH)
+    //     )
+    // {
+        
+    //     addKey(KeyType.ORACLE, neworaclePKH);
+      
+    // }
 }
