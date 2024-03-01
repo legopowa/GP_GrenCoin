@@ -35,6 +35,12 @@ contract PlayerDatabase  {
     mapping(string => bool) public gameServerIPs; // Mapping to store game server IPs
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
+    mapping(address => address) private proposedAnonIDContractAddresses;
+    mapping(address => address) private proposedGameValContractAddresses;
+    mapping(address => address) private proposedOnrampContractAddresses;
+    mapping(address => address) private proposedForumContractAddresses;
+
+
 
     string gameID = "TFC"; // Define your game ID for TFC
     string[] public serverIPList; // Array for listing all server IPs
@@ -46,6 +52,8 @@ contract PlayerDatabase  {
         bool isModerator;
         bool isTourneyMod;
         bool isGameAdmin;
+        bool isOnboardQueuer;
+        bool isOnboardRegistrar;
         string playerName; // Name of the player
         bytes32 forumKey; // Unique key for forum entitlements
         string steamID;
@@ -62,7 +70,7 @@ contract PlayerDatabase  {
     address public onrampContract; // Address of the onramp contract
     address public forumContract; // Address of the forum contract
     ILamportBase public lamportBase; // Reference to the lamportBase contract
-
+    bytes32 private lastUsedNextPKH;
 
     // Events
     event ForumContractUpdated(address indexed newForumContract);
@@ -71,7 +79,7 @@ contract PlayerDatabase  {
     event OnrampContractUpdated(address indexed newOnrampContract);
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
-    
+
     address _lamportBase = 0x59186A1dc8254F217Fa62a4f75F2F0799962FB4e;
 
     // Constructor
@@ -95,6 +103,22 @@ contract PlayerDatabase  {
 
     function isRegistered(address _address) public view returns (bool) {
         return playerData[_address].isRegistered;
+    }
+    
+    function isTourneyMod(address _address) public view returns (bool) {
+        return playerData[_address].isTourneyMod;
+    }
+    
+    function isGameAdmin(address _address) public view returns (bool) {
+        return playerData[_address].isGameAdmin;
+    }
+    
+    function isOnboardQueuer(address _address) public view returns (bool) {
+        return playerData[_address].isOnboardQueuer;
+    }
+    
+    function isOnboardRegistrar(address _address) public view returns (bool) {
+        return playerData[_address].isOnboardRegistrar;
     }
     // function getRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
     //     address[] memory rewardAddresses = new address[](playerNames.length);
@@ -167,6 +191,8 @@ contract PlayerDatabase  {
 
     // Helper function to remove a server IP from the array
     function removeServerIPFromArray(string memory serverIP) private {
+
+        require(playerData[msg.sender].isGameAdmin, "Caller is not a game admin");
         for (uint i = 0; i < serverIPList.length; i++) {
             if (keccak256(abi.encodePacked(serverIPList[i])) == keccak256(abi.encodePacked(serverIP))) {
                 // Update the mapping to reflect the server IP is no longer registered
@@ -211,7 +237,6 @@ contract PlayerDatabase  {
     function addOrUpdatePlayer(
         address _address,
         string memory _steamID,
-        bool _isValidator,
         string memory _playerName,
         uint256 _oracleKeyIndex // Revert for new players if this is 0
     ) 
@@ -224,8 +249,8 @@ contract PlayerDatabase  {
         if (player.isRegistered) {
             // Update existing player data
             player.steamID = _steamID;
-            player.isValidator = _isValidator;
             player.playerName = _playerName;
+            rewardAddress = _rewardAddress;
             // If _oracleKeyIndex is not 0, update the oracleKeyIndex. Otherwise, leave it unchanged.
             if (_oracleKeyIndex != 0) {
                 player.oracleKeyIndex = _oracleKeyIndex;
@@ -245,6 +270,8 @@ contract PlayerDatabase  {
                 isModerator: false,
                 isTourneyMod: false,
                 isGameAdmin: false,
+                isOnboardQueuer: false,
+                isOnboardRegistrar: false,
                 forumKey: 0,
                 oracleKeyIndex: _oracleKeyIndex // Directly set the provided index
             });
@@ -282,37 +309,224 @@ contract PlayerDatabase  {
     }
     // ... [Other Player Database functions]
     // Function to set the AnonID contract address
-    function updateAnonIDContractAddress(address _anonIDContract) public {
-        // Add appropriate security checks
-        anonIDContract = IAnonID(_anonIDContract);
-        emit AnonIDContractUpdated(_anonIDContract);
-    }
-    // Shared functions
-    function updateGameValContractAddress(address _gameValContract) public {
-        gameValContract = _gameValContract;
-        emit GameValContractUpdated(_gameValContract);
+
+    function updateAnonIDContractAddressStepOne(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _anonIDContract
+    ) public {
+        // Encode the new contract address to bytes
+        bytes memory prepacked = abi.encodePacked(_anonIDContract);
+
+        // Directly call performLamportMasterCheck
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "LamportBase: Authorization failed");
+
+        // Save the proposed AnonID contract address in a global variable
+        proposedAnonIDContractAddresss[msg.sender] = _anonIDContract;
+        lastUsedNextPKH = nextPKH;
     }
 
-    function updateOnrampContractAddress(address _onrampContract) public {
+    function updateAnonIDContractAddressStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _anonIDContract
+    ) public {
+        // Encode the new contract address to bytes
+        bytes memory prepacked = abi.encodePacked(_anonIDContract);
+
+
+        // Check that the proposed contract address matches the address in the current call
+        require(proposedAnonIDContractAddresses[msg.sender] == _anonIDContract, "Proposed AnonID contract address mismatch");
+
+        // Check if the used NextPKH matches the last used PKH to prevent replay with the same keys
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        require(lastUsedNextPKH != currentPKH, "LamportBase: PKH matches last used PKH (use separate second key)");
+        // Perform the Lamport Master Check again
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "LamportBase: Authorization failed");
+        
+        // Update the AnonID contract address
+        anonIDContract = IAnonID(_anonIDContract);
+        emit AnonIDContractUpdated(_anonIDContract);
+
+        // Clear the temporary storage
+        delete proposedAnonIDContractAddresses[msg.sender];
+        lastUsedNextPKH = bytes32(0);
+    }
+
+
+    function updateGameValContractAddressStepOne(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _gameValContract
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(_gameValContract);
+
+        // Directly call performLamportMasterCheck from lamportBase
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed for proposed GameVal contract address");
+
+        // Store the proposed GameVal contract address for the sender
+        proposedGameValContractAddresses[msg.sender] = _gameValContract;
+        lastUsedNextPKH = nextPKH;
+    }
+
+    function updateGameValContractAddressStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _gameValContract
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(_gameValContract);
+
+        // Perform the Lamport Master Check again
+
+        // Check that the proposed contract address matches the address being confirmed
+        require(proposedGameValContractAddresses[msg.sender] == _gameValContract, "Proposed GameVal contract address mismatch");
+
+        // Check if the used NextPKH matches the last used PKH to ensure a different key is used
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        require(lastUsedNextPKH != currentPKH, "Same PKH used for both steps; use a separate key for confirmation");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed on confirmation of GameVal contract address");
+
+        // Update the GameVal contract address
+        gameValContract = _gameValContract;
+        emit GameValContractUpdated(_gameValContract);
+
+        // Clear the temporary storage
+        delete proposedGameValContractAddresses[msg.sender];
+        lastUsedNextPKH = bytes32(0);
+    }
+
+
+    function updateOnrampContractAddressStepOne(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _onrampContract
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(_onrampContract);
+
+        // Perform the Lamport Master Check directly calling lamportBase
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed for updating Onramp contract address");
+
+        // Temporarily store the proposed Onramp contract address for the sender
+        proposedOnrampContractAddresses[msg.sender] = _onrampContract;
+        lastUsedNextPKH = nextPKH;
+    }
+    function updateOnrampContractAddressStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _onrampContract
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(_onrampContract);
+
+        // Perform the Lamport Master Check again
+
+        // Verify that the proposed contract address matches the address being confirmed
+        require(proposedOnrampContractAddresses[msg.sender] == _onrampContract, "Onramp contract address update mismatch");
+
+        // Ensure a different key is used for the confirmation step
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        require(lastUsedNextPKH != currentPKH, "Same PKH used for both steps; use a separate key for confirmation");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed on confirmation of Onramp contract address update");
+
+        // Officially update the Onramp contract address
         onrampContract = _onrampContract;
         emit OnrampContractUpdated(_onrampContract);
+
+        // Clear the temporary storage
+        delete proposedOnrampContractAddresses[msg.sender];
+        lastUsedNextPKH = bytes32(0);
     }
-    // ... [Previous variables and functions]
-    function updateForumContractAddress(address _forumContract) public {
+
+    function updateForumContractAddressStepOne(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _forumContract
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(_forumContract);
+
+        // Perform the Lamport Master Check directly calling lamportBase
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed for proposed update of Forum contract address");
+
+        // Temporarily store the proposed Forum contract address for the sender
+        proposedForumContractAddresses[msg.sender] = _forumContract;
+        lastUsedNextPKH = nextPKH;
+    }
+
+    function updateForumContractAddressStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address _forumContract
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(_forumContract);
+
+        // Perform the Lamport Master Check again
+
+        // Verify that the proposed contract address matches the address being confirmed
+        require(proposedForumContractAddresses[msg.sender] == _forumContract, "Forum contract address update mismatch");
+
+        // Ensure a different key is used for the confirmation step
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        require(lastUsedNextPKH != currentPKH, "Same PKH used for both steps; use a separate key for confirmation");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed on confirmation of Forum contract address update");
+
+        // Officially update the Forum contract address
         forumContract = _forumContract;
         emit ForumContractUpdated(_forumContract);
+
+        // Clear the temporary storage
+        delete proposedForumContractAddresses[msg.sender];
+        lastUsedNextPKH = bytes32(0);
     }
+    // ... [Previous variables and functions]
+
     // ... [Rest of the existing contract]
 
 
     // Function to change a player's moderator status
-    function toggleModeratorStatus(address _player, bool _status) external {
+    function setModeratorStatus(address _player, bool _status) external {
         require(msg.sender == forumContract, "Only the forum contract can modify moderator status");
         playerData[_player].isModerator = _status;
     }
 
     // Function to change a player's tournament moderator status
-    function toggleTourneyModStatus(address _player, bool _status) external {
+    function setTourneyModStatus(address _player, bool _status) external {
         require(msg.sender == forumContract, "Only the forum contract can modify tournament moderator status");
         playerData[_player].isTourneyMod = _status;
     }
@@ -323,13 +537,27 @@ contract PlayerDatabase  {
         playerData[_player].forumKey = _key;
     }
     function setGameAdminStatus(address admin, bool status) external {
+        require(msg.sender == onrampContract, "Only the onramp contract can change Admin status");
         // Add security check to ensure only authorized contract or account can call this
         playerData[admin].isGameAdmin = status;
     }
 
     function setValidatorStatus(address validator, bool status) external {
+        require(msg.sender == onrampContract, "Only the onramp contract can change Game Validator status");
         // Add security check to ensure only authorized contract or account can call this
         playerData[validator].isValidator = status;
+    }
+    
+    function setOnboardQueuerStatus(address oracle, bool status) external {
+        require(msg.sender == onrampContract, "Only the onramp contract can change Onboard Queuer status");
+        // Add security check to ensure only authorized contract or account can call this
+        playerData[oracle].isOnboardQueuer = status;
+    }
+    
+    function setOnboardRegistrarStatus(address oracle, bool status) external {
+        require(msg.sender == onrampContract, "Only the onramp contract can change Onboard Registrar Status");
+        // Add security check to ensure only authorized contract or account can call this
+        playerData[oracle].isOnboardRegistrar = status;
     }
     // ... [Additional functions and security checks as necessary]
 }

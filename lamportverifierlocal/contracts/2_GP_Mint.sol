@@ -31,14 +31,14 @@ contract GP_Mint {
     event AuthorizedMinterSet(address indexed minter);
     event AuthorizedMinterRemoved(address indexed minter);
     constructor() {
-        lamportBase = ILamportBase(0x59186A1dc8254F217Fa62a4f75F2F0799962FB4e);
+        lamportBase = ILamportBase(0xc3C2750054f28c22B28D87e4006F7CC302c7d7E5);
         _name = "GPGrens";
         _symbol = "GPG";
         _initializeMintProcess();
     }
     function _initializeMintProcess() private {
         // Set the authorized minter (it's AnonID contract ok) (hardcoded for one-off execution)
-        authorizedMinter = 0x026b0BCF6328F50b63aE33997381aaB008433fc4;
+        authorizedMinter = 0xF3A99A9a2836a6fcFcEB846161B900B3d1447236;
 
         // Mint tokens
         _mint(0x239fA7623354eC26520dE878B52f13Fe84b06971, 80000 * (10 ** uint256(decimals())));
@@ -61,7 +61,7 @@ contract GP_Mint {
 
         // Ensure that the Lamport Master Check passed
         require(isAuthorized, "LamportBase: Authorization failed");
-
+        storedNextPKH = nextPKH
         proposedMinters[msg.sender] = minter;
     }
 
@@ -71,20 +71,26 @@ contract GP_Mint {
         bytes32 nextPKH,
         address minter
     ) public {
+        
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        
+        // Check if storedNextPKH is not the same as the current PKH
+        require(currentPKH != storedNextPKH, "LamportBase: Cannot use the same keychain twice for this function");
+        
         // Encode the minter address to bytes
         bytes memory prepacked = abi.encodePacked(minter);
 
         // Perform the Lamport Master Check
-        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
-
-        // Ensure that the Lamport Master Check passed
-        require(isAuthorized, "LamportBase: Authorization failed");
 
         // Check that the proposed minter matches the minter in the current call
         require(proposedMinters[msg.sender] == minter, "MyERC20: Minter address mismatch");
 
         // Check if the authorized minter is either not set or matches the minter being set
         require(authorizedMinter == address(0) || authorizedMinter == minter, "MyERC20: Another minter already set");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "LamportBase: Authorization failed");
 
         // Set the authorized minter
         authorizedMinter = minter;
@@ -109,6 +115,7 @@ contract GP_Mint {
 
         // Ensure that the Lamport Master Check passed
         require(isAuthorized, "LamportBase: Authorization failed");
+        storedNextPKH = nextPKH
 
         // Set the proposed minter to the zero address
         proposedMinters[msg.sender] = address(0);
@@ -119,18 +126,24 @@ contract GP_Mint {
         bytes[256] calldata sig,
         bytes32 nextPKH
     ) public {
-        // Encode the zero address to bytes
-        bytes memory prepacked = abi.encodePacked(address(0));
+
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        
+        // Check if storedNextPKH is not the same as the current PKH
+        require(currentPKH != storedNextPKH, "LamportBase: Cannot use the same keychain twice for this function");
+        
+        // Encode the authorizedMinter to bytes
+        bytes memory prepacked = abi.encodePacked(authorizedMinter);
 
         // Perform the Lamport Master Check
-        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
 
         // Ensure that the Lamport Master Check passed
-        require(isAuthorized, "LamportBase: Authorization failed");
 
         // Check the conditions for removing the minter
         require(proposedMinters[msg.sender] == address(0), "GP_Mint: No minter removal proposed");
         require(authorizedMinter != address(0), "GP_Mint: No minter set");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        require(isAuthorized, "LamportBase: Authorization failed");
 
         // Emit the AuthorizedMinterRemoved event
         emit AuthorizedMinterRemoved(authorizedMinter);

@@ -15,12 +15,18 @@ interface IGP_Mint {
 }
 contract GameValidator {
 
+    ILamportBase public lamportBase;
+
     IPlayerDatabase playerDatabase;
     IGP_Mint public mintContract;
 
     mapping(string => address[]) private validatorsPerServerIP;
     mapping(string => mapping(address => ServerSubmission)) public serverSubmissions; 
     mapping(bytes32 => string[]) public hashToPlayerList; // playerListHash -> playerNames
+    mapping(address => address) private proposedMintContractAddresses;
+    mapping(address => address) private proposedPlayerDatabaseAddresses;
+
+    bytes32 private lastUsedNextPKH;
 
     uint256 public lastMintTime;
     uint256 public constant MINT_INTERVAL = 5 minutes;
@@ -30,6 +36,8 @@ contract GameValidator {
     address _playerDatabaseAddress = 0xB03A6aFd440a2a9db8834F1A6093680f02f1114C;
     address _mintContractAddress = 0xa1D070F108CBeF4A48FFC1A79258d5C24E05DB68;
     constructor() {
+
+        lamportBase = ILamportBase(0xc3C2750054f28c22B28D87e4006F7CC302c7d7E5);
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
         mintContract = IGP_Mint(_mintContractAddress);
     }
@@ -50,15 +58,108 @@ contract GameValidator {
         uint256 count;
     }
 
-    function setMintContractAddress(address mintContractAddress) public {
-        // Implement access control checks (e.g., onlyOwner or a similar modifier)
+
+    function updateMintContractAddressStepOne(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address mintContractAddress
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(mintContractAddress);
+
+        // Perform the Lamport Master Check directly calling lamportBase
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed for proposed update of Mint contract address");
+
+        // Temporarily store the proposed Mint contract address for the sender
+        proposedMintContractAddresses[msg.sender] = mintContractAddress;
+        lastUsedNextPKH = nextPKH;
+    }
+
+    function updateMintContractAddressStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address mintContractAddress
+    ) public {
+        // Encode the new contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(mintContractAddress);
+
+        // Perform the Lamport Master Check again
+
+        // Verify that the proposed contract address matches the address being confirmed
+        require(proposedMintContractAddresses[msg.sender] == mintContractAddress, "Mint contract address update mismatch");
+
+        // Ensure a different key is used for the confirmation step
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        require(lastUsedNextPKH != currentPKH, "Same PKH used for both steps; use a separate key for confirmation");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed on confirmation of Mint contract address update");
+
+        // Officially update the Mint contract address
         mintContract = IGP_Mint(mintContractAddress);
+        emit MintContractUpdated(mintContractAddress);
+
+        // Clear the temporary storage
+        delete proposedMintContractAddresses[msg.sender];
+        lastUsedNextPKH = bytes32(0);
     }
 
     // Function to set the PlayerDatabase contract address
-    function setPlayerDatabaseAddress(address playerDatabaseAddress) public {
-        // Implement access control checks (e.g., onlyOwner or a similar modifier)
+    function updatePlayerDatabaseAddressStepOne(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address playerDatabaseAddress
+    ) public {
+        // Encode the new PlayerDatabase contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(playerDatabaseAddress);
+
+        // Perform the Lamport Master Check directly calling lamportBase
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+        
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed for proposed update of PlayerDatabase contract address");
+
+        // Temporarily store the proposed PlayerDatabase contract address for the sender
+        proposedPlayerDatabaseAddresses[msg.sender] = playerDatabaseAddress;
+        lastUsedNextPKH = nextPKH;
+    }
+
+    function updatePlayerDatabaseAddressStepTwo(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        address playerDatabaseAddress
+    ) public {
+        // Encode the new PlayerDatabase contract address to bytes for the Lamport check
+        bytes memory prepacked = abi.encodePacked(playerDatabaseAddress);
+
+        // Perform the Lamport Master Check again
+
+        // Verify that the proposed contract address matches the address being confirmed
+        require(proposedPlayerDatabaseAddresses[msg.sender] == playerDatabaseAddress, "PlayerDatabase contract address update mismatch");
+
+        // Ensure a different key is used for the confirmation step
+        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
+        require(lastUsedNextPKH != currentPKH, "Same PKH used for both steps; use a separate key for confirmation");
+        bool isAuthorized = lamportBase.performLamportMasterCheck(currentpub, sig, nextPKH, prepacked);
+
+        // Ensure that the Lamport Master Check passed
+        require(isAuthorized, "Authorization failed on confirmation of PlayerDatabase contract address update");
+
+        // Officially update the PlayerDatabase contract address
         playerDatabase = IPlayerDatabase(playerDatabaseAddress);
+        emit PlayerDatabaseAddressUpdated(playerDatabaseAddress); // Assuming the existence of this event for traceability
+
+        // Clear the temporary storage
+        delete proposedPlayerDatabaseAddresses[msg.sender];
+        lastUsedNextPKH = bytes32(0);
     }
     
     function calculateMintAmount() private view returns (uint256) {
@@ -168,7 +269,7 @@ contract GameValidator {
     }
 
     // Function to perform mass minting
-    function performMassMinting() public {
+    function performMassMinting() private {
         string[] memory serverIPs = playerDatabase.getServerIPList();
         for (uint i = 0; i < serverIPs.length; i++) {
             string memory serverIP = serverIPs[i];
@@ -241,7 +342,7 @@ contract GameValidator {
     // Helper function to check if a hash is present in the tempUniqueHashes array
 
 
-    function getValidRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
+    function getValidRewardAddressesByNames(string[] memory playerNames) private view returns (address[] memory) {
         return playerDatabase.getValidRewardAddressesByNames(playerNames, lastMintTime);
     }
 
