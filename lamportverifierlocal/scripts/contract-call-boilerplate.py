@@ -7,7 +7,7 @@ import hashlib
 import base64
 from web3 import Web3
 from web3.exceptions import InvalidAddress
-from brownie import network, web3, accounts, Wei, AnonIDContract, Contract
+from brownie import network, web3, accounts, Wei, PlayerListHasher, Contract
 from brownie.network import gas_price
 from brownie.network.gas.strategies import LinearScalingStrategy
 from eth_utils import encode_hex #, encode
@@ -55,9 +55,9 @@ class LamportTest:
         with open('contract_AnonID.txt', 'r') as file:
             contract_address = file.read().strip()
         #print(contract_address)
-        self.contract = AnonIDContract.at(contract_address)
+        #self.contract = AnonIDContract.at(contract_address)
         #lamport_base = LamportBase.at(contract_address) # <<< not working!
-        accounts.default = str(accounts[0]) 
+        #accounts.default = str(accounts[0]) 
         # link it up
     
         print('init done')
@@ -71,9 +71,9 @@ class LamportTest:
             contract_address = file.read()
             contract_address = contract_address.strip().replace('\n', '')  # Remove whitespace and newlines
 
-        _contract = AnonIDContract.at(contract_address)
+        _contract = PlayerListHasher.at(contract_address)
         print("Contract referenced.")
-        print('master_pkh_1', master_pkh_1)
+        ##print('master_pkh_1', master_pkh_1)
         private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
         brownie_account = accounts.add(private_key)
         ##mnemonic using user acct
@@ -87,14 +87,43 @@ class LamportTest:
 
         # Generate the account using the mnemonic
         user_account = accounts.from_mnemonic(mnemonic) # for account from mnemonic
+        serverPlayersList =     {
+            "serverIP": "192.168.1.1",
+            "playerNames": ["PlayerA"]
+        },
+        {
+            "serverIP": "192.168.1.2",
+            "playerNames": ["PlayerB", "PlayerC", "PlayerD"]
+        },
+        {
+            "serverIP": "192.168.1.3",
+            "playerNames": ["PlayerE", "PlayerF"]
+        }
+        encodedplayerlist = encode(serverPlayersList)
+        print(encodedplayerlist)
 
-        _contract.claimGP(
-                            
+        tx =_contract.submitServerPlayersList(
+            encodedplayerlist,
             {'from': user_account, 'gas_limit': 500000}
 
         )
+        print(tx)
+        print("Function call debug:")
+        for event in tx.events['Debug']:
+            print(event['message'])
 
-        
+        print("\nServer IPs processed:")
+        for event in tx.events['ServerIP']:
+            print(event['serverIP'])
+
+        print("\nPlayer names processed:")
+        for event in tx.events['PlayerName']:
+            print(event['playerName'])
+
+        print("\nComputed hash:")
+        computed_hash_event = tx.events['DebugBytes32'][0]  # Assuming only one hash is computed per transaction
+        print(computed_hash_event['hash'])
+
         ClaimedGP_filter = _contract.events.ClaimedGP.createFilter(fromBlock='latest')
 
         # Iterate through the events

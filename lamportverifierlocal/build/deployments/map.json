@@ -25,6 +25,12 @@
     "PlayerDatabase": [
       "0xB03A6aFd440a2a9db8834F1A6093680f02f1114C"
     ],
+    "PlayerListHasher": [
+      "0xdF6319e69BfBa063645aB49AE487F09765Dd29B2",
+      "0x67d1007807e38eE102011182EAcf786Fa38cE1cB",
+      "0x11092C307dD03D6E2876e16cdf3a8A8372921e0d",
+      "0xF3A99A9a2836a6fcFcEB846161B900B3d1447236"
+    ],
     "PlayerOnboardContract": [
       "0x800065Da887de69bCCB75Bd0c1Fdc332C9540407"
     ],

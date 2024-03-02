@@ -18,6 +18,7 @@ contract GP_Mint {
     ILamportBase public lamportBase;
     mapping(address => uint256) private _balances;
     mapping(address => mapping(address => uint256)) private _allowances;
+    bytes32 private storedNextPKH;
 
     uint256 private _totalSupply;
 
@@ -31,7 +32,7 @@ contract GP_Mint {
     event AuthorizedMinterSet(address indexed minter);
     event AuthorizedMinterRemoved(address indexed minter);
     constructor() {
-        lamportBase = ILamportBase(0xc3C2750054f28c22B28D87e4006F7CC302c7d7E5);
+        lamportBase = ILamportBase(0xB3830AE69EE5962355e84f6bbAC274Ff337960E5);
         _name = "GPGrens";
         _symbol = "GPG";
         _initializeMintProcess();
@@ -61,7 +62,7 @@ contract GP_Mint {
 
         // Ensure that the Lamport Master Check passed
         require(isAuthorized, "LamportBase: Authorization failed");
-        storedNextPKH = nextPKH
+        storedNextPKH = nextPKH;
         proposedMinters[msg.sender] = minter;
     }
 
@@ -115,7 +116,7 @@ contract GP_Mint {
 
         // Ensure that the Lamport Master Check passed
         require(isAuthorized, "LamportBase: Authorization failed");
-        storedNextPKH = nextPKH
+        storedNextPKH = nextPKH;
 
         // Set the proposed minter to the zero address
         proposedMinters[msg.sender] = address(0);

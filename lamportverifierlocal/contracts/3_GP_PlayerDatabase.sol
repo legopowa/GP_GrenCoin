@@ -3,6 +3,9 @@
 pragma solidity ^0.8.0;
 
 interface ILamportBase {
+
+    enum KeyType { MASTER, ORACLE, DELETED }
+
     function performLamportMasterCheck(
         bytes32[2][256] calldata currentpub,
         bytes[256] calldata sig,
@@ -16,6 +19,8 @@ interface ILamportBase {
         bytes32 nextPKH,
         bytes memory prepacked
     ) external returns (bool);
+
+    function getKeyAndIndexByPKH(bytes32 pkh) external view returns (KeyType, bytes32, uint);
 }
 
 interface IAnonID {
@@ -58,7 +63,8 @@ contract PlayerDatabase  {
         bytes32 forumKey; // Unique key for forum entitlements
         string steamID;
         address rewardAddress;
-        uint256 oracleKeyIndex;
+        uint256 oracleKeyIndex1;
+        uint256 oracleKeyIndex2;
     }
 
     mapping(address => Player) public playerData;
@@ -80,7 +86,7 @@ contract PlayerDatabase  {
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
-    address _lamportBase = 0x59186A1dc8254F217Fa62a4f75F2F0799962FB4e;
+    address _lamportBase = 0xB3830AE69EE5962355e84f6bbAC274Ff337960E5;
 
     // Constructor
     //constructor(string memory _name, string memory _symbol, uint8 _decimals) { //}, uint256 _totalSupply) {
@@ -119,6 +125,11 @@ contract PlayerDatabase  {
     
     function isOnboardRegistrar(address _address) public view returns (bool) {
         return playerData[_address].isOnboardRegistrar;
+    }
+
+    function getOracleKeyIndices(address _address) public view returns (uint256, uint256) {
+        require(isRegistered(_address), "Player is not registered");
+        return (playerData[_address].oracleKeyIndex1, playerData[_address].oracleKeyIndex2);
     }
     // function getRewardAddressesByNames(string[] memory playerNames) public view returns (address[] memory) {
     //     address[] memory rewardAddresses = new address[](playerNames.length);
@@ -173,9 +184,42 @@ contract PlayerDatabase  {
 
     // Player Database functions
     // Assuming IAnonID interface and anonIDContract are already defined and set up in your contract
-    function updateGameServerIP(string memory serverIP, bool add) public {
-        require(playerData[msg.sender].isGameAdmin, "Caller is not a game admin");
+    function updateGameServerIP(
+        string memory serverIP,
+        bool add,
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH
+    ) public {
+        // Calculate pkh from currentpub
+        bytes32 pkh = keccak256(abi.encodePacked(currentpub));
 
+        // Perform Lamport Oracle check with "1" as the prepacked value
+
+
+        // Retrieve oracle key index and type by PKH
+        (, , uint index) = lamportBase.getKeyAndIndexByPKH(pkh);
+
+        // Retrieve player's oracle key indices
+        (uint256 oracleKeyIndex1, uint256 oracleKeyIndex2) = getOracleKeyIndices(msg.sender);
+
+        // Ensure the current index matches one of the player's oracle key indices
+        require(
+            index == oracleKeyIndex1 || index == oracleKeyIndex2,
+            "Caller's oracle key index does not match"
+        );
+
+        // Proceed with the original logic after passing the oracle check and index match
+        require(playerData[msg.sender].isGameAdmin, "Caller is not a game admin");
+        require(
+            lamportBase.performLamportOracleCheck(
+                currentpub,
+                sig,
+                nextPKH,
+                abi.encodePacked("1")
+            ),
+            "Lamport oracle check failed"
+        );
         if (add) {
             if (!gameServerIPs[serverIP]) {
                 gameServerIPs[serverIP] = true;
@@ -188,7 +232,6 @@ contract PlayerDatabase  {
             }
         }
     }
-
     // Helper function to remove a server IP from the array
     function removeServerIPFromArray(string memory serverIP) private {
 
@@ -238,7 +281,9 @@ contract PlayerDatabase  {
         address _address,
         string memory _steamID,
         string memory _playerName,
-        uint256 _oracleKeyIndex // Revert for new players if this is 0
+        uint256 _oracleKeyIndex1, // Revert for new players if this is 0
+        uint256 _oracleKeyIndex2,
+        address _rewardAddress
     ) 
         public 
     {
@@ -250,20 +295,26 @@ contract PlayerDatabase  {
             // Update existing player data
             player.steamID = _steamID;
             player.playerName = _playerName;
-            rewardAddress = _rewardAddress;
+            if (_rewardAddress != address(0)) {
+                player.rewardAddress = _rewardAddress;
+            }
+            else player.rewardAddress = _address;
             // If _oracleKeyIndex is not 0, update the oracleKeyIndex. Otherwise, leave it unchanged.
-            if (_oracleKeyIndex != 0) {
-                player.oracleKeyIndex = _oracleKeyIndex;
+            if (_oracleKeyIndex1 != 0) {
+                player.oracleKeyIndex1 = _oracleKeyIndex1;
+            }
+            if (_oracleKeyIndex2 != 0) {
+                player.oracleKeyIndex2 = _oracleKeyIndex2;
             }
             // No additional action required for existing players with _oracleKeyIndex = 0
         } else {
             // For a new player, revert the transaction if _oracleKeyIndex is 0
-            require(_oracleKeyIndex != 0, "Oracle key index cannot be zero for new players");
+            require(_oracleKeyIndex1 != 0 || _oracleKeyIndex2 != 0, "Oracle key index cannot be zero for new players");
 
             // Since we're here, _oracleKeyIndex is guaranteed not to be 0
             playerData[_address] = Player({
                 steamID: _steamID,
-                isValidator: _isValidator,
+                isValidator: false,
                 isRegistered: true,
                 rewardAddress: _address,
                 playerName: _playerName,
@@ -273,7 +324,8 @@ contract PlayerDatabase  {
                 isOnboardQueuer: false,
                 isOnboardRegistrar: false,
                 forumKey: 0,
-                oracleKeyIndex: _oracleKeyIndex // Directly set the provided index
+                oracleKeyIndex1: _oracleKeyIndex1, // Directly set the provided index
+                oracleKeyIndex2: _oracleKeyIndex2
             });
             playerAddresses.push(_address);
         }
@@ -326,7 +378,7 @@ contract PlayerDatabase  {
         require(isAuthorized, "LamportBase: Authorization failed");
 
         // Save the proposed AnonID contract address in a global variable
-        proposedAnonIDContractAddresss[msg.sender] = _anonIDContract;
+        proposedAnonIDContractAddresses[msg.sender] = _anonIDContract;
         lastUsedNextPKH = nextPKH;
     }
 

@@ -1,8 +1,30 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
+interface ILamportBase {
+
+    enum KeyType { MASTER, ORACLE, DELETED }
+
+    function performLamportOracleCheck(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        bytes memory prepacked
+    ) external returns (bool);
+    function performLamportMasterCheck(
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH,
+        bytes memory prepacked
+    ) external returns (bool);
+
+    function getKeyAndIndexByPKH(bytes32 pkh) external view returns (KeyType, bytes32, uint);
+
+}
 
 interface IPlayerDatabase {
+
+    function getOracleKeyIndices(address _address) external view returns (uint256 oracleKeyIndex1, uint256 oracleKeyIndex2);
     function getAllPlayerNames() external view returns (string[] memory);
     function getServerIPList() external view returns (string[] memory);
     function getValidRewardAddressesByNames(string[] memory playerNames, uint256 lastMintTime) external view returns (address[] memory);
@@ -19,12 +41,15 @@ contract GameValidator {
 
     IPlayerDatabase playerDatabase;
     IGP_Mint public mintContract;
+    event MintContractUpdated(address mintContractAddress);
+    event PlayerDatabaseAddressUpdated(address playerDatabaseAddress);
 
     mapping(string => address[]) private validatorsPerServerIP;
     mapping(string => mapping(address => ServerSubmission)) public serverSubmissions; 
     mapping(bytes32 => string[]) public hashToPlayerList; // playerListHash -> playerNames
     mapping(address => address) private proposedMintContractAddresses;
     mapping(address => address) private proposedPlayerDatabaseAddresses;
+    mapping(address => bytes32) private submittedPlayerListHashes;
 
     bytes32 private lastUsedNextPKH;
 
@@ -37,7 +62,7 @@ contract GameValidator {
     address _mintContractAddress = 0xa1D070F108CBeF4A48FFC1A79258d5C24E05DB68;
     constructor() {
 
-        lamportBase = ILamportBase(0xc3C2750054f28c22B28D87e4006F7CC302c7d7E5);
+        lamportBase = ILamportBase(0xB3830AE69EE5962355e84f6bbAC274Ff337960E5);
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
         mintContract = IGP_Mint(_mintContractAddress);
     }
@@ -185,8 +210,47 @@ contract GameValidator {
         }
     }
 
-    function submitPlayerList(ServerPlayers[] memory serverPlayerLists, address validatorID, bool canMintFlag) public {
+    function submitPlayerListStepOne(
+        bytes32 playerListHash,
+        bytes32[2][256] calldata currentpub,
+        bytes[256] calldata sig,
+        bytes32 nextPKH
+    ) public {
+        // Perform Lamport Oracle check with "1" as the prepacked value
+        require(
+            lamportBase.performLamportOracleCheck(
+                currentpub,
+                sig,
+                nextPKH,
+                abi.encodePacked("1")
+            ),
+            "Lamport oracle check failed"
+        );
+
+        // Calculate pkh from currentpub to ensure the caller is authorized
+        bytes32 pkh = keccak256(abi.encodePacked(currentpub));
+        (, , uint index) = lamportBase.getKeyAndIndexByPKH(pkh);
+        (uint256 oracleKeyIndex1, uint256 oracleKeyIndex2) = playerDatabase.getOracleKeyIndices(msg.sender);
+        require(
+            index == oracleKeyIndex1 || index == oracleKeyIndex2,
+            "Caller's oracle key index does not match"
+        );
+
+        submittedPlayerListHashes[msg.sender] = playerListHash;
+    }
+
+
+    function submitPlayerListStepTwo(ServerPlayers[] memory serverPlayerLists, address validatorID, bool canMintFlag) public {
         require(isValidator(validatorID), "Caller is not a registered validator");
+        bytes memory encodedData;
+        for (uint i = 0; i < serverPlayerLists.length; i++) {
+            encodedData = abi.encodePacked(encodedData, serverPlayerLists[i].serverIP); // Include server IP in the hash
+            for (uint j = 0; j < serverPlayerLists[i].playerNames.length; j++) {
+                encodedData = abi.encodePacked(encodedData, serverPlayerLists[i].playerNames[j]);
+            }
+        }
+        bytes32 computedHash = keccak256(encodedData);
+        require(computedHash == submittedPlayerListHashes[validatorID], "List hash does not match previously provided hash.");
 
         uint256 totalPlayerCount = 0;
 
