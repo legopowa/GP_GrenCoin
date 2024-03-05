@@ -59,7 +59,7 @@ contract GameValidator {
     uint256 public constant MAX_MINT_TIME = 10 minutes; // 10 minutes cap
     uint256 public constant TOKENS_PER_SECOND = (1e18 * 60) / 60; // 1e18 represents 1 token, and we divide by 60 seconds
     address _playerDatabaseAddress = 0xB03A6aFd440a2a9db8834F1A6093680f02f1114C;
-    address _mintContractAddress = 0xa1D070F108CBeF4A48FFC1A79258d5C24E05DB68;
+    address _mintContractAddress = 0xdd17d01307f2FF3a18390F3CDC564Cec0F4A0A1D;
     constructor() {
 
         lamportBase = ILamportBase(0xB3830AE69EE5962355e84f6bbAC274Ff337960E5);
@@ -217,15 +217,7 @@ contract GameValidator {
         bytes32 nextPKH
     ) public {
         // Perform Lamport Oracle check with "1" as the prepacked value
-        require(
-            lamportBase.performLamportOracleCheck(
-                currentpub,
-                sig,
-                nextPKH,
-                abi.encodePacked("1")
-            ),
-            "Lamport oracle check failed"
-        );
+
 
         // Calculate pkh from currentpub to ensure the caller is authorized
         bytes32 pkh = keccak256(abi.encodePacked(currentpub));
@@ -235,7 +227,15 @@ contract GameValidator {
             index == oracleKeyIndex1 || index == oracleKeyIndex2,
             "Caller's oracle key index does not match"
         );
-
+        require(
+            lamportBase.performLamportOracleCheck(
+                currentpub,
+                sig,
+                nextPKH,
+                abi.encodePacked(playerListHash)
+            ),
+            "Lamport oracle check failed"
+        );
         submittedPlayerListHashes[msg.sender] = playerListHash;
     }
 

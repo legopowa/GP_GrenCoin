@@ -233,7 +233,8 @@ class LamportTest:
         #numToBroadcast = int(1000000)
         #pnumToBroadcast = numToBroadcast.to_bytes(4, 'big')
         #paddednumToBroadcast = solidity_pack_value_bytes(pnumToBroadcast)
-        paddressToBroadcast = '0x239fa7623354ec26520de878b52f13fe84b06971'
+        #paddressToBroadcast = '0x239fa7623354ec26520de878b52f13fe84b06971'
+        paddressToBroadcast = '0xfd003CA44BbF4E9fB0b2fF1a33fc2F05A6C2EFF9'
 
 
         #packed_message = binascii.hexlify(_newCap) + nextpkh[2:].encode()
@@ -246,19 +247,32 @@ class LamportTest:
 
         ### this is all that's going on with this script
 
-        mnemonic1 = load_mnemonic('mnemonic.txt')
+        mnemonic = load_mnemonic('mnemonic.txt')
+        mnemonic1 = load_mnemonic('mnemonic1.txt')        
         mnemonic2 = load_mnemonic('mnemonic2.txt')
         mnemonic3 = load_mnemonic('mnemonic3.txt')
 
         # Generate addresses
+        address = generate_address(mnemonic)
         address1 = generate_address(mnemonic1)
         address2 = generate_address(mnemonic2)
         address3 = generate_address(mnemonic3)
+        print(address)
         print(address1)
         print(address2)
         print(address3)
 
+        bool = _contract.isWhitelisted(
+                            
+            address,
+            #'blank',
+            #current_keys.pub,
+            #sig,
+            #nextpkh,
+            {'from': brownie_account}
 
+        )
+        print(bool)
         bool1 = _contract.isWhitelisted(
                             
             address1,

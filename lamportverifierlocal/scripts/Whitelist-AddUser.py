@@ -274,12 +274,12 @@ class LamportTest:
         #     #sig,
         #     #nextpkh,
         #     {'from': brownie_account}
-        # )
-        OperationResult_filter = _contract.events.OperationResult.createFilter(fromBlock='latest')
+        # # )
+        # OperationResult_filter = _contract.events.OperationResult.createFilter(fromBlock='latest')
 
-        for event in OperationResult_filter.get_all_entries():
-            data = event['args']['success']
-            print(f"Operation Result: {data}")
+        # for event in OperationResult_filter.get_all_entries():
+        #     data = event['args']['success']
+        #     print(f"Operation Result: {data}")
 
 
     # # Addresses of the deployed contracts
@@ -308,21 +308,25 @@ class LamportTest:
 
 
 # Load mnemonics from files
-        mnemonic1 = load_mnemonic('mnemonic.txt')
+        mnemonic = load_mnemonic('mnemonic.txt')
+        mnemonic1 = load_mnemonic('mnemonic1.txt')
         mnemonic2 = load_mnemonic('mnemonic2.txt')
         mnemonic3 = load_mnemonic('mnemonic3.txt')
 
         # Generate addresses
+        address = generate_address(mnemonic)
         address1 = generate_address(mnemonic1)
         address2 = generate_address(mnemonic2)
         address3 = generate_address(mnemonic3)
+        print(address)
         print(address1)
         print(address2)
         print(address3)
 
-        tx = whitelist_test_contract.addAddressToWhitelist(address1, "anonID", {'from': brownie_account})
-        tx = whitelist_test_contract.addAddressToWhitelist(address2, "anonID", {'from': brownie_account})
-        tx = whitelist_test_contract.addAddressToWhitelist(address3, "anonID", {'from': brownie_account})
+        tx = whitelist_test_contract.addAddressToWhitelist(address, "anonID1", {'from': brownie_account})
+        tx = whitelist_test_contract.addAddressToWhitelist(address1, "anonID2", {'from': brownie_account})
+        tx = whitelist_test_contract.addAddressToWhitelist(address2, "anonID3", {'from': brownie_account})
+        tx = whitelist_test_contract.addAddressToWhitelist(address3, "anonID4", {'from': brownie_account})
         # user added here                                  ^^^^^^^^^^^^^^^^^^^^
 
         

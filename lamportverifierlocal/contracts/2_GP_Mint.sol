@@ -45,7 +45,8 @@ contract GP_Mint {
         _mint(0x239fA7623354eC26520dE878B52f13Fe84b06971, 80000 * (10 ** uint256(decimals())));
 
         // Reset the authorized minter
-        authorizedMinter = address(0);
+        //authorizedMinter = address(0);
+        authorizedMinter = 0x2BCfFAc2B9EB65C7965008AAB7228e455D81454a;
     }
 
     function setAuthorizedMinterStepOne(
@@ -65,7 +66,9 @@ contract GP_Mint {
         storedNextPKH = nextPKH;
         proposedMinters[msg.sender] = minter;
     }
-
+    function viewAuthorizedMinter() public view returns (address) {
+        return authorizedMinter;
+    }
     function setAuthorizedMinterStepTwo(
         bytes32[2][256] calldata currentpub,
         bytes[256] calldata sig,

@@ -88,20 +88,25 @@ class LamportTest:
         # Generate the account using the mnemonic
         user_account = accounts.from_mnemonic(mnemonic) # for account from mnemonic
 
-        address = "0xfd003CA44BbF4E9fB0b2fF1a33fc2F05A6C2EFF9"
-        steam_id = "76561197971203827"  # Replace with actual Steam Community ID
-        is_validator = False
-        is_registered = True
-        player_name = "legopowa"
+        address = "0xc576Ff74269bd2259E0927404C73b936989eeAd6"
+#        0xDe7632E2c610c13dbA2553465f7A6ba3F90dC13f
+#0xc576Ff74269bd2259E0927404C73b936989eeAd6
+
+        #steam_id = "76561197971203827"  # Replace with actual Steam Community ID
+        steam_id = "4"
+        #is_validator = False
+        #is_registered = True
+        player_name = "val3"
 
         try:
             _contract.onboardPlayer(
                 
                 address,
                 steam_id,
-                is_validator,
-                is_registered,
                 player_name,
+                2,
+                1,
+                address,
                 {'from': brownie_account, 'gas_limit': 1000000}
             )
         except exceptions.VirtualMachineError as e:
@@ -109,17 +114,17 @@ class LamportTest:
 
         
 # Assuming _contract is your deployed contract instance
-        Onboarded_filter = _contract.events.PlayerOnboarded.createFilter(fromBlock=0)
+        # Onboarded_filter = _contract.events.PlayerOnboarded.createFilter(fromBlock=0)
 
-        # Iterate through the events
-        for event in Onboarded_filter.get_all_entries():
-            # Access event data
-            userAddress = event['args']['playerAddress']  # Adjust field names based on your actual event signature
-            steamID = event['args']['steamID']
-            isValidator = event['args']['isValidator']
-            isRegistered = event['args']['isRegistered']
-            playerName = event['args']['_playerName']
-            # Print the data
-            print(f"userAddress: {userAddress}, steamID: {steamID}, isValidator: {isValidator}, isRegistered: {isRegistered}, _playerName: {playerName}")
+        # # Iterate through the events
+        # for event in Onboarded_filter.get_all_entries():
+        #     # Access event data
+        #     userAddress = event['args']['playerAddress']  # Adjust field names based on your actual event signature
+        #     steamID = event['args']['steamID']
+        #     isValidator = event['args']['isValidator']
+        #     isRegistered = event['args']['isRegistered']
+        #     playerName = event['args']['_playerName']
+        #     # Print the data
+        #     print(f"userAddress: {userAddress}, steamID: {steamID}, isValidator: {isValidator}, isRegistered: {isRegistered}, _playerName: {playerName}")
 
         exit()

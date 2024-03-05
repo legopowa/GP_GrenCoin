@@ -7,7 +7,7 @@ import hashlib
 import base64
 from web3 import Web3
 from web3.exceptions import InvalidAddress
-from brownie import network, web3, accounts, Wei, AnonIDContract, Contract
+from brownie import network, web3, accounts, Wei, LamportBase2, GP_Mint, Contract
 from brownie.network import gas_price
 from brownie.network.gas.strategies import LinearScalingStrategy
 from eth_utils import encode_hex #, encode
@@ -86,15 +86,15 @@ class LamportTest:
     
     def __init__(self):
 
-        self.k1 = KeyTracker("master1") # new keys made here
-        self.k2 = KeyTracker("master2")
+        self.k1 = KeyTracker("Gmaster1") # new keys made here
+        self.k2 = KeyTracker("Gmaster2")
         self.k3 = KeyTracker("oracle1")
         self.k4 = KeyTracker("master3")
         print("Initializing LamportTest...")
-        with open('contract_AnonID.txt', 'r') as file:
+        with open('contract_LamportBase2-coin.txt', 'r') as file:
             contract_address = file.read().strip()
         #print(contract_address)
-        self.contract = AnonIDContract.at(contract_address)
+        self.contract = LamportBase2.at(contract_address)
         #lamport_base = LamportBase.at(contract_address) # <<< not working!
         accounts.default = str(accounts[0]) 
         # link it up
@@ -103,7 +103,7 @@ class LamportTest:
         # priv level set here with integer ^
         print("contract pkh", pkhs)
 
-        self.load_two_masters(pkhs, "master")
+        self.load_two_masters(pkhs, "Gmaster")
         self.load_keys(opkhs, "oracle")
         print('init done')
 
@@ -174,16 +174,16 @@ class LamportTest:
         global master_pkh_2
         #global master_pkh_3
         print("Running 'can_test_key_functions'...")
-        with open('contract_AnonID.txt', 'r') as file:
+        with open('contract_GP_Mint-coin.txt', 'r') as file:
             contract_address = file.read()
             contract_address = contract_address.strip().replace('\n', '')  # Remove whitespace and newlines
 
-        _contract = AnonIDContract.at(contract_address)
+        _contract = GP_Mint.at(contract_address)
         print("Contract referenced.")
         print('master_pkh_1', master_pkh_1)
         private_key = '163f5f0f9a621d72fedd85ffca3d08d131ab4e812181e0d30ffd1c885d20aac7'
         brownie_account = accounts.add(private_key)
-        current_keys = self.k1.load(self, "master1", master_pkh_1)
+        current_keys = self.k1.load(self, "Gmaster1", master_pkh_1)
         current_pkh = self.k1.pkh_from_public_key(current_keys.pub)
         print('current pkh', current_pkh)
         next_keys = self.k1.get_next_key_pair()
@@ -194,7 +194,7 @@ class LamportTest:
         #numToBroadcast = int(1000000)
         #pnumToBroadcast = numToBroadcast.to_bytes(4, 'big')
         #paddednumToBroadcast = solidity_pack_value_bytes(pnumToBroadcast)
-        paddressToBroadcast = '0xfd003CA44BbF4E9fB0b2fF1a33fc2F05A6C2EFF9' # Validator needing approval
+        paddressToBroadcast = '0x742294571Ac5e19b28543beA69FD4955F9C7DA69' # Validator needing approval
 
         packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
 
@@ -214,11 +214,11 @@ class LamportTest:
         #self.k4.save(trim = False)
         master_pkh_1 = nextpkh
 
-        current_keys = self.k2.load(self, "master2", master_pkh_2)
+        current_keys = self.k2.load(self, "Gmaster2", master_pkh_2)
         next_keys = self.k2.get_next_key_pair()
         nextpkh = self.k2.pkh_from_public_key(next_keys.pub)
 
-        paddressToBroadcast = '0xfd003CA44BbF4E9fB0b2fF1a33fc2F05A6C2EFF9'
+        paddressToBroadcast = '0x742294571Ac5e19b28543beA69FD4955F9C7DA69'
 
         packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
 

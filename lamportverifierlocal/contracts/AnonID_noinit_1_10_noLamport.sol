@@ -623,64 +623,55 @@ contract AnonIDContract {
         bytes32 nextPKH,
         bytes32 bytecodeKeccak
     ) public {
-        // Perform the Lamport Master check
+        require(lastUsedBytecodeHash == bytes32(0), "Ongoing operation in progress");
+        
         bool lamportCheckPassed = lamportBase.performLamportMasterCheck(
-            currentpub, 
-            sig, 
-            nextPKH, 
-            abi.encodePacked(bytecodeKeccak)
+            currentpub, sig, nextPKH, abi.encodePacked(bytecodeKeccak)
         );
 
         require(lamportCheckPassed, "Lamport Master validation failed");
 
-        // Save the hash of the bytecode in a global variable
         lastUsedBytecodeHash = bytecodeKeccak;
         storedNextPKH = nextPKH;
-
     }
-    function createContractStepTwo(
+    
+   function createContractStepTwo(
         bytes32[2][256] calldata currentpub,
         bytes[256] calldata sig,
         bytes32 nextPKH,
         bytes32 bytecodeKeccak
     ) public {
-        // Perform the Lamport Master check
-        bool lamportCheckPassed = lamportBase.performLamportMasterCheck(
-            currentpub, 
-            sig, 
-            nextPKH, 
-            abi.encodePacked(bytecodeKeccak)
-        );
+        require(lastUsedBytecodeHash == bytecodeKeccak, "Bytecode hash mismatch");
+        require(storedNextPKH == keccak256(abi.encodePacked(currentpub)), "LamportBase: Cannot use the same keychain twice for this function");
 
-        bytes32 currentPKH = keccak256(abi.encodePacked(currentpub));
-        
-        require(currentPKH != storedNextPKH, "LamportBase: Cannot use the same keychain twice for this function");
+        bool lamportCheckPassed = lamportBase.performLamportMasterCheck(
+            currentpub, sig, nextPKH, abi.encodePacked(bytecodeKeccak)
+        );
 
         require(lamportCheckPassed, "Lamport Master validation failed");
 
-        // Save the hash of the bytecode in a global variable
-        lastUsedBytecodeHash = bytecodeKeccak;
+        // Reset storedNextPKH to ensure this step cannot be replayed
         storedNextPKH = bytes32(0);
-
     }
 
-    function createContractStepThree(
-        bytes memory bytecode
-    ) public returns (address) {
-        // Verify bytecode hash matches
-        require(keccak256(bytecode) == lastUsedBytecodeHash, "Bytecode does not match previously provided hash.");
-        
+
+    function createContractStepThree(bytes memory bytecode) public returns (address) {
+        require(keccak256(bytecode) == lastUsedBytecodeHash, "Bytecode does not match previously provided hash");
+
         address newContract;
         assembly {
             newContract := create(0, add(bytecode, 0x20), mload(bytecode))
         }
         require(newContract != address(0), "Contract creation failed");
 
-        // Emitting the ContractCreated event
+        // Reset lastUsedBytecodeHash to allow new operations
+        lastUsedBytecodeHash = bytes32(0);
+
         emit ContractCreated(newContract);
 
         return newContract;
     }
+    
     function setFreeGasCapStepOne(
         bytes32[2][256] calldata currentpub,
         bytes[256] calldata sig,
