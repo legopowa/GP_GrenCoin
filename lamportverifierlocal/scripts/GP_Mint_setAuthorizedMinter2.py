@@ -249,7 +249,7 @@ class LamportTest:
         # with open('whitelist_contract.txt', 'r') as file:
         #     contract_address2 = file.read()
         #     contract_address2 = contract_address2.strip().replace('\n', '') 
-        paddressToBroadcast = '0xdd17d01307f2FF3a18390F3CDC564Cec0F4A0A1D'
+        paddressToBroadcast = '0x7100de19f60BEDfa5ce0d8211f42049bc148b95D'
         print(paddressToBroadcast)
         packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
         print(packed_message)
@@ -287,7 +287,7 @@ class LamportTest:
         #     contract_address2 = contract_address2.strip().replace('\n', '') 
         hashToBroadcast = Web3.keccak(hexstr=full_bytecode)
         print(hashToBroadcast.hex())
-        packed_message = str.lower(hashToBroadcast.hex())[2:].encode() + nextpkh[2:].encode()
+        packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
         print(packed_message)
         callhash = hash_b(str(packed_message.decode()))
         sig = sign_hash(callhash, current_keys.pri) 

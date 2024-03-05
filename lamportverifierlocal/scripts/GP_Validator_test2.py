@@ -38,6 +38,27 @@ SOF = b'\x01'  # Start Of File marker
 EOF = b'\x04'  # End Of File marker
 CRC_START = b'<CRC>'
 CRC_END = b'</CRC>'
+def compute_keccak_hash(serverPlayerLists):
+    # Initialize Web3
+    #w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:8545'))  # Update with your provider
+
+    # Convert the list of tuples into a format for hashing
+    types_and_values = []
+    for serverIP, playerNames in serverPlayerLists:
+        types_and_values.append(('string', serverIP))
+        # For dynamic arrays, prepend the length of the array followed by its items
+        types_and_values.append(('uint256', len(playerNames)))  # Array length
+        for playerName in playerNames:
+            types_and_values.append(('string', playerName))  # Array items
+
+    # Separate the types and values
+    types = [pair[0] for pair in types_and_values]
+    values = [pair[1] for pair in types_and_values]
+
+    # Compute the keccak hash
+    hash = w3.solidity_keccak(types, values)
+
+    return hash.hex()
 
 w3 = Web3()
 def load_mnemonic(mnemonic_file):
@@ -269,11 +290,16 @@ class LamportTest:
                 "playerNames": ["PlayerE", "PlayerF"]
             }
         ]         
-        data_to_hash = "192.168.1.1PlayerA192.168.1.2PlayerBPlayerCPlayerD192.168.1.3PlayerEPlayerF"
-
-# Use web3.solidityKeccak to hash the data
-        #hashed_data = w3.solidity_keccak(['bytes'], [data_to_hash])
-        hashed_data = Web3.keccak(text=data_to_hash)
+        data_to_hash = "192.168.1.1legopowa192.168.1.2PlayerBPlayerCPlayerD192.168.1.3PlayerEPlayerF".encode()
+        formatted_lists = [
+            (item["serverIP"], item["playerNames"]) for item in serverPlayersLists
+        ]
+        print(formatted_lists)
+        #hashed_data = compute_keccak_hash(formatted_lists).encode()
+        # Use web3.solidityKeccak to hash the data
+        hashed_data = w3.solidity_keccak(['bytes'], [data_to_hash])
+        #hashed_data = Web3.keccak(text=data_to_hash)
+        print('hashed_data2', hashed_data.hex())
         # mnemonic_path = Path('mnemonic1.txt')
         # if not mnemonic_path.is_file():
         #     raise Exception(f"Can't find {mnemonic_path}")
@@ -286,7 +312,7 @@ class LamportTest:
         paddressToBroadcast = '0x742294571Ac5e19b28543beA69FD4955F9C7DA69' # Validator needing approval
 
         #packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode() + ('1').encode()
-        packed_message = str.lower(hashed_data.hex())[2:].encode() + nextpkh[2:].encode()
+        packed_message = hashed_data.hex()[2:].encode() + nextpkh[2:].encode()
         print(packed_message)
         print(str(packed_message.decode()))
         callhash = hash_b(str(packed_message.decode()))
@@ -295,7 +321,7 @@ class LamportTest:
         brownie_account = accounts.add(private_key)
         
         _contract.submitPlayerListStepOne(
-            hashed_data,
+            hashed_data.hex(),
             current_keys.pub,
             sig,
             nextpkh,
@@ -321,10 +347,10 @@ class LamportTest:
 
 
         _contract.submitPlayerListStepTwo(
-            serverPlayersLists,
+            formatted_lists,
             address1,
             1,
-            {'from': account}    
+            {'from': account, 'gas_limit': 3999999} 
         )
         #self.k2.save(trim = False)
         exit()

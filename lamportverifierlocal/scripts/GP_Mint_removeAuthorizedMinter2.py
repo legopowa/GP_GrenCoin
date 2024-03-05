@@ -249,7 +249,10 @@ class LamportTest:
         # with open('whitelist_contract.txt', 'r') as file:
         #     contract_address2 = file.read()
         #     contract_address2 = contract_address2.strip().replace('\n', '') 
-        paddressToBroadcast = '0xF3A99A9a2836a6fcFcEB846161B900B3d1447236'
+        #paddressToBroadcast = '0xF3A99A9a2836a6fcFcEB846161B900B3d1447236'
+
+        paddressToBroadcast = _contract.viewAuthorizedMinter({'from': brownie_account})
+
         print(paddressToBroadcast)
         packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
         print(packed_message)
@@ -263,7 +266,7 @@ class LamportTest:
             sig,
             nextpkh,
             #paddressToBroadcast,
-            {'from': brownie_account}    
+            {'from': brownie_account, 'gas_limit': 3000000}    
         )
         self.k1.save(trim = False)
         #self.k4.save(trim = False)
@@ -287,7 +290,7 @@ class LamportTest:
         #     contract_address2 = contract_address2.strip().replace('\n', '') 
         hashToBroadcast = Web3.keccak(hexstr=full_bytecode)
         print(hashToBroadcast.hex())
-        packed_message = str.lower(hashToBroadcast.hex())[2:].encode() + nextpkh[2:].encode()
+        packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
         print(packed_message)
         callhash = hash_b(str(packed_message.decode()))
         sig = sign_hash(callhash, current_keys.pri) 
@@ -299,7 +302,7 @@ class LamportTest:
             sig,
             nextpkh,
            #paddressToBroadcast,
-            {'from': brownie_account}    
+            {'from': brownie_account, 'gas_limit': 3000000}    
         )
         self.k2.save(trim = False)
         #self.k4.save(trim = False)

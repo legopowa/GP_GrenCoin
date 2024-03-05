@@ -117,7 +117,7 @@ class LamportTest:
         serverPlayersLists = [
             {
                 "serverIP": "192.168.1.1",
-                "playerNames": ["PlayerA"]
+                "playerNames": ["legopowa"]
             },
             {
                 "serverIP": "192.168.1.2",
@@ -144,7 +144,7 @@ class LamportTest:
         formatted_lists = [
             (item["serverIP"], item["playerNames"]) for item in serverPlayersLists
         ]
-        data_to_hash = "192.168.1.1PlayerA192.168.1.2PlayerBPlayerCPlayerD192.168.1.3PlayerEPlayerF".encode()
+        data_to_hash = "192.168.1.1legopowa192.168.1.2PlayerBPlayerCPlayerD192.168.1.3PlayerEPlayerF".encode()
 
 # Use web3.solidityKeccak to hash the data
         hashed_data = w3.solidity_keccak(['bytes'], [data_to_hash])

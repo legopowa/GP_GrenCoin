@@ -58,7 +58,7 @@ contract GameValidator {
     uint256 public constant MAX_PLAYERS_PER_SUBMISSION = 64;
     uint256 public constant MAX_MINT_TIME = 10 minutes; // 10 minutes cap
     uint256 public constant TOKENS_PER_SECOND = (1e18 * 60) / 60; // 1e18 represents 1 token, and we divide by 60 seconds
-    address _playerDatabaseAddress = 0xB03A6aFd440a2a9db8834F1A6093680f02f1114C;
+    address _playerDatabaseAddress = 0x3b9467De1800bBB6ba6Bd3D1cb7e7BEBC0EFa96f;
     address _mintContractAddress = 0xdd17d01307f2FF3a18390F3CDC564Cec0F4A0A1D;
     constructor() {
 

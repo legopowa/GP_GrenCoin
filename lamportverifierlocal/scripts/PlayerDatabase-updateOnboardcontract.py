@@ -194,7 +194,7 @@ class LamportTest:
         #numToBroadcast = int(1000000)
         #pnumToBroadcast = numToBroadcast.to_bytes(4, 'big')
         #paddednumToBroadcast = solidity_pack_value_bytes(pnumToBroadcast)
-        paddressToBroadcast = '0xD773FBb26967B6E16fA364688Dc6C984a233A2Fd' # Validator needing approval
+        paddressToBroadcast = '0x1e09aB7130AE8aB1630a1e7Ad6125040c77fcC11' # Validator needing approval
 
         packed_message = str.lower(paddressToBroadcast)[2:].encode() + nextpkh[2:].encode()
 

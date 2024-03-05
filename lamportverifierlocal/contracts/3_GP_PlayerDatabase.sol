@@ -216,7 +216,7 @@ contract PlayerDatabase  {
                 currentpub,
                 sig,
                 nextPKH,
-                abi.encodePacked("1")
+                abi.encodePacked(serverIP)
             ),
             "Lamport oracle check failed"
         );

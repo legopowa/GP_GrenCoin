@@ -28,7 +28,7 @@ contract PlayerOnboardContract {
 
     event PlayerOnboarded(address indexed _address, string _steamID, string _playerName, uint256 _oracleKeyIndex1, uint256 _oracleKeyIndex2, address _rewardAddress);
     event PlayerRemoved(address indexed deletedPlayerAddress);
-    address _playerDatabaseAddress = 0x6b6482502E3af681f49726C88f937D23952e2986;
+    address _playerDatabaseAddress = 0x3b9467De1800bBB6ba6Bd3D1cb7e7BEBC0EFa96f;
 
     constructor() {
         playerDatabase = IPlayerDatabase(_playerDatabaseAddress);
